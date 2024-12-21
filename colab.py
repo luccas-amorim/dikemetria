@@ -23,6 +23,13 @@ logging.basicConfig(level=logging.INFO)
 # Carregar modelo NLP
 nlp = spacy.load("pt_core_news_sm")
 
+# Lista adicional de stopwords específicas
+additional_stopwords = {
+    "fls", "you", "and", "autor", "autora", "requerente", "requerido", "sobre", "the", "acima",
+    "abaixo", "sob", "ainda", "bem", "your", "poderá", "relação", "cada", "sendo", "inclusive",
+    "quanto", "portanto", "from", "seguintes"
+}
+
 # Função para extrair texto de um arquivo DOCX
 def extract_text_from_docx(docx_path):
     try:
@@ -40,7 +47,7 @@ def extract_case_number(text):
         return case_number
     except Exception as e:
         logging.error(f"Erro ao extrair número do processo: {e}")
-        return "Erro ao extrair número do processo"
+        return "Número do processo não encontrado"
 
 # Função para limpar texto
 def clean_text(text):
@@ -81,11 +88,27 @@ def extract_arguments(text):
 # Função para análise de texto com remoção de stopwords
 def analyze_text(cleaned_text):
     try:
-        stop_words = set(stopwords.words('portuguese'))
+        stop_words = set(stopwords.words('portuguese')).union(additional_stopwords)
         tokens = [word for word in cleaned_text.split() if word not in stop_words]
         word_counts = Counter(tokens)
-        most_common = word_counts.most_common(200)  # Lista as 200 palavras mais comuns
-        return {"word_counts": word_counts, "most_common": most_common}
+
+        # Criar lista de listas com palavras agrupadas por ocorrências
+        grouped_words = {}
+        for word, count in word_counts.items():
+            if count not in grouped_words:
+                grouped_words[count] = []
+            grouped_words[count].append(word)
+
+        # Quebrar linhas a cada 15 palavras em cada lista interna
+        for count in grouped_words:
+            grouped_words[count] = [
+                grouped_words[count][i:i + 15] for i in range(0, len(grouped_words[count]), 15)
+            ]
+
+        # Ordenar as ocorrências
+        grouped_words = dict(sorted(grouped_words.items(), key=lambda x: x[0], reverse=True))
+
+        return {"word_counts": word_counts, "grouped_words": grouped_words}
     except Exception as e:
         raise ValueError(f"Erro ao analisar o texto: {e}")
 
@@ -130,10 +153,14 @@ def main():
         # Análise de texto
         analysis_results = analyze_text(cleaned_text)
 
-        # Exibe as 200 palavras mais comuns com quebras de linha a cada 10 palavras
-        print("\n200 Palavras mais comuns:")
-        for i, (word, count) in enumerate(analysis_results["most_common"], 1):
-            print(f"{word}: {count}", end="\n" if i % 10 == 0 else ", ")
+        # Exibe palavras agrupadas por ocorrências
+        print("\nPalavras agrupadas por número de ocorrências:")
+        for count, word_lists in analysis_results["grouped_words"].items():
+            print(f"{count} ocorrências:")
+            for sublist in word_lists:
+                print(sublist)
+                print()  # Linha vazia entre sublistas
+
         print(f"\n\nTotal de palavras no documento: {len(cleaned_text.split())}")
 
         # Extração de artigos jurídicos
@@ -155,7 +182,7 @@ def main():
             print(f"- {argument}")
 
         # Visualização
-        plot_most_common_words(analysis_results["most_common"])
+        plot_most_common_words(analysis_results["word_counts"].most_common(30))
     except Exception as e:
         print(f"Erro ao processar o arquivo: {e}")
 
