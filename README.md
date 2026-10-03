@@ -1,5 +1,7 @@
 # Dikemetria
 
+<sub>O nome vem de Diké. [Por quê?](MITO.md)</sub>
+
 **Jurimetria aberta: medir padrões em decisões judiciais públicas e publicar os resultados para pesquisa.**
 
 Diké, filha de Têmis, é a justiça dos julgamentos humanos; a jurimetria mede esses julgamentos.
@@ -64,7 +66,7 @@ python text_mining.py   # lê temp/data/documento.pdf
 
 ## Para onde vai, com apoio
 
-- **Coleta pelo [Atalaia](https://github.com/luccas-amorim/atalaia):** decisões capturadas com
+- **Coleta pelo [Argos](https://github.com/luccas-amorim/argos):** decisões capturadas com
   proveniência (URL, data, hash), em vez de PDFs avulsos.
 - **Pseudonimização automática** antes de qualquer análise, com testes que comprovem a remoção.
 - **Corpus por matéria**, começando por um recorte pequeno e bem delimitado, com metodologia
