@@ -1,52 +1,84 @@
-# juris_intelligence
-Repositório do código fonte do projeto JI, Juris Intelligence
+# Fiel
+
+**Jurimetria aberta: medir padrões em decisões judiciais públicas e publicar os resultados para pesquisa.**
+
+O fiel é o ponteiro da balança: indica para onde ela pende, sem pôr peso em nenhum dos pratos.
+Este projeto quer fazer o mesmo com a jurisprudência: medir como os tribunais decidem
+determinadas matérias, com que vocabulário e com que fundamentos, e publicar essas medidas de
+forma aberta, reprodutível e auditável.
+
+> **Estágio: protótipo.** O código atual (2024) extrai o texto de uma decisão em PDF, normaliza,
+> conta termos e localiza referências a artigos e códigos. Tudo o que vem abaixo de
+> "Para onde vai" depende de financiamento.
+
 ---
 
-# Sistema de Inteligência Jurídica para Análise de Processos Judiciais
+## Dados pessoais e LGPD
 
-Este projeto é o núcleo de um sistema de inteligência artificial voltado para a análise de processos judiciais. Ele lê e analisa textos de sentenças judiciais, identifica padrões textuais e argumentativos associados a diferentes tipos de decisões, e oferece insights valiosos para aumentar as chances de sucesso em novas ações.
+Decisões judiciais são públicas (CF, art. 93, IX), mas trazem dados pessoais: nomes das partes,
+endereços, documentos, às vezes informações de saúde ou de família. Publicidade do ato não
+autoriza qualquer reuso. O projeto adota, desde a coleta, as seguintes regras:
 
-## Finalidade do Projeto
+1. **Só decisões públicas.** Nada que tramite em segredo de justiça, mesmo que o texto tenha
+   vazado ou esteja acessível por erro.
+2. **Finalidade declarada.** O tratamento serve à pesquisa sobre o funcionamento do Judiciário,
+   nos termos do art. 7º, § 3º, da LGPD: respeitando a finalidade, a boa-fé e o interesse
+   público que justificaram a publicação original.
+3. **Minimização.** Nomes de pessoas naturais, CPFs, endereços e números que identifiquem partes
+   são removidos ou substituídos por marcadores antes de qualquer análise. O texto integral com
+   dados pessoais não é redistribuído.
+4. **Publica-se o agregado.** O que sai do projeto são estatísticas, padrões e textos
+   pseudonimizados, nunca perfis de pessoas.
+5. **Sem ranking de magistrados.** O projeto não produz perfis nem classificações de juízes
+   individualmente identificados.
+6. **Dados sensíveis.** Decisões que tratem de saúde, orientação sexual, convicção religiosa ou
+   dados de crianças e adolescentes recebem tratamento reforçado ou ficam de fora do corpus
+   publicado.
+7. **Canal de correção.** Qualquer pessoa que se reconheça num dado publicado pode pedir revisão
+   ou remoção por issue ou e-mail.
 
-- **Captura de Texto Jurídico**: Extrai o texto bruto de processos judiciais em formato PDF.
-- **Análise de Padrões Textuais**: Identifica vocabulários e estruturas argumentativas comuns em decisões favoráveis.
-- **Estatísticas e Visualizações**: Fornece dados sobre a frequência de decisões favoráveis dentro de escopos jurídicos específicos, como causas de inexigibilidade de débito.
-- **Inteligência Estratégica**: Oferece sugestões baseadas em estratégias usadas em causas bem-sucedidas, ajudando escritórios de advocacia e empresas a melhorar suas estratégias jurídicas.
+## O que ele faz e o que não faz
 
-## Estrutura do Projeto
+**Faz.** Mede: frequência de resultados por matéria, vocabulário e fundamentos recorrentes,
+dispositivos legais citados, evolução ao longo do tempo.
 
-- **`text_mining.py`**: Arquivo principal para execução do pipeline completo.
-- **`text_extraction.py`**: Responsável pela extração de texto de arquivos PDF contendo processos judiciais.
-- **`pre_processing.py`**: Realiza a limpeza e normalização do texto jurídico.
-- **`analyses.py`**: Analisa a frequência e relevância de padrões textuais e argumentativos.
-- **`analyses_view.py`**: Gera gráficos e visualizações das estratégias mais bem-sucedidas e distribuições de resultados.
+**Não faz.** Não recomenda estratégia processual, não estima a chance de sucesso de uma ação
+concreta e não substitui a análise de um advogado. Medir como um tribunal decidiu não é
+aconselhar quem litiga. Nada aqui constitui consultoria ou assessoria jurídica.
 
-## Requisitos
+## O que já existe
 
-- Python 3.8 ou superior
-- Bibliotecas:
-  - `PyPDF2`
-  - `nltk`
-  - `matplotlib`
+| Arquivo | Etapa |
+|---|---|
+| `text_extraction.py` | extrai o texto de decisões em PDF |
+| `pre_processing.py` | limpa e normaliza o texto jurídico |
+| `analyses.py` | frequência de termos, referências a artigos e códigos, termos jurídicos |
+| `analyses_view.py` | gráficos das frequências |
+| `text_mining.py` | executa o fluxo completo sobre um arquivo |
+| `colab.py` | versão exploratória para Google Colab (DOCX, spaCy) |
 
-Para instalar as dependências:
 ```bash
 pip install PyPDF2 nltk matplotlib
+python text_mining.py   # lê temp/data/documento.pdf
 ```
 
-## Como Usar
+## Para onde vai, com apoio
 
-1. Coloque o arquivo PDF contendo o processo judicial no diretório `temp/data` com o nome `documento.pdf`.
-2. Execute o arquivo principal para processar o texto:
-   ```bash
-   python text_mining.py
-   ```
-3. Os resultados incluem:
-   - Frequência de decisões favoráveis no escopo jurídico analisado.
-   - Visualização das estratégias vocabulares e argumentativas mais frequentes em causas bem-sucedidas.
+- **Coleta pelo [Atalaia](https://github.com/luccas-amorim/atalaia):** decisões capturadas com
+  proveniência (URL, data, hash), em vez de PDFs avulsos.
+- **Pseudonimização automática** antes de qualquer análise, com testes que comprovem a remoção.
+- **Corpus por matéria**, começando por um recorte pequeno e bem delimitado, com metodologia
+  publicada.
+- **Resultados abertos:** tabelas e relatórios versionados, citáveis, com o código que os gerou.
+
+Apoie em [GitHub Sponsors](https://github.com/sponsors/luccas-amorim) ou por
+[PIX](https://luccas-amorim.github.io/apoie/).
 
 ## Licença
 
-Este código está protegido por uma **licença privada**. Qualquer reprodução, redistribuição ou uso não autorizado é estritamente proibido.
+Código sob MIT. Resultados publicados sob CC BY 4.0, sem incluir textos com dados pessoais.
 
 ---
+
+Luccas de Amorim · [ORCID](https://orcid.org/0000-0003-1910-1541) ·
+[Lattes](http://lattes.cnpq.br/5257336387155202)
