@@ -1,11 +1,11 @@
-# Fiel
+# Dikemetria
 
 **Jurimetria aberta: medir padrões em decisões judiciais públicas e publicar os resultados para pesquisa.**
 
-O fiel é o ponteiro da balança: indica para onde ela pende, sem pôr peso em nenhum dos pratos.
-Este projeto quer fazer o mesmo com a jurisprudência: medir como os tribunais decidem
-determinadas matérias, com que vocabulário e com que fundamentos, e publicar essas medidas de
-forma aberta, reprodutível e auditável.
+Diké, filha de Têmis, é a justiça dos julgamentos humanos; a jurimetria mede esses julgamentos.
+Dikemetria é a medida de como se julga: como os tribunais decidem determinadas matérias, com que
+vocabulário e com que fundamentos, publicada de forma aberta, reprodutível e auditável, sem pôr
+peso em nenhum dos pratos.
 
 > **Estágio: protótipo.** O código atual (2024) extrai o texto de uma decisão em PDF, normaliza,
 > conta termos e localiza referências a artigos e códigos. Tudo o que vem abaixo de
