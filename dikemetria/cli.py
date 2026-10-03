@@ -193,19 +193,25 @@ def _sondar(args) -> int:
 
 
 def _classificar(args) -> int:
-    """Reclassifica os documentos do banco com as regras atuais."""
+    """Reavalia os documentos do banco com as regras atuais de avaliação e cálculo."""
+    from dikemetria.avaliacao import avaliar_dispositivo
     from dikemetria.corpus import Corpus
     from dikemetria.estrutura import dividir
-    from dikemetria.resultado import classificar_texto
+    from dikemetria.valores import calcular
 
-    alterados = 0
+    alterados = total = 0
     with Corpus(args.banco) as corpus:
         for doc in list(corpus.documentos(incluir_sensiveis=True)):
-            c = classificar_texto(dividir(doc["texto"]).dispositivo)
-            if c.resultado.value != doc["resultado"]:
-                corpus.atualizar_resultado_documento(doc["id"], c.resultado.value, c.evidencia)
+            total += 1
+            dispositivo = dividir(doc["texto"]).dispositivo
+            avaliacao = avaliar_dispositivo(dispositivo, doc["texto"])
+            dados = {**avaliacao.como_dict(), "calculo": calcular(dispositivo).como_dict()}
+            if avaliacao.resultado.value != doc["resultado"]:
                 alterados += 1
-    print(f"{alterados} documentos reclassificados")
+            corpus.atualizar_avaliacao_documento(
+                doc["id"], avaliacao.resultado.value, avaliacao.evidencia, dados
+            )
+    print(f"{total} documentos reavaliados; {alterados} mudaram de resultado")
     return 0
 
 
@@ -309,7 +315,9 @@ def construir_parser() -> argparse.ArgumentParser:
     p.add_argument("--tribunal", default="tjsp")
     p.set_defaults(func=_sondar)
 
-    p = sub.add_parser("classificar", help="reclassifica os documentos do banco")
+    p = sub.add_parser(
+        "classificar", help="reavalia resultado, capítulos e cálculo dos documentos do banco"
+    )
     p.add_argument("--banco", default=BANCO_PADRAO)
     p.set_defaults(func=_classificar)
 

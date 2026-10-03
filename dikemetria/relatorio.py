@@ -14,8 +14,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from dikemetria import __version__, jurimetria, politica
+from dikemetria.consolidacao import consolidar
 from dikemetria.corpus import Corpus
-from dikemetria.validacao import concordancia_fontes
 
 ROTULOS = {
     "procedente": "Procedente",
@@ -49,7 +49,7 @@ def _num(valor: float | int | None) -> str:
     return f"{valor:,.0f}".replace(",", ".")
 
 
-def _curto(texto: str, limite: int = 34) -> str:
+def _curto(texto: str, limite: int = 30) -> str:
     return texto if len(texto) <= limite else texto[: limite - 1] + "…"
 
 
@@ -108,7 +108,7 @@ def _eixo_percentual(x0: float, x1: float, y0: float, y1: float) -> str:
 
 def grafico_barras(linhas: list[tuple[str, float, str]], descricao: str) -> str:
     """Barras horizontais de uma série: (rótulo, proporção 0–1, texto do valor)."""
-    x0, x1 = ROTULO_X, LARGURA - 70
+    x0, x1 = ROTULO_X, LARGURA - 120
     altura = len(linhas) * ALTURA_LINHA + 10
     maximo = max((v for _, v, _ in linhas), default=1) or 1
     partes = []
@@ -230,6 +230,142 @@ def grafico_halteres(linhas: list[dict], descricao: str) -> str:
     return _svg(altura, "".join(partes), descricao)
 
 
+def grafico_faixas(linhas: list[dict], descricao: str, unidade: str = "R$") -> str:
+    """Mediana (ponto) e intervalo entre o 1º e o 3º quartis (traço), em valores absolutos."""
+    x0, x1 = ROTULO_X, LARGURA - 20
+    altura = len(linhas) * ALTURA_LINHA + 30
+    maximo = max((x["q3"] for x in linhas), default=1) or 1
+    passo = 10 ** max(0, len(str(int(maximo))) - 1)
+    topo = math.ceil(maximo / passo) * passo
+    partes = []
+    for i in range(5):
+        valor = topo * i / 4
+        x = x0 + (x1 - x0) * i / 4
+        partes.append(f'<line class="grade" x1="{x:.1f}" x2="{x:.1f}" y1="0" y2="{altura - 26}"/>')
+        partes.append(
+            f'<text class="eixo" x="{x:.1f}" y="{altura - 10}" text-anchor="middle">'
+            f"{_e(_num(valor))}</text>"
+        )
+    for i, linha in enumerate(linhas):
+        y = 5 + i * ALTURA_LINHA + 13
+        xm, xa, xb = (x0 + (x1 - x0) * linha[k] / topo for k in ("mediana", "q1", "q3"))
+        dica = (
+            f"{linha['grupo']}: mediana {unidade} {_num(linha['mediana'])}; metade central entre "
+            f"{unidade} {_num(linha['q1'])} e {unidade} {_num(linha['q3'])} (n = {linha['n']})"
+        )
+        partes.append(
+            f'<text class="rotulo" x="{x0 - 10}" y="{y + 4}" text-anchor="end">'
+            f"{_e(_curto(linha['grupo']))}</text>"
+            f'<g class="alvo"><title>{_e(dica)}</title>'
+            f'<rect x="{x0}" y="{y - 13}" width="{x1 - x0}" height="{ALTURA_LINHA}" '
+            f'fill="transparent"/>'
+            f'<line class="ic" x1="{xa:.1f}" x2="{xb:.1f}" y1="{y}" y2="{y}"/>'
+            f'<circle class="ponto" cx="{xm:.1f}" cy="{y}" r="5"/></g>'
+        )
+    return _svg(altura, "".join(partes), descricao)
+
+
+def _secoes_calculo(m: dict) -> list[str]:
+    """Reforma em 2º grau, motivos de extinção, valores e parâmetros de cálculo."""
+    secoes = []
+    reforma = m["reforma"]
+    if reforma["pares"]:
+        rotulo = lambda r: ROTULOS.get(r, r)  # noqa: E731
+        cruzamento = [
+            {**x, "sentenca": rotulo(x["sentenca"]), "recurso": rotulo(x["recurso"])}
+            for x in reforma["cruzamento"]
+        ]
+        finais = [
+            {**x, "sentenca": rotulo(x["sentenca"]), "final": rotulo(x["final"])}
+            for x in reforma["resultado_final"]
+        ]
+        secoes.append(
+            '<section class="figura"><h3>Reforma em segundo grau</h3>'
+            f'<p class="sub">{_num(reforma["pares"])} processos com sentença de mérito e '
+            f"acórdão. Taxa de reforma (recurso provido ou parcialmente provido): "
+            f"{_pct(reforma['taxa_reforma'])}. O resultado final infere quem recorreu pela "
+            "sucumbência; ver a metodologia.</p>"
+            + tabela(
+                cruzamento,
+                [("sentenca", "Sentença", "txt"), ("recurso", "Recurso", "txt"), ("n", "n", "num")],
+            )
+            + tabela(
+                finais,
+                [
+                    ("sentenca", "Sentença", "txt"),
+                    ("final", "Resultado após o recurso", "txt"),
+                    ("n", "n", "num"),
+                ],
+            )
+            + "</section>"
+        )
+
+    motivos = m["motivos_extincao"]
+    if motivos and sum(x["n"] for x in motivos) >= politica.MINIMO_PUBLICAVEL:
+        secoes.append(
+            _figura(
+                "Motivos de extinção sem resolução do mérito",
+                "Inciso do art. 485 do CPC citado no dispositivo, ou causa nomeada no texto; só "
+                "decisões avaliadas pelo texto.",
+                grafico_barras(
+                    [
+                        (x["motivo"], x["proporcao"], f"{_pct(x['proporcao'])} ({_num(x['n'])})")
+                        for x in motivos[:12]
+                    ],
+                    "Motivos de extinção",
+                ),
+                tabela(
+                    motivos,
+                    [
+                        ("motivo", "Motivo", "txt"),
+                        ("n", "n", "num"),
+                        ("proporcao", "Proporção", "pct"),
+                    ],
+                ),
+            )
+        )
+
+    danos = m["danos_morais_tribunal"][:30]
+    if danos:
+        secoes.append(
+            _figura(
+                "Indenização por danos morais nas sentenças que acolheram o pedido",
+                "Mediana e metade central (1º ao 3º quartil) do valor fixado no dispositivo, "
+                "por tribunal, em reais nominais da data da sentença.",
+                grafico_faixas(danos, "Danos morais por tribunal"),
+                tabela(
+                    danos,
+                    [
+                        ("grupo", "Tribunal", "txt"),
+                        ("n", "n", "num"),
+                        ("mediana", "Mediana (R$)", "num"),
+                        ("q1", "1º quartil", "num"),
+                        ("q3", "3º quartil", "num"),
+                    ],
+                ),
+            )
+        )
+
+    parametros = m["parametros_calculo"]
+    if parametros:
+        secoes.append(
+            '<section class="figura"><h3>Parâmetros de cálculo fixados nas condenações</h3>'
+            '<p class="sub">Honorários, repetição do indébito, termos iniciais e índices de juros '
+            "e correção monetária lidos no dispositivo das sentenças que acolheram o pedido.</p>"
+            + tabela(
+                parametros,
+                [
+                    ("parametro", "Parâmetro", "txt"),
+                    ("valor", "Valor", "txt"),
+                    ("n", "n", "num"),
+                    ("proporcao", "Proporção", "pct"),
+                ],
+            )
+            + "</section>"
+        )
+    return secoes
+
+
 def tabela(linhas: list[dict], colunas: list[tuple[str, str, str]]) -> str:
     """colunas: (chave, título, formato: 'pct', 'num' ou 'txt')."""
     formatos = {"pct": _pct, "num": _num, "txt": str, "z": lambda v: f"{v:.2f}"}
@@ -240,7 +376,10 @@ def tabela(linhas: list[dict], colunas: list[tuple[str, str, str]]) -> str:
         + "</tr>"
         for linha in linhas
     )
-    return f"<table><thead><tr>{cabecalho}</tr></thead><tbody>{corpo}</tbody></table>"
+    return (
+        f'<div class="tabela-rolagem"><table><thead><tr>{cabecalho}</tr></thead>'
+        f"<tbody>{corpo}</tbody></table></div>"
+    )
 
 
 def _figura(titulo: str, subtitulo: str, grafico: str, tabela_html: str) -> str:
@@ -264,22 +403,28 @@ def _gravar_csv(caminho: Path, linhas: list[dict]) -> None:
 def calcular(corpus: Corpus, incluir_sensiveis: bool = False) -> dict:
     processos = list(corpus.processos(incluir_sensiveis))
     documentos = list(corpus.documentos(incluir_sensiveis))
-    registros = processos + documentos
+    unidades = consolidar(processos, documentos)
+    primeira = [u for u in unidades if u["instancia"] == "1"]
+    segunda = [u for u in unidades if u["instancia"] == "2"]
     return {
         "resumo": corpus.resumo(),
-        "distribuicao_processos": jurimetria.distribuicao(processos),
-        "distribuicao_documentos": jurimetria.distribuicao(documentos),
-        "taxas_ramo": jurimetria.taxas(processos, "ramo"),
-        "taxas_tribunal": jurimetria.taxas(processos, "tribunal"),
-        "taxas_ano": sorted(jurimetria.taxas(processos, "ano"), key=lambda x: x["grupo"]),
-        "taxas_grau": jurimetria.taxas(processos, "grau"),
-        "taxas_assunto": jurimetria.taxas(processos, "assunto"),
-        "taxas_tribunal_textos": jurimetria.taxas(documentos, "tribunal"),
+        "qualidade": jurimetria.qualidade(unidades),
+        "distribuicao_primeira": jurimetria.distribuicao(primeira),
+        "distribuicao_segunda": jurimetria.distribuicao(segunda),
+        "taxa_nacional": jurimetria.taxa_nacional(unidades),
+        "provimento_por_recurso": jurimetria.provimento_por_recurso(segunda),
+        "taxas_ramo": jurimetria.taxas(unidades, "ramo"),
+        "taxas_tribunal": jurimetria.taxas(unidades, "tribunal"),
+        "taxas_ano": sorted(jurimetria.taxas(unidades, "ano"), key=lambda x: x["grupo"]),
+        "taxas_grau": jurimetria.taxas(unidades, "grau"),
+        "taxas_assunto": jurimetria.taxas(unidades, "assunto"),
+        "reforma": jurimetria.reforma(unidades),
+        "motivos_extincao": jurimetria.motivos(primeira),
+        "danos_morais_tribunal": jurimetria.valores_condenacao(primeira, "danos_morais"),
+        "parametros_calculo": jurimetria.parametros_calculo(primeira),
         "duracao_tribunal": jurimetria.duracoes(processos, "tribunal"),
         "citacoes": jurimetria.citacoes_por_resultado(documentos),
         "vocabulario": jurimetria.vocabulario(documentos),
-        "concordancia": concordancia_fontes(processos, documentos),
-        "n_registros": len(registros),
     }
 
 
@@ -297,6 +442,8 @@ def gerar(
     for nome, valor in m.items():
         if isinstance(valor, list):
             _gravar_csv(saida / f"{nome}.csv", valor)
+    _gravar_csv(saida / "reforma_cruzamento.csv", m["reforma"]["cruzamento"])
+    _gravar_csv(saida / "reforma_resultado_final.csv", m["reforma"]["resultado_final"])
     for lado, linhas in m["vocabulario"].items():
         _gravar_csv(saida / f"vocabulario_{lado}.csv", linhas)
     gerado_em = datetime.now(UTC).isoformat(timespec="seconds")
@@ -310,7 +457,9 @@ def gerar(
                 "minimo_publicavel": politica.MINIMO_PUBLICAVEL,
                 "inclui_materias_sensiveis": incluir_sensiveis,
                 "resumo": m["resumo"],
-                "concordancia_movimentos_texto": m["concordancia"],
+                "qualidade_da_classificacao": m["qualidade"],
+                "taxa_de_reforma": m["reforma"]["taxa_reforma"],
+                "provimento_por_recurso": m["provimento_por_recurso"],
                 "licenca": "CC BY 4.0",
             },
             ensure_ascii=False,
@@ -347,8 +496,8 @@ def _html(m: dict, titulo: str, descricao: str, gerado_em: str) -> str:
     )
 
     for chave, nome in (
-        ("distribuicao_processos", "movimentos do DataJud"),
-        ("distribuicao_documentos", "texto das decisões"),
+        ("distribuicao_primeira", "na 1ª instância"),
+        ("distribuicao_segunda", "na 2ª instância"),
     ):
         linhas = m[chave]
         if not linhas:
@@ -366,8 +515,9 @@ def _html(m: dict, titulo: str, descricao: str, gerado_em: str) -> str:
         )
         secoes.append(
             _figura(
-                f"Resultados, segundo {nome}",
-                "Proporção de cada resultado sobre o total de registros classificados.",
+                f"Resultados {nome}",
+                "Uma decisão por processo e instância (texto ou movimentos). Proporção sobre "
+                "o total de decisões.",
                 grafico,
                 tabela(
                     linhas,
@@ -378,6 +528,29 @@ def _html(m: dict, titulo: str, descricao: str, gerado_em: str) -> str:
                     ],
                 ),
             )
+        )
+
+    nacional = m["taxa_nacional"]
+    if nacional:
+        secoes.append(
+            '<section class="figura"><h3>Taxas no conjunto dos tribunais</h3>'
+            '<p class="sub">A taxa agregada soma todos os casos e pesa mais os tribunais grandes; '
+            "a média entre tribunais dá peso igual a cada tribunal com casos suficientes.</p>"
+            + tabela(
+                nacional,
+                [
+                    ("medida", "Medida", "txt"),
+                    ("n", "Decisões", "num"),
+                    ("agregada", "Agregada", "pct"),
+                    ("agregada_ic_inf", "IC inf.", "pct"),
+                    ("agregada_ic_sup", "IC sup.", "pct"),
+                    ("tribunais", "Tribunais", "num"),
+                    ("media_tribunais", "Média entre tribunais", "pct"),
+                    ("minimo_tribunais", "Menor", "pct"),
+                    ("maximo_tribunais", "Maior", "pct"),
+                ],
+            )
+            + "</section>"
         )
 
     colunas_taxa = [
@@ -394,7 +567,6 @@ def _html(m: dict, titulo: str, descricao: str, gerado_em: str) -> str:
         ("taxas_grau", "grau"),
         ("taxas_ano", "ano do julgamento"),
         ("taxas_assunto", "assunto"),
-        ("taxas_tribunal_textos", "tribunal (texto das decisões)"),
     ):
         linhas = [x for x in m[chave] if "acolhimento" in x][:30]
         if not linhas:
@@ -456,6 +628,8 @@ def _html(m: dict, titulo: str, descricao: str, gerado_em: str) -> str:
             )
         )
 
+    secoes += _secoes_calculo(m)
+
     if m["citacoes"]:
         secoes.append(
             _figura(
@@ -498,12 +672,16 @@ def _html(m: dict, titulo: str, descricao: str, gerado_em: str) -> str:
             )
         )
 
-    conc = m["concordancia"]
+    q = m["qualidade"]
     nota_concordancia = (
-        f"Nos {_num(conc['pares'])} processos com as duas fontes, o resultado dos movimentos e o "
-        f"do texto coincidiram em {_pct(conc['taxa'])}."
-        if conc["pares"]
-        else "Ainda não há processos com as duas fontes para comparar."
+        f"Em {_num(q['com_duas_fontes'])} decisões com as duas fontes, texto e movimentos "
+        f"divergiram em {_num(q['divergentes'])}; prevaleceu o texto."
+        if q["com_duas_fontes"]
+        else "Ainda não há decisões com as duas fontes para comparar."
+    )
+    nota_concordancia += (
+        f" Ficaram sem resultado determinado {_num(q['indeterminadas'])} de "
+        f"{_num(q['unidades'])} decisões."
     )
 
     return PAGINA.format(
@@ -592,10 +770,14 @@ uma ação concreta, não recomendam estratégia e não constituem consultoria j
 <li><strong>Fontes.</strong> Metadados e movimentos da API Pública do DataJud (CNJ) e texto das
 decisões publicadas no Diário de Justiça Eletrônico Nacional (DJEN), com URL, data e hash de cada
 resposta.</li>
-<li><strong>Resultado.</strong> Pelos movimentos da Tabela Processual Unificada (primeiro julgamento
-em ordem cronológica) e por regras sobre o dispositivo do texto. {concordancia}</li>
+<li><strong>Resultado.</strong> Pelo dispositivo do texto, lido por capítulos (ação, reconvenção,
+recurso, embargos), e pelos movimentos da Tabela Processual Unificada; uma decisão por processo e
+instância, prevalecendo o texto. {concordancia} Regras completas em
+<a href="https://github.com/luccas-amorim/dikemetria/blob/main/docs/REGRAS.md">docs/REGRAS.md</a>.</li>
 <li><strong>Taxas.</strong> Acolhimento = procedentes + parcialmente procedentes sobre decisões de
 mérito; extinções sem mérito e acordos ficam fora do denominador. Intervalos de Wilson a 95%.</li>
+<li><strong>Valores.</strong> Primeiro valor de cada categoria no dispositivo, em reais nominais;
+valores fora de R$ 1 a R$ 10 milhões são descartados.</li>
 <li><strong>Vocabulário.</strong> Só relatório e fundamentação, porque o dispositivo repete o
 resultado.</li>
 <li><strong>Supressão.</strong> Grupos com menos de {minimo} casos não aparecem.</li>

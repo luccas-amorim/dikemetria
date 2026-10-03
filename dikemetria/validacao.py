@@ -16,7 +16,17 @@ from pathlib import Path
 from dikemetria.estrutura import dividir
 from dikemetria.resultado import Resultado
 
-CAMPOS = ["id", "tribunal", "tipo", "dispositivo", "resultado_automatico", "resultado_manual"]
+CAMPOS = [
+    "id",
+    "tribunal",
+    "tipo",
+    "dispositivo",
+    "resultado_automatico",
+    "confianca",
+    "motivo",
+    "capitulos",
+    "resultado_manual",
+]
 ROTULOS_VALIDOS = {r.value for r in Resultado}
 
 
@@ -41,6 +51,10 @@ def gerar_amostra(
         escritor = csv.DictWriter(arquivo, fieldnames=CAMPOS)
         escritor.writeheader()
         for doc in escolhidos[:tamanho]:
+            avaliacao = doc.get("avaliacao") or {}
+            capitulos = "; ".join(
+                f"{c['objeto']}: {c['resultado']}" for c in avaliacao.get("capitulos") or []
+            )
             escritor.writerow(
                 {
                     "id": doc["id"],
@@ -48,6 +62,9 @@ def gerar_amostra(
                     "tipo": doc.get("tipo"),
                     "dispositivo": dividir(doc["texto"]).dispositivo[:1500],
                     "resultado_automatico": doc["resultado"],
+                    "confianca": avaliacao.get("confianca", ""),
+                    "motivo": avaliacao.get("motivo") or "",
+                    "capitulos": capitulos,
                     "resultado_manual": "",
                 }
             )

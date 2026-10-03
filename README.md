@@ -59,11 +59,18 @@ aconselhar quem litiga. Nada aqui constitui consultoria ou assessoria jurídica.
 | `dikemetria/pseudonimizacao.py` | remove nomes de pessoas naturais, CPF, RG, endereços, OAB, contas e contatos |
 | `dikemetria/politica.py` | regras de LGPD: exclui segredo de justiça e marca matérias sensíveis |
 | `dikemetria/estrutura.py` | separa relatório, fundamentação e dispositivo |
-| `dikemetria/resultado.py` | classifica o resultado pelo dispositivo e pelos movimentos da TPU |
+| `dikemetria/avaliacao.py` | avalia o dispositivo por capítulos: ação, reconvenção, recurso, embargos; motivo e confiança |
+| `dikemetria/valores.py` | valores da condenação por categoria, honorários, repetição, juros e correção |
+| `dikemetria/resultado.py` | rótulos de resultado e leitura dos movimentos da TPU |
+| `dikemetria/consolidacao.py` | uma decisão por processo e instância, unindo texto e movimentos |
 | `dikemetria/referencias.py` | artigos, leis, súmulas, temas e número CNJ, normalizados |
-| `dikemetria/jurimetria.py` | taxas com IC de Wilson, tempos, normas e vocabulário por resultado |
+| `dikemetria/jurimetria.py` | taxas com IC de Wilson, taxa nacional, reforma em 2º grau, valores, tempos, normas e vocabulário |
 | `dikemetria/relatorio.py` | relatório HTML, tabelas CSV e dicionário de dados |
 | `dikemetria/validacao.py` | amostra para rotulagem manual e medida de acerto da classificação |
+
+As regras de avaliação das decisões e de cálculo das medidas estão em
+[docs/REGRAS.md](docs/REGRAS.md), com o conjunto-referência de dispositivos que as testa em
+`tests/dados/dispositivos.csv`.
 
 Toda coleta registra a proveniência de cada resposta (URL, parâmetros, data e hash) e é retomável:
 se cair, a próxima execução continua do ponto em que parou. O banco local guarda só texto

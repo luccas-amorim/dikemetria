@@ -28,7 +28,7 @@ R = Resultado
         ("Recurso provido.", R.PROVIDO),
         ("Não conheço do recurso.", R.NAO_CONHECIDO),
         ("Intime-se a parte para se manifestar.", R.INDETERMINADO),
-        ("julgo improcedente a reconvenção e procedente o pedido inicial", R.INDETERMINADO),
+        ("julgo improcedente a reconvenção e procedente o pedido inicial", R.PROCEDENTE),
     ],
 )
 def test_classificar_texto(dispositivo, esperado):

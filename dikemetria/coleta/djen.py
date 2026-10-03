@@ -20,13 +20,14 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 
 from dikemetria import politica, referencias
+from dikemetria.avaliacao import avaliar_dispositivo
 from dikemetria.coleta.http import Cliente, Proveniencia
 from dikemetria.coleta.tribunais import Tribunal
 from dikemetria.estrutura import dividir
 from dikemetria.limpeza import html_para_texto, sem_acentos
 from dikemetria.pseudonimizacao import pseudonimizar
 from dikemetria.recorte import RecorteDJEN
-from dikemetria.resultado import classificar_texto
+from dikemetria.valores import calcular
 
 log = logging.getLogger(__name__)
 
@@ -49,6 +50,7 @@ class Documento:
     sensivel: bool = False
     substituicoes: dict = field(default_factory=dict)
     url: str | None = None
+    avaliacao: dict = field(default_factory=dict)  # capítulos, motivo, confiança e cálculo
 
 
 def _primeiro(item: dict, *chaves: str):
@@ -80,7 +82,8 @@ def converter_documento(item: dict, tribunal: str, fonte: str = "djen") -> Docum
         numero = encontrados[0] if encontrados else str(numero)
 
     pseudo = pseudonimizar(texto, nomes_conhecidos=nomes_destinatarios(item))
-    classificacao = classificar_texto(dividir(pseudo.texto).dispositivo)
+    dispositivo = dividir(pseudo.texto).dispositivo
+    avaliacao = avaliar_dispositivo(dispositivo, pseudo.texto)
     classe = _primeiro(item, "nomeClasse", "classe")
     return Documento(
         id=f"{fonte}:{_primeiro(item, 'id', 'hash') or hashlib.sha256(bruto.encode()).hexdigest()}",
@@ -93,11 +96,12 @@ def converter_documento(item: dict, tribunal: str, fonte: str = "djen") -> Docum
         classe_nome=classe,
         texto=pseudo.texto,
         sha256_original=hashlib.sha256(bruto.encode("utf-8")).hexdigest(),
-        resultado=classificacao.resultado.value,
-        evidencia=classificacao.evidencia,
+        resultado=avaliacao.resultado.value,
+        evidencia=avaliacao.evidencia,
         sensivel=politica.materia_sensivel(classe, texto[:5000]),
         substituicoes=dict(pseudo.substituicoes),
         url=_primeiro(item, "link"),
+        avaliacao={**avaliacao.como_dict(), "calculo": calcular(dispositivo).como_dict()},
     )
 
 

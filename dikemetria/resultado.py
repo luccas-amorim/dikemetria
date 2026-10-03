@@ -2,7 +2,7 @@
 
 Duas fontes, que podem ser comparadas entre si:
 
-* o texto do dispositivo (regras sobre "julgo procedente", "nego provimento"...);
+* o texto do dispositivo (regras em dikemetria/avaliacao.py);
 * os movimentos processuais do DataJud, nomeados pela Tabela Processual Unificada do CNJ.
 
 Os rótulos descrevem o que o juízo decidiu sobre o pedido ou recurso. Não dizem quem "ganhou":
@@ -46,108 +46,20 @@ class Classificacao:
     fonte: str  # "texto" ou "movimentos"
 
 
-# Regras sobre texto sem acentos e em minúsculas. A ordem importa: as formas parciais vêm antes.
-_REGRAS_TEXTO: list[tuple[Resultado, re.Pattern]] = [
-    (
-        Resultado.PARCIALMENTE_PROCEDENTE,
-        re.compile(
-            r"\b(?:parcialmente\s+procedentes?|procedentes?\s+em\s+parte|"
-            r"parcial\s+procedencia|acolho\s+(?:em\s+parte|parcialmente))\b"
-        ),
-    ),
-    (
-        Resultado.IMPROCEDENTE,
-        re.compile(
-            r"\b(?:julg\w*\s+(?:totalmente\s+)?improcedentes?|improcedentes?\s+(?:o|os|a|as)\s+"
-            r"(?:pedidos?|acao|demanda|pretens\w+)|rejeit\w+\s+(?:o|os)\s+pedidos?)\b"
-        ),
-    ),
-    (
-        Resultado.PROCEDENTE,
-        re.compile(
-            r"\b(?:julg\w*\s+(?:totalmente\s+)?procedentes?|procedentes?\s+(?:o|os|a|as)\s+"
-            r"(?:pedidos?|acao|demanda|pretens\w+)|acolh\w+\s+(?:o|os)\s+pedidos?)\b"
-        ),
-    ),
-    (
-        Resultado.HOMOLOGACAO_ACORDO,
-        re.compile(r"\bhomolog\w*[^.]{0,80}?\b(?:acordo|transacao|composicao)\b"),
-    ),
-    (
-        Resultado.EXTINTO_SEM_MERITO,
-        re.compile(
-            r"\b(?:sem\s+(?:resolucao|julgamento|exame)\s+d[oe]\s+merito|"
-            r"art(?:igo)?\.?\s*485\b|indefiro\s+a\s+peticao\s+inicial)"
-        ),
-    ),
-    (
-        Resultado.NAO_CONHECIDO,
-        re.compile(r"\bnao\s+(?:conheco|conhecer|conheceram|conhecido)\b"),
-    ),
-    (
-        Resultado.PARCIALMENTE_PROVIDO,
-        re.compile(
-            r"\b(?:d(?:ou|ar|eram|ao|a-se)\s+parcial\s+provimento|parcialmente\s+provid[oa]s?|"
-            r"provid[oa]s?\s+em\s+parte|provimento\s+parcial)\b"
-        ),
-    ),
-    (
-        Resultado.NAO_PROVIDO,
-        re.compile(
-            r"\b(?:neg(?:o|ar|aram|am|a-se)\s+provimento|nao\s+provid[oa]s?|desprovid[oa]s?|"
-            r"improvid[oa]s?)\b"
-        ),
-    ),
-    (
-        Resultado.PROVIDO,
-        re.compile(r"\b(?:d(?:ou|ar|eram|ao|a-se)\s+(?:integral\s+)?provimento|provid[oa]s?)\b"),
-    ),
-]
-
-# Combinações que, juntas no mesmo dispositivo, não permitem um rótulo único.
-_CONFLITOS = [
-    {Resultado.PROCEDENTE, Resultado.IMPROCEDENTE},
-    {Resultado.PROVIDO, Resultado.NAO_PROVIDO},
-]
-
-
 def classificar_texto(dispositivo: str) -> Classificacao:
-    """Classifica pelo texto do dispositivo."""
-    texto = sem_acentos(dispositivo.lower())
-    achados: dict[Resultado, str] = {}
-    for rotulo, padrao in _REGRAS_TEXTO:
-        m = padrao.search(texto)
-        if m and rotulo not in achados:
-            achados[rotulo] = m.group(0)
+    """Resultado principal do dispositivo. Para capítulos, motivo e confiança, use
+    `dikemetria.avaliacao.avaliar_dispositivo`."""
+    from dikemetria.avaliacao import avaliar_dispositivo
 
-    # "nao provido" contém "provido"; "parcialmente provido" também. Evita dupla contagem.
-    if Resultado.PROVIDO in achados and (
-        Resultado.NAO_PROVIDO in achados or Resultado.PARCIALMENTE_PROVIDO in achados
-    ):
-        trecho = achados[Resultado.PROVIDO]
-        if re.fullmatch(r"provid[oa]s?", trecho):
-            del achados[Resultado.PROVIDO]
-
-    if not achados:
-        return Classificacao(Resultado.INDETERMINADO, "", "texto")
-
-    for parcial in (Resultado.PARCIALMENTE_PROCEDENTE, Resultado.PARCIALMENTE_PROVIDO):
-        if parcial in achados:
-            return Classificacao(parcial, achados[parcial], "texto")
-
-    for conflito in _CONFLITOS:
-        if conflito <= achados.keys():
-            evidencia = " | ".join(achados[r] for r in conflito)
-            return Classificacao(Resultado.INDETERMINADO, evidencia, "texto")
-
-    rotulo = next(iter(achados))  # a primeira regra que casou, na ordem de prioridade
-    return Classificacao(rotulo, achados[rotulo], "texto")
+    avaliacao = avaliar_dispositivo(dispositivo)
+    return Classificacao(avaliacao.resultado, avaliacao.evidencia, "texto")
 
 
 # Nomes de movimentos da TPU (CNJ) sem acentos. Código 219, 220 e 221 = procedência,
 # improcedência e procedência em parte; os nomes cobrem variações entre tribunais.
 _MOVIMENTOS: list[tuple[Resultado, re.Pattern]] = [
     (Resultado.PARCIALMENTE_PROCEDENTE, re.compile(r"procedencia em parte|procedente em parte")),
+    (Resultado.IMPROCEDENTE, re.compile(r"\bprescricao\b|\bdecadencia\b|renuncia a pretensao")),
     (Resultado.IMPROCEDENTE, re.compile(r"\bimprocedencia\b")),
     (Resultado.PROCEDENTE, re.compile(r"(?<!im)procedencia\b(?! em parte)")),
     (Resultado.HOMOLOGACAO_ACORDO, re.compile(r"homologacao de (?:transacao|acordo)")),

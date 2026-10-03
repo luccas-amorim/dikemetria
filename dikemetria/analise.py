@@ -6,7 +6,8 @@ import re
 from collections import Counter
 from dataclasses import asdict, dataclass, field
 
-from dikemetria import estrutura, referencias, resultado
+from dikemetria import estrutura, referencias
+from dikemetria.avaliacao import avaliar_dispositivo
 from dikemetria.limpeza import normalizar, sem_acentos, tokens_relevantes
 
 TERMOS_JURIDICOS = (
@@ -89,6 +90,8 @@ class AnaliseDocumento:
     termos_juridicos: dict[str, int]
     argumentos: list[str]
     palavras_frequentes: list[tuple[str, int]] = field(default_factory=list)
+    avaliacao: dict = field(default_factory=dict)
+    calculo: dict = field(default_factory=dict)
 
     def como_dict(self) -> dict:
         return asdict(self)
@@ -120,12 +123,14 @@ def argumentos(texto: str, marcadores=MARCADORES_ARGUMENTATIVOS, limite: int = 3
 
 def analisar_documento(texto: str, top: int = 20) -> AnaliseDocumento:
     texto = normalizar(texto)
+    from dikemetria.valores import calcular
+
     secoes = estrutura.dividir(texto)
-    classificacao = resultado.classificar_texto(secoes.dispositivo)
+    avaliacao = avaliar_dispositivo(secoes.dispositivo, texto)
     return AnaliseDocumento(
         numeros_processo=referencias.numeros_cnj(texto),
-        resultado=classificacao.resultado.value,
-        evidencia_resultado=classificacao.evidencia,
+        resultado=avaliacao.resultado.value,
+        evidencia_resultado=avaliacao.evidencia,
         dispositivo_localizado=secoes.dispositivo_localizado,
         tamanho={
             "caracteres": len(texto),
@@ -137,4 +142,6 @@ def analisar_documento(texto: str, top: int = 20) -> AnaliseDocumento:
         termos_juridicos=contar_termos(texto),
         argumentos=argumentos(secoes.fundamentacao or texto),
         palavras_frequentes=Counter(tokens_relevantes(texto)).most_common(top),
+        avaliacao=avaliacao.como_dict(),
+        calculo=calcular(secoes.dispositivo).como_dict(),
     )

@@ -175,3 +175,225 @@ def vocabulario(documentos: Iterable[dict], top: int = 20) -> dict[str, list[dic
         "acolhido": linhas([e for e in escores if e[1] > 0][:top]),
         "rejeitado": linhas([e for e in reversed(escores) if e[1] < 0][:top]),
     }
+
+
+# Medidas sobre unidades consolidadas (consolidacao.py) -------------------------------------
+
+_MERITO = {R.PROCEDENTE.value, R.PARCIALMENTE_PROCEDENTE.value, R.IMPROCEDENTE.value}
+_ACOLHIDOS = {R.PROCEDENTE.value, R.PARCIALMENTE_PROCEDENTE.value}
+_RECURSO_MERITO = {R.PROVIDO.value, R.PARCIALMENTE_PROVIDO.value, R.NAO_PROVIDO.value}
+_PROVIDOS = {R.PROVIDO.value, R.PARCIALMENTE_PROVIDO.value}
+
+# Faixa de valores plausíveis para estatísticas de condenação (fora dela, erro de leitura).
+VALOR_MINIMO, VALOR_MAXIMO = 1.0, 10_000_000.0
+
+
+def taxa_nacional(unidades: Iterable[dict], minimo: int | None = None) -> list[dict]:
+    """Taxa agregada (todos os casos juntos) e média entre tribunais (cada tribunal pesa igual).
+
+    A agregada responde "qual a proporção dos casos do país"; ela é dominada pelos tribunais
+    grandes. A média entre tribunais responde "como decide um tribunal típico".
+    """
+    minimo = politica.MINIMO_PUBLICAVEL if minimo is None else minimo
+    unidades = list(unidades)
+    medidas = [
+        ("procedência", _MERITO, {R.PROCEDENTE.value}),
+        ("acolhimento", _MERITO, _ACOLHIDOS),
+        ("provimento", _RECURSO_MERITO, _PROVIDOS),
+    ]
+    linhas = []
+    for nome, denominador, numerador in medidas:
+        casos = [u for u in unidades if u["resultado"] in denominador]
+        if len(casos) < minimo:
+            continue
+        p, lo, hi = estatistica.wilson(sum(u["resultado"] in numerador for u in casos), len(casos))
+        por_tribunal: dict[str, list[bool]] = defaultdict(list)
+        for u in casos:
+            por_tribunal[u.get("tribunal") or "?"].append(u["resultado"] in numerador)
+        taxas = [sum(v) / len(v) for v in por_tribunal.values() if len(v) >= minimo]
+        linhas.append(
+            {
+                "medida": nome,
+                "n": len(casos),
+                "agregada": p,
+                "agregada_ic_inf": lo,
+                "agregada_ic_sup": hi,
+                "tribunais": len(taxas),
+                "media_tribunais": sum(taxas) / len(taxas) if taxas else None,
+                "minimo_tribunais": min(taxas) if taxas else None,
+                "maximo_tribunais": max(taxas) if taxas else None,
+            }
+        )
+    return linhas
+
+
+def provimento_por_recurso(unidades: Iterable[dict], minimo: int | None = None) -> dict | None:
+    """Conta cada capítulo recursal forte separadamente: "dou provimento ao recurso do autor e
+    nego ao do réu" são dois recursos, um provido e um não."""
+    minimo = politica.MINIMO_PUBLICAVEL if minimo is None else minimo
+    resultados = [
+        c["resultado"]
+        for u in unidades
+        for c in u.get("capitulos") or []
+        if c["objeto"] == "recurso" and c["forca"] == "forte" and c["resultado"] in _RECURSO_MERITO
+    ]
+    if len(resultados) < minimo:
+        return None
+    p, lo, hi = estatistica.wilson(sum(r in _PROVIDOS for r in resultados), len(resultados))
+    return {"recursos": len(resultados), "provimento": p, "ic_inf": lo, "ic_sup": hi}
+
+
+def _final_para_o_autor(primeira: str, segunda: dict) -> str:
+    """Resultado da ação depois do recurso (docs/REGRAS.md, "Reforma em segundo grau")."""
+    acao_depois = segunda.get("resultado_acao")
+    if acao_depois in _MERITO:
+        return acao_depois  # o acórdão disse expressamente como fica o pedido
+    recurso = segunda["resultado"]
+    if recurso in (R.NAO_PROVIDO.value, R.NAO_CONHECIDO.value):
+        return primeira
+    if "anulação" in (segunda.get("motivo") or ""):
+        return "sentença anulada"
+    if primeira == R.PARCIALMENTE_PROCEDENTE.value:
+        return "indeterminado (ambas as partes podem ter recorrido)"
+    if recurso == R.PROVIDO.value:
+        return R.IMPROCEDENTE.value if primeira == R.PROCEDENTE.value else R.PROCEDENTE.value
+    if recurso == R.PARCIALMENTE_PROVIDO.value:
+        return R.PARCIALMENTE_PROCEDENTE.value
+    return R.INDETERMINADO.value
+
+
+def reforma(unidades: Iterable[dict]) -> dict:
+    """Cruza a sentença e o acórdão do mesmo processo.
+
+    Infere quem recorreu pela sucumbência: de sentença totalmente procedente só o réu tem
+    interesse em recorrer; de improcedente, só o autor. Por isso a inferência só vale para esses
+    dois casos, e o recurso adesivo e o recurso de terceiro ficam fora do modelo.
+    """
+    por_numero: dict[str, dict[str, dict]] = defaultdict(dict)
+    for u in unidades:
+        if not u["numero"].startswith("doc:"):
+            por_numero[u["numero"]][u["instancia"]] = u
+
+    cruzamento: Counter = Counter()
+    finais: Counter = Counter()
+    for instancias in por_numero.values():
+        primeira, segunda = instancias.get("1"), instancias.get("2")
+        if not primeira or not segunda or primeira["resultado"] not in _MERITO:
+            continue
+        if segunda["resultado"] not in _RECURSO_MERITO | {R.NAO_CONHECIDO.value}:
+            continue
+        cruzamento[(primeira["resultado"], segunda["resultado"])] += 1
+        finais[(primeira["resultado"], _final_para_o_autor(primeira["resultado"], segunda))] += 1
+
+    julgados = sum(q for (_, r), q in cruzamento.items() if r in _RECURSO_MERITO)
+    reformados = sum(q for (_, r), q in cruzamento.items() if r in _PROVIDOS)
+    return {
+        "pares": sum(cruzamento.values()),
+        "taxa_reforma": reformados / julgados if julgados else None,
+        "cruzamento": [
+            {"sentenca": a, "recurso": b, "n": n} for (a, b), n in cruzamento.most_common()
+        ],
+        "resultado_final": [
+            {"sentenca": a, "final": b, "n": n} for (a, b), n in finais.most_common()
+        ],
+    }
+
+
+def valores_condenacao(
+    unidades: Iterable[dict],
+    categoria: str = "danos_morais",
+    agrupamento: str = "tribunal",
+    minimo: int | None = None,
+) -> list[dict]:
+    """Valor de referência da categoria nas sentenças que acolheram o pedido, por grupo.
+
+    Valor de referência: o primeiro valor da categoria no dispositivo (docs/REGRAS.md).
+    Valores fora de [VALOR_MINIMO, VALOR_MAXIMO] são descartados como erro de leitura.
+    """
+    minimo = politica.MINIMO_PUBLICAVEL if minimo is None else minimo
+    chave = AGRUPAMENTOS[agrupamento]
+    por_grupo: dict[str, list[float]] = defaultdict(list)
+    for u in unidades:
+        if u["instancia"] != "1" or u["resultado"] not in _ACOLHIDOS:
+            continue
+        valor = next(
+            (
+                v["valor"]
+                for v in (u.get("calculo") or {}).get("valores", [])
+                if v["categoria"] == categoria
+            ),
+            None,
+        )
+        if valor is None or not VALOR_MINIMO <= valor <= VALOR_MAXIMO:
+            continue
+        for grupo in chave(u):
+            por_grupo[grupo].append(valor)
+    linhas = [
+        {
+            "grupo": grupo,
+            "n": len(valores),
+            "mediana": estatistica.mediana(valores),
+            "q1": estatistica.quantil(valores, 0.25),
+            "q3": estatistica.quantil(valores, 0.75),
+        }
+        for grupo, valores in por_grupo.items()
+        if len(valores) >= minimo
+    ]
+    return sorted(linhas, key=lambda linha: -linha["n"])
+
+
+def parametros_calculo(unidades: Iterable[dict], minimo: int | None = None) -> list[dict]:
+    """Frequência de honorários, repetição, termos iniciais e índices nas sentenças acolhidas."""
+    minimo = politica.MINIMO_PUBLICAVEL if minimo is None else minimo
+    contagens: dict[str, Counter] = defaultdict(Counter)
+    for u in unidades:
+        if u["instancia"] != "1" or u["resultado"] not in _ACOLHIDOS:
+            continue
+        calculo = u.get("calculo") or {}
+        if calculo.get("honorarios_percentual") is not None:
+            pct = calculo["honorarios_percentual"]
+            contagens["honorários (%)"][f"{pct:g}%"] += 1
+        if calculo.get("repeticao"):
+            contagens["repetição do indébito"][calculo["repeticao"]] += 1
+        for termo in calculo.get("juros_termos_iniciais") or []:
+            contagens["juros: termo inicial"][termo] += 1
+        if calculo.get("juros_taxa"):
+            contagens["juros: taxa"][calculo["juros_taxa"]] += 1
+        for termo in calculo.get("correcao_termos_iniciais") or []:
+            contagens["correção: termo inicial"][termo] += 1
+        if calculo.get("correcao_indice"):
+            contagens["correção: índice"][calculo["correcao_indice"]] += 1
+    linhas = []
+    for parametro, contagem in contagens.items():
+        total = sum(contagem.values())
+        for valor, n in contagem.most_common():
+            if n >= minimo:
+                linhas.append(
+                    {"parametro": parametro, "valor": valor, "n": n, "proporcao": n / total}
+                )
+    return linhas
+
+
+def motivos(unidades: Iterable[dict], resultado: str = R.EXTINTO_SEM_MERITO.value) -> list[dict]:
+    """Motivos, só entre as decisões cujo resultado veio do texto (os movimentos não os trazem)."""
+    contagem = Counter(
+        (u.get("motivo") or "não identificado")
+        for u in unidades
+        if u["resultado"] == resultado and u.get("fonte_resultado", "texto") == "texto"
+    )
+    total = sum(contagem.values())
+    return [{"motivo": m, "n": n, "proporcao": n / total} for m, n in contagem.most_common()]
+
+
+def qualidade(unidades: Iterable[dict]) -> dict:
+    """Indicadores da própria classificação: confiança, fontes e divergências."""
+    unidades = list(unidades)
+    ambos = [u for u in unidades if u["fonte"] == "ambos"]
+    return {
+        "unidades": len(unidades),
+        "indeterminadas": sum(u["resultado"] == R.INDETERMINADO.value for u in unidades),
+        "confianca": dict(Counter(u.get("confianca") or "—" for u in unidades)),
+        "fontes": dict(Counter(u["fonte"] for u in unidades)),
+        "com_duas_fontes": len(ambos),
+        "divergentes": sum(u["divergente"] for u in ambos),
+    }

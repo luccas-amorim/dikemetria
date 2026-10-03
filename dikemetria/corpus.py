@@ -50,7 +50,8 @@ CREATE TABLE IF NOT EXISTS documentos (
     sensivel INTEGER NOT NULL DEFAULT 0,
     substituicoes TEXT,       -- JSON {tipo: quantidade}
     url TEXT,
-    proveniencia TEXT
+    proveniencia TEXT,
+    avaliacao TEXT            -- JSON: capítulos, motivo, confiança e cálculo (avaliacao.py)
 );
 CREATE INDEX IF NOT EXISTS documentos_numero ON documentos (numero);
 CREATE TABLE IF NOT EXISTS progresso (
@@ -65,6 +66,12 @@ CREATE TABLE IF NOT EXISTS progresso (
 """
 
 
+_COLUNAS_DOCUMENTOS = (
+    "id, fonte, tribunal, numero, tipo, data, classe_nome, texto, sha256_original, resultado, "
+    "evidencia, sensivel, substituicoes, url, proveniencia, avaliacao"
+)
+
+
 class Corpus:
     def __init__(self, caminho: str | Path) -> None:
         self.caminho = Path(caminho)
@@ -72,6 +79,14 @@ class Corpus:
         self.conexao = sqlite3.connect(self.caminho)
         self.conexao.row_factory = sqlite3.Row
         self.conexao.executescript(ESQUEMA)
+        self._migrar()
+
+    def _migrar(self) -> None:
+        """Acrescenta colunas criadas depois da primeira versão do banco."""
+        colunas = {linha[1] for linha in self.conexao.execute("PRAGMA table_info(documentos)")}
+        if "avaliacao" not in colunas:
+            with self.conexao:
+                self.conexao.execute("ALTER TABLE documentos ADD COLUMN avaliacao TEXT")
 
     def fechar(self) -> None:
         self.conexao.close()
@@ -132,20 +147,25 @@ class Corpus:
                 json.dumps(d.substituicoes),
                 d.url,
                 proveniencia.como_json() if proveniencia else None,
+                json.dumps(d.avaliacao, ensure_ascii=False),
             )
             for d in documentos
         ]
         with self.conexao:
             self.conexao.executemany(
-                "INSERT OR REPLACE INTO documentos VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", linhas
+                f"INSERT OR REPLACE INTO documentos ({_COLUNAS_DOCUMENTOS}) "
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                linhas,
             )
         return len(linhas)
 
-    def atualizar_resultado_documento(self, id_: str, resultado: str, evidencia: str) -> None:
+    def atualizar_avaliacao_documento(
+        self, id_: str, resultado: str, evidencia: str, avaliacao: dict
+    ) -> None:
         with self.conexao:
             self.conexao.execute(
-                "UPDATE documentos SET resultado = ?, evidencia = ? WHERE id = ?",
-                (resultado, evidencia, id_),
+                "UPDATE documentos SET resultado = ?, evidencia = ?, avaliacao = ? WHERE id = ?",
+                (resultado, evidencia, json.dumps(avaliacao, ensure_ascii=False), id_),
             )
 
     # Progresso ------------------------------------------------------------------------------
@@ -189,7 +209,9 @@ class Corpus:
         sql = "SELECT * FROM documentos" + ("" if incluir_sensiveis else " WHERE sensivel = 0")
         with closing(self.conexao.execute(sql)) as cursor:
             for linha in cursor:
-                yield dict(linha)
+                registro = dict(linha)
+                registro["avaliacao"] = json.loads(registro.get("avaliacao") or "{}")
+                yield registro
 
     def resumo(self) -> dict:
         consulta = self.conexao.execute

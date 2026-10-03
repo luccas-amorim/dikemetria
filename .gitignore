@@ -6,7 +6,7 @@ __pycache__/
 build/
 dist/
 # Dados coletados e resultados locais: podem conter dados pessoais
-dados/
-saida/
-temp/
+/dados/
+/saida/
+/temp/
 *.sqlite
