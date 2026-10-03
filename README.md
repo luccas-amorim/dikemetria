@@ -76,7 +76,7 @@ Apoie em [GitHub Sponsors](https://github.com/sponsors/luccas-amorim) ou por
 
 ## Licença
 
-Código sob MIT. Resultados publicados sob CC BY 4.0, sem incluir textos com dados pessoais.
+Código sob [MIT](LICENSE). Resultados publicados sob [CC BY 4.0](LICENSE-RESULTADOS.md), sem incluir textos com dados pessoais.
 
 ---
 
