@@ -194,17 +194,15 @@ def _sondar(args) -> int:
 
 def _classificar(args) -> int:
     """Reavalia os documentos do banco com as regras atuais de avaliação e cálculo."""
-    from dikemetria.avaliacao import avaliar_dispositivo
+    from dikemetria.avaliacao import avaliar
     from dikemetria.corpus import Corpus
-    from dikemetria.estrutura import dividir
     from dikemetria.valores import calcular
 
     alterados = total = 0
     with Corpus(args.banco) as corpus:
         for doc in list(corpus.documentos(incluir_sensiveis=True)):
             total += 1
-            dispositivo = dividir(doc["texto"]).dispositivo
-            avaliacao = avaliar_dispositivo(dispositivo, doc["texto"])
+            avaliacao, dispositivo = avaliar(doc["texto"])
             dados = {**avaliacao.como_dict(), "calculo": calcular(dispositivo).como_dict()}
             if avaliacao.resultado.value != doc["resultado"]:
                 alterados += 1

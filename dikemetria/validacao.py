@@ -30,6 +30,12 @@ CAMPOS = [
 ROTULOS_VALIDOS = {r.value for r in Resultado}
 
 
+def _dispositivo_para_revisao(texto: str) -> str:
+    secoes = dividir(texto)
+    partes = [secoes.decisao_colegiada, secoes.dispositivo]
+    return "\n---\n".join(p for p in partes if p)[:1500]
+
+
 def gerar_amostra(
     documentos: list[dict], tamanho: int, saida: str | Path, semente: int = 42
 ) -> int:
@@ -60,7 +66,7 @@ def gerar_amostra(
                     "id": doc["id"],
                     "tribunal": doc.get("tribunal"),
                     "tipo": doc.get("tipo"),
-                    "dispositivo": dividir(doc["texto"]).dispositivo[:1500],
+                    "dispositivo": _dispositivo_para_revisao(doc["texto"]),
                     "resultado_automatico": doc["resultado"],
                     "confianca": avaliacao.get("confianca", ""),
                     "motivo": avaliacao.get("motivo") or "",

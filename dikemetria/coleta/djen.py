@@ -20,10 +20,9 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 
 from dikemetria import politica, referencias
-from dikemetria.avaliacao import avaliar_dispositivo
+from dikemetria.avaliacao import avaliar
 from dikemetria.coleta.http import Cliente, Proveniencia
 from dikemetria.coleta.tribunais import Tribunal
-from dikemetria.estrutura import dividir
 from dikemetria.limpeza import html_para_texto, sem_acentos
 from dikemetria.pseudonimizacao import pseudonimizar
 from dikemetria.recorte import RecorteDJEN
@@ -82,8 +81,7 @@ def converter_documento(item: dict, tribunal: str, fonte: str = "djen") -> Docum
         numero = encontrados[0] if encontrados else str(numero)
 
     pseudo = pseudonimizar(texto, nomes_conhecidos=nomes_destinatarios(item))
-    dispositivo = dividir(pseudo.texto).dispositivo
-    avaliacao = avaliar_dispositivo(dispositivo, pseudo.texto)
+    avaliacao, dispositivo = avaliar(pseudo.texto)
     classe = _primeiro(item, "nomeClasse", "classe")
     return Documento(
         id=f"{fonte}:{_primeiro(item, 'id', 'hash') or hashlib.sha256(bruto.encode()).hexdigest()}",

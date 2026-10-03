@@ -7,7 +7,7 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 
 from dikemetria import estrutura, referencias
-from dikemetria.avaliacao import avaliar_dispositivo
+from dikemetria.avaliacao import avaliar
 from dikemetria.limpeza import normalizar, sem_acentos, tokens_relevantes
 
 TERMOS_JURIDICOS = (
@@ -126,7 +126,7 @@ def analisar_documento(texto: str, top: int = 20) -> AnaliseDocumento:
     from dikemetria.valores import calcular
 
     secoes = estrutura.dividir(texto)
-    avaliacao = avaliar_dispositivo(secoes.dispositivo, texto)
+    avaliacao, dispositivo = avaliar(texto)
     return AnaliseDocumento(
         numeros_processo=referencias.numeros_cnj(texto),
         resultado=avaliacao.resultado.value,
@@ -143,5 +143,5 @@ def analisar_documento(texto: str, top: int = 20) -> AnaliseDocumento:
         argumentos=argumentos(secoes.fundamentacao or texto),
         palavras_frequentes=Counter(tokens_relevantes(texto)).most_common(top),
         avaliacao=avaliacao.como_dict(),
-        calculo=calcular(secoes.dispositivo).como_dict(),
+        calculo=calcular(dispositivo).como_dict(),
     )

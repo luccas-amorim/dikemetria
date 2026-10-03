@@ -19,6 +19,18 @@ _INICIO_DISPOSITIVO = re.compile(
     r"^\s*(?:III?\s*[-–.]\s*)?dispositivo\s*$"
 )
 
+# Votos que não formam a decisão do colegiado: o dispositivo é procurado antes deles.
+_VOTO_VENCIDO = re.compile(
+    r"(?im)^\s*(?:declara[çc][ãa]o\s+de\s+voto|voto\s+(?:vencido|divergente)|"
+    r"voto\s+n[º°o.]*\s*\d+\s*[-–(]?\s*vencido)\b"
+)
+
+# Parágrafo "ACORDAM ... em negar provimento ao recurso": a decisão do colegiado.
+_ACORDAM = re.compile(
+    r"(?is)\bacordam\b[^.]{0,500}?\b(?:provimento|provid[oa]|conhec\w*|prejudicad[oa]|"
+    r"embargos|anul\w*|cass\w*|seguran[çc]a|ordem|procedente|improcedente)\b[^.]*\."
+)
+
 _JULGO = re.compile(r"(?i)\b(?:julgo|julgamos|acordam|homologo|extingo|dou|nego|negam|d[ãa]o)\b")
 
 
@@ -28,6 +40,7 @@ class Secoes:
     fundamentacao: str
     dispositivo: str
     dispositivo_localizado: bool  # False quando caiu na heurística de fallback
+    decisao_colegiada: str | None = None  # parágrafo "ACORDAM", quando houver
 
 
 def dividir(texto: str) -> Secoes:
@@ -35,7 +48,14 @@ def dividir(texto: str) -> Secoes:
 
     O dispositivo começa no último marcador conclusivo ("Ante o exposto", "Isto posto"...). Sem
     marcador, usa o último "julgo"/"acordam"/"homologo"; sem nada disso, o último quinto do texto.
+    Em acórdãos, a busca para antes de declaração de voto ou voto vencido, e o parágrafo
+    "ACORDAM" é devolvido à parte como decisão colegiada.
     """
+    colegiada = _ACORDAM.search(texto)
+    vencido = _VOTO_VENCIDO.search(texto)
+    if vencido and vencido.start() > len(texto) * 0.2:
+        texto = texto[: vencido.start()]
+
     inicio_dispositivo = None
     marcadores = list(_INICIO_DISPOSITIVO.finditer(texto))
     if marcadores:
@@ -57,4 +77,5 @@ def dividir(texto: str) -> Secoes:
         fundamentacao=antes[corte:].strip(),
         dispositivo=texto[inicio_dispositivo:].strip(),
         dispositivo_localizado=localizado,
+        decisao_colegiada=colegiada.group(0).strip() if colegiada else None,
     )

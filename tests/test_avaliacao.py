@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from dikemetria.avaliacao import avaliar_dispositivo, capitulos, unanimidade
+from dikemetria.avaliacao import avaliar, avaliar_dispositivo, capitulos, unanimidade
 
 REFERENCIA = Path(__file__).parent / "dados" / "dispositivos.csv"
 CASOS = list(csv.DictReader(open(REFERENCIA, encoding="utf-8")))
@@ -64,3 +64,59 @@ def test_serializa_para_o_banco():
         "trecho": "procedente",
         "motivo": None,
     }
+
+
+ACORDAO_COM_VENCIDO = """APELAÇÃO CÍVEL. Relator: [PESSOA_1]
+ACÓRDÃO
+Vistos, relatados e discutidos estes autos, ACORDAM, por maioria, em negar provimento ao recurso,
+vencido o 3º Juiz, que declarará voto.
+VOTO
+Trata-se de apelação contra sentença de improcedência.
+É o relatório.
+O contrato foi juntado e a dívida está comprovada.
+Ante o exposto, nego provimento ao recurso.
+DECLARAÇÃO DE VOTO VENCIDO
+Divirjo da douta maioria. A assinatura não foi periciada.
+Ante o exposto, dou provimento ao recurso para julgar procedente o pedido.
+"""
+
+ACORDAO_RELATOR_VENCIDO = """ACÓRDÃO
+ACORDAM, por maioria, em dar provimento ao recurso, vencido o Relator.
+VOTO DO RELATOR
+É o relatório.
+A sentença deve ser mantida.
+Ante o exposto, nego provimento ao recurso.
+"""
+
+ACORDAO_COM_CONDENACAO = """ACÓRDÃO
+ACORDAM, por unanimidade, em dar provimento ao recurso.
+VOTO
+É o relatório.
+A negativação foi indevida.
+Ante o exposto, dou provimento ao recurso para julgar procedente o pedido e condenar a ré ao
+pagamento de R$ 10.000,00 a título de danos morais, com juros desde o evento danoso.
+"""
+
+
+def test_voto_vencido_nao_decide():
+    avaliacao, dispositivo = avaliar(ACORDAO_COM_VENCIDO)
+    assert avaliacao.resultado.value == "nao_provido"
+    assert avaliacao.resultado_acao is None
+    assert avaliacao.unanimidade is False
+    assert "dou provimento" not in dispositivo
+
+
+def test_acordam_prevalece_sobre_voto_do_relator_vencido():
+    avaliacao, _ = avaliar(ACORDAO_RELATOR_VENCIDO)
+    assert avaliacao.resultado.value == "provido"
+    assert "prevalece o ACORDAM" in avaliacao.motivo
+
+
+def test_acordao_com_condenacao_mantem_detalhes_do_voto():
+    from dikemetria.valores import calcular
+
+    avaliacao, dispositivo = avaliar(ACORDAO_COM_CONDENACAO)
+    assert avaliacao.resultado.value == "provido"
+    assert avaliacao.resultado_acao.value == "procedente"
+    assert avaliacao.unanimidade is True
+    assert calcular(dispositivo).total("danos_morais") == 10000.0

@@ -614,3 +614,33 @@ def avaliar_dispositivo(dispositivo: str, texto_completo: str | None = None) -> 
         unanimidade=unanimidade(completo) if recurso or texto_completo else None,
         capitulos=caps,
     )
+
+
+def avaliar(texto: str) -> tuple[Avaliacao, str]:
+    """Avalia a decisão inteira. Devolve a avaliação e o dispositivo usado (para o cálculo).
+
+    Em acórdãos, o parágrafo "ACORDAM" é a decisão do colegiado. Se o resultado do recurso nele
+    for determinado e diferente do resultado do voto (relator vencido, por exemplo), prevalece o
+    "ACORDAM", e o resultado da ação só é mantido se o próprio "ACORDAM" o disser.
+    """
+    from dikemetria.estrutura import dividir
+
+    secoes = dividir(texto)
+    avaliacao = avaliar_dispositivo(secoes.dispositivo, texto)
+    if not secoes.decisao_colegiada:
+        return avaliacao, secoes.dispositivo
+
+    colegiada = avaliar_dispositivo(secoes.decisao_colegiada, texto)
+    if colegiada.resultado == R.INDETERMINADO or not any(
+        c.objeto in (RECURSO, EMBARGOS_DECLARACAO) for c in colegiada.capitulos
+    ):
+        return avaliacao, secoes.dispositivo
+    if colegiada.resultado == avaliacao.resultado:
+        return avaliacao, secoes.dispositivo
+    colegiada.motivo = "; ".join(
+        filter(None, [colegiada.motivo, "prevalece o ACORDAM sobre o voto"])
+    )
+    colegiada.tipo_decisao = (
+        avaliacao.tipo_decisao if avaliacao.tipo_decisao != "outro" else (colegiada.tipo_decisao)
+    )
+    return colegiada, secoes.decisao_colegiada

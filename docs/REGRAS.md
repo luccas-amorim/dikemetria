@@ -26,6 +26,17 @@ A decisão é dividida em **relatório**, **fundamentação** e **dispositivo** 
 Só o dispositivo é avaliado. A fundamentação discute pedidos e valores que o juiz pode rejeitar,
 e lê-la levaria a falsos resultados.
 
+**Acórdãos.** Duas regras adicionais:
+
+1. A busca do dispositivo para antes de "Declaração de voto", "Voto vencido" ou "Voto divergente"
+   (quando o cabeçalho aparece depois dos primeiros 20% do texto). O último "Ante o exposto" de um
+   voto vencido não é a decisão do tribunal.
+2. O parágrafo "ACORDAM ... em [resultado]" é a decisão do colegiado. Se o resultado do recurso
+   nele for diferente do resultado lido no voto (relator vencido, por exemplo), **prevalece o
+   ACORDAM**, com o motivo "prevalece o ACORDAM sobre o voto"; o resultado da ação só é mantido se
+   o próprio ACORDAM o disser. Se os dois coincidirem, vale a leitura do voto, que traz o
+   detalhe ("para julgar procedente o pedido", valores da condenação).
+
 ## 2. Comandos decisórios
 
 Código: `dikemetria/avaliacao.py`, lista `REGRAS`.
