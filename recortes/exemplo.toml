@@ -1,0 +1,22 @@
+# Recorte de exemplo: negativação indevida e inexigibilidade de débito em todos os tribunais.
+# Os códigos e nomes de assunto seguem a Tabela Processual Unificada do CNJ.
+# Confira-os em https://www.cnj.jus.br/sgt/consulta_publica_assuntos.php antes de uma coleta grande.
+
+nome = "negativacao-indevida"
+descricao = "Inclusão indevida em cadastro de inadimplentes e inexigibilidade de débito"
+tribunais = ["estadual"]      # "todos", um ramo (estadual, federal, trabalho...) ou siglas (tjsp)
+incluir_sensiveis = false
+
+[datajud]
+assuntos_nomes = ["Inclusão Indevida em Cadastro de Inadimplentes"]
+graus = ["G1", "JE"]          # primeiro grau e juizados especiais
+ajuizamento_desde = 2020-01-01
+ajuizamento_ate = 2024-12-31
+limite_por_tribunal = 2000    # comece pequeno; retire para a coleta completa
+
+[djen]
+texto = "inexigibilidade"
+tipos_documento = ["Sentença"]
+data_inicio = 2025-01-01
+data_fim = 2025-01-31
+limite_por_tribunal = 500
