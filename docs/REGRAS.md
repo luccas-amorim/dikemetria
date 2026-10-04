@@ -207,14 +207,32 @@ Código: `dikemetria/consolidacao.py` e `dikemetria/jurimetria.py`.
 ### 7.2 Movimentos do DataJud
 
 Código: `dikemetria/resultado.py`. Vale o **primeiro** movimento de julgamento em ordem cronológica.
-Códigos TPU 219, 220 e 221 = procedência, improcedência e procedência em parte. Pelos nomes:
-"Procedência em parte", "Improcedência", "Prescrição", "Decadência", "Procedência", "Homologação de
-transação", extinções ("sem resolução do mérito", "desistência", "abandono", "indeferimento",
-"litispendência", "coisa julgada"), extinções do JEC (Lei 9.099, art. 51: códigos 11376 "Ausência do
-autor à audiência", 11377 "Inadmissibilidade do procedimento sumaríssimo" e 11378 "Incompetência
-territorial", este só pelo código), "Provimento em parte", "Não-provimento", "Provimento",
-"Não-conhecimento". Movimentos sobre embargos de declaração, liminar, tutela, gratuidade,
-impugnação ao valor, exceção, incidente e cumprimento de sentença são ignorados.
+Códigos TPU 219, 220 e 221 = procedência, improcedência e procedência em parte; 11376, 11377 e
+11378 = extinções do JEC (Lei 9.099, art. 51: ausência do autor à audiência, inadmissibilidade do
+procedimento sumaríssimo, incompetência territorial; esta última só pelo código, porque fora do JEC
+o nome indica remessa). Os demais movimentos são lidos pelo nome:
+
+| Resultado | Nomes (exemplos dos 91 tribunais) |
+|---|---|
+| Parcialmente procedente | "Procedência em Parte", "procedência parcial", "Pedido conhecido em parte e procedente em parte" |
+| Improcedente | "Improcedência", "Não-Procedência", "Pronúncia de Decadência ou Prescrição", "Prescrição intercorrente", "Renúncia ao direito pelo autor" |
+| Procedente | "Procedência", "Procedência do Pedido - Reconhecimento pelo réu", "Pedido conhecido em parte e procedente" |
+| Acordo homologado | "Homologação de Transação" |
+| Extinto sem mérito | "Sem Resolução de Mérito", "Desistência", "Abandono da causa", "Indeferimento da petição inicial", "Ausência das condições da ação", "Ausência de pressupostos processuais", "Perempção, litispendência ou coisa julgada", "Ausência do Reclamante" (CLT, art. 844), "Ausência de citação de sucessores do réu falecido", "Ausência de Requerimento Administrativo Prévio" |
+| Não conhecido | "Não Conhecimento de recurso", "Conhecimento para não conhecer do Recurso Especial" |
+| Parcialmente provido | "Provimento em Parte", "Conhecimento em Parte e Provimento em Parte", "Conhecimento para dar parcial provimento" |
+| Não provido | "Não-Provimento", "Conhecimento em Parte e Não-Provimento ou Denegação", "Conhecimento para negar provimento" |
+| Provido | "Provimento", "Provimento (art. 557 do CPC)", "Conhecimento para dar provimento" |
+
+**Pedido contraposto (JEC).** Em "Procedência do pedido e improcedência do pedido contraposto",
+só o trecho do pedido do autor é lido, como na seção 4.1.
+
+**Ignorados.** Movimentos sobre embargos de declaração, liminar, tutela, gratuidade, impugnação ao
+valor, exceção, incidente e cumprimento de sentença. Também ficam sem rótulo os genéricos, que não
+dizem o resultado: "Mérito" (marcação de pauta no 2º grau), "Julgamento", "Com Resolução do
+Mérito", "Extinção", "Concessão", "Denegação", "Segurança", "Acolhimento", "Homologado o Pedido" e
+"Homologação de Decisão de Juiz Leigo". Neste último, comum nos juizados, o resultado só vem do
+texto da decisão.
 
 ### 7.3 Fórmulas
 

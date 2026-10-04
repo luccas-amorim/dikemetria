@@ -58,10 +58,16 @@ def classificar_texto(dispositivo: str) -> Classificacao:
 # Nomes de movimentos da TPU (CNJ) sem acentos. Código 219, 220 e 221 = procedência,
 # improcedência e procedência em parte; os nomes cobrem variações entre tribunais.
 _MOVIMENTOS: list[tuple[Resultado, re.Pattern]] = [
-    (Resultado.PARCIALMENTE_PROCEDENTE, re.compile(r"procedencia em parte|procedente em parte")),
-    (Resultado.IMPROCEDENTE, re.compile(r"\bprescricao\b|\bdecadencia\b|renuncia a pretensao")),
-    (Resultado.IMPROCEDENTE, re.compile(r"\bimprocedencia\b")),
-    (Resultado.PROCEDENTE, re.compile(r"(?<!im)procedencia\b(?! em parte)")),
+    (
+        Resultado.PARCIALMENTE_PROCEDENTE,
+        re.compile(r"procedencia (?:em parte|parcial)|procedente em parte|parcial procedencia"),
+    ),
+    (
+        Resultado.IMPROCEDENTE,
+        re.compile(r"\bprescricao\b|\bdecadencia\b|renuncia a pretensao|renuncia ao direito"),
+    ),
+    (Resultado.IMPROCEDENTE, re.compile(r"\bimprocedencia\b|\bimprocedente\b|nao[- ]procedencia")),
+    (Resultado.PROCEDENTE, re.compile(r"(?<!im)procedencia\b(?! em parte)|(?<!im)procedente\b")),
     (Resultado.HOMOLOGACAO_ACORDO, re.compile(r"homologacao de (?:transacao|acordo)")),
     (
         Resultado.EXTINTO_SEM_MERITO,
@@ -69,13 +75,22 @@ _MOVIMENTOS: list[tuple[Resultado, re.Pattern]] = [
             r"sem resolucao d[oe] merito|desistencia|abandono da causa|"
             r"indeferimento da peticao inicial|ausencia (?:das|de) condic|"
             r"ausencia de pressupostos|perempcao|litispendencia|coisa julgada|"
-            r"ausencia do autor a audiencia|inadmissibilidade do procedimento sumarissimo"
+            r"ausencia do autor a audiencia|inadmissibilidade do procedimento sumarissimo|"
+            r"ausencia do reclamante|ausencia de citacao de sucessores|"
+            r"ausencia de requerimento administrativo"
         ),
     ),
-    (Resultado.PARCIALMENTE_PROVIDO, re.compile(r"provimento em parte")),
-    (Resultado.NAO_PROVIDO, re.compile(r"nao[- ]provimento")),
+    # Recursos: "conhecimento para negar provimento", "dar parcial provimento"...
+    (Resultado.NAO_CONHECIDO, re.compile(r"nao[- ]conhecimento|nao conhecer")),
+    (
+        Resultado.PARCIALMENTE_PROVIDO,
+        re.compile(r"provimento em parte|parcial provimento|provimento parcial"),
+    ),
+    (
+        Resultado.NAO_PROVIDO,
+        re.compile(r"nao[- ]provimento|desprovimento|neg(?:ar|ou|o|ado) provimento"),
+    ),
     (Resultado.PROVIDO, re.compile(r"(?<!nao-)(?<!nao )\bprovimento\b(?! em parte)")),
-    (Resultado.NAO_CONHECIDO, re.compile(r"nao[- ]conhecimento")),
 ]
 
 CODIGOS_TPU = {
@@ -103,6 +118,8 @@ def classificar_movimento(codigo: int | None, nome: str | None) -> Resultado | N
         return None
     if codigo in CODIGOS_TPU:
         return CODIGOS_TPU[codigo]
+    # "Procedência do pedido e improcedência do pedido contraposto": só o pedido do autor conta.
+    nome_norm = re.split(r"\s+e\s+(?=\S+(?: em parte)? do pedido contraposto)", nome_norm)[0]
     for rotulo, padrao in _MOVIMENTOS:
         if padrao.search(nome_norm):
             return rotulo
