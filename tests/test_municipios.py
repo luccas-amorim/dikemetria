@@ -57,7 +57,7 @@ def test_ufs_dos_tribunais():
         ("mg",),
     ]
     assert selecionar(["tjdft"])[0].ufs == ("df",)
-    assert selecionar(["tre-dft"])[0].ufs == ("df",)
+    assert selecionar(["tre-df"])[0].ufs == ("df",)
     assert selecionar(["tjmsp"])[0].ufs == ("sp",)
     assert "pe" in selecionar(["trf5"])[0].ufs
     assert selecionar(["trt15"])[0].ufs == ("sp",)

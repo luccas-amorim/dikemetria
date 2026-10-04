@@ -51,7 +51,7 @@ class Tribunal:
             return UFS_TRT[int(self.sigla[3:])]
         prefixo = {"militar": "tjm", "eleitoral": "tre-"}.get(self.ramo, "tj")
         uf = self.sigla.removeprefix(prefixo)
-        return ("df",) if uf in ("df", "dft") else (uf,)
+        return ("df",) if uf == "dft" else (uf,)
 
 
 def _montar() -> tuple[Tribunal, ...]:
@@ -59,7 +59,8 @@ def _montar() -> tuple[Tribunal, ...]:
     tribunais += [Tribunal(f"trf{n}", "federal") for n in range(1, 7)]
     tribunais += [Tribunal("tjdft" if uf == "df" else f"tj{uf}", "estadual") for uf in UFS]
     tribunais += [Tribunal(f"trt{n}", "trabalho") for n in range(1, 25)]
-    tribunais += [Tribunal("tre-dft" if uf == "df" else f"tre-{uf}", "eleitoral") for uf in UFS]
+    # No eleitoral o DF é "tre-df" (o índice api_publica_tre-dft não existe no DataJud).
+    tribunais += [Tribunal(f"tre-{uf}", "eleitoral") for uf in UFS]
     tribunais += [Tribunal(s, "militar") for s in ("tjmmg", "tjmrs", "tjmsp")]
     return tuple(tribunais)
 
@@ -103,7 +104,7 @@ def tribunal_por_cnj(numero: str) -> str | None:
     if justica == 8 and uf:
         return "tjdft" if uf == "df" else f"tj{uf}"
     if justica == 6 and uf:
-        return "tre-dft" if uf == "df" else f"tre-{uf}"
+        return f"tre-{uf}"
     if justica == 4 and 1 <= tr <= 6:
         return f"trf{tr}"
     if justica == 5 and 1 <= tr <= 24:

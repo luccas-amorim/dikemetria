@@ -88,3 +88,9 @@ def test_analise_de_documento_completa():
     assert analise.termos_juridicos["ônus da prova"] == 1
     assert any("Isso porque" in a for a in analise.argumentos)
     assert analisar_documento(SENTENCA_IMPROCEDENTE).resultado == "improcedente"
+
+
+def test_tre_do_df_usa_o_indice_que_existe_no_datajud():
+    siglas = {t.sigla for t in TRIBUNAIS}
+    assert "tre-df" in siglas and "tre-dft" not in siglas
+    assert tribunal_por_cnj("0600001-00.2024.6.07.0001") == "tre-df"
