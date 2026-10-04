@@ -280,6 +280,25 @@ def estrutura(valor):
     )
 
 
+def _cobertura(args) -> int:
+    """Razão entre o DataJud e os casos novos do Justiça em Números, por tribunal."""
+    from dikemetria import cobertura
+    from dikemetria.coleta import datajud
+    from dikemetria.coleta.tribunais import selecionar
+
+    medidas = cobertura.medir(
+        datajud.cliente_datajud(args.intervalo), selecionar(args.tribunais), args.ano, args.jn
+    )
+    print(f"{'tribunal':9}{'DataJud':>12}{'JN':>12}{'razão':>8}")
+    for m in sorted(medidas, key=lambda m: m.razao or 0):
+        razao = f"{m.razao:.2f}" if m.razao else "-"
+        aviso = "" if m.aceitavel else "  fora da faixa"
+        datajud_n = f"{m.datajud:,}" if m.datajud is not None else "-"
+        jn_n = f"{m.casos_novos:,.0f}" if m.casos_novos else "-"
+        print(f"{m.tribunal:9}{datajud_n:>12}{jn_n:>12}{razao:>8}{aviso}".replace(",", "."))
+    return 0
+
+
 def _classificar(args) -> int:
     """Reavalia os documentos do banco com as regras atuais de avaliação e cálculo."""
     from dikemetria.avaliacao import avaliar
@@ -401,6 +420,15 @@ def construir_parser() -> argparse.ArgumentParser:
     p.add_argument("--saida", default="dados/autos", help="pasta de saída, fora do git")
     p.add_argument("--incluir-anexos", action="store_true", help="grava também os anexos")
     p.set_defaults(func=_autos)
+
+    p = sub.add_parser(
+        "cobertura", help="compara o DataJud com os casos novos do Justiça em Números (CNJ)"
+    )
+    p.add_argument("--jn", required=True, help="CSV da base de dados do Justiça em Números")
+    p.add_argument("--ano", type=int, required=True)
+    p.add_argument("--tribunais", nargs="+", default=["estadual"], help="siglas ou ramos")
+    p.add_argument("--intervalo", type=float, default=1.0)
+    p.set_defaults(func=_cobertura)
 
     p = sub.add_parser("sondar", help="confere os campos atuais da API de uma fonte")
     p.add_argument("--fonte", choices=["datajud", "djen"], default="datajud")
