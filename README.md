@@ -67,6 +67,9 @@ aconselhar quem litiga. Nada aqui constitui consultoria ou assessoria jurídica.
 | `dikemetria/jurimetria.py` | taxas com IC de Wilson, taxa nacional, reforma em 2º grau, valores, tempos, normas e vocabulário |
 | `dikemetria/relatorio.py` | relatório HTML, tabelas CSV e dicionário de dados |
 | `dikemetria/validacao.py` | amostra para rotulagem manual e medida de acerto da classificação |
+| `dikemetria/autos.py` | autos completos do eproc: separa as peças e lê só sentenças e acórdãos |
+| `dikemetria/municipios.py` | município da unidade judiciária com código do IBGE confirmado |
+| `dikemetria/guarda.py` | barra no CI e antes do commit documentos, bancos e CPF/CNPJ/processos reais |
 
 As regras de avaliação das decisões e de cálculo das medidas estão em
 [docs/REGRAS.md](docs/REGRAS.md), com o conjunto-referência de dispositivos que as testa em
@@ -94,6 +97,9 @@ dikemetria coletar recortes/exemplo.toml --fonte datajud
 dikemetria coletar recortes/exemplo.toml --fonte djen
 dikemetria coletar --fonte arquivos --pasta minhas_decisoes/
 
+# Autos completos (eproc): peças pseudonimizadas, sem anexos, numa pasta fora do git
+dikemetria autos autos.pdf --saida dados/autos/
+
 # Validação da classificação
 dikemetria amostra --n 200 --saida amostra.csv         # preencha a coluna resultado_manual
 dikemetria validar amostra.csv
@@ -106,7 +112,13 @@ Antes de uma coleta grande, `dikemetria sondar --fonte datajud` e `dikemetria so
 mostram os campos atuais de cada API. A chave pública do DataJud é divulgada pelo CNJ e muda de
 tempos em tempos; se ela expirar, defina `DATAJUD_API_KEY`. O STF não está no DataJud.
 
+Com limite por tribunal, o DataJud devolve uma amostra sorteada com semente fixa (`ordem` e
+`semente` no recorte), e o período de ajuizamento é filtrado na própria consulta. O DJEN só
+responde a acessos do Brasil.
+
 Para o Google Colab, veja `notebooks/colab.ipynb`. Testes: `pytest`; estilo: `ruff check .`.
+Antes do primeiro commit, ative a guarda de dados pessoais: `git config core.hooksPath .githooks`
+(o CI roda a mesma verificação com `python -m dikemetria.guarda`).
 
 ## Para onde vai, com apoio
 
