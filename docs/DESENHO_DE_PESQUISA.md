@@ -62,7 +62,7 @@ Nenhum resultado será descrito como efeito causal.
 | Fonte | O que dá | Limite |
 |---|---|---|
 | DJEN | inteiro teor de sentenças e acórdãos; destinatários com polo e advogados (OAB), usados para classificar a representação e descartados | a API bloqueia acessos de fora do Brasil (seção 13); não traz as petições |
-| DataJud | classe, assuntos, órgão julgador, município, datas, movimentos | sem texto e sem valor da causa; o código de município não segue o IBGE em todos os tribunais |
+| DataJud | classe, assuntos, órgão julgador, município, datas, movimentos | sem texto e sem valor da causa; município sem código utilizável em TJRN, TJMT, TJTO, TRF5 e parte do TRF1; índice do TJDFT incompleto |
 | Autos completos | petições, decisões interlocutórias e sentença | só em amostra (3.3); trazem documentos de terceiros, como atas societárias e procurações, que a pseudonimização por regras não cobre bem |
 
 ### 3.3 Dois desenhos
@@ -106,13 +106,13 @@ explicar um evento posterior (a reforma, M2), mas nunca o resultado da própria 
 | `assunto` | código TPU principal | DataJud | anterior | direito aplicável |
 | `precedentes_vinculantes` | temas, súmulas e IRDR citados | `referencias.py` | decisão | direito aplicável (controle) |
 | `uf`, `regiao`, `capital` | da unidade judiciária | DataJud (município), tabela de unidades | anterior | contexto (viés regional) |
-| `idhm`, `porte_comarca` | do município sede | IBGE/PNUD, depois de corrigir o código do município | anterior | contexto |
+| `idhm`, `porte_comarca` | do município sede | IBGE/PNUD, pelo município resolvido em `municipios.py` (código IBGE confirmado, tabela do tribunal ou nome do órgão) | anterior | contexto |
 | `carga_unidade` | casos novos por magistrado e ano | DataJud agregado, Justiça em Números | anterior | contexto (só controle) |
 | `ano`, `mes`, `marco` | data da sentença; antes/depois de marcos (tema repetitivo, troca de sistema processual) | DataJud, texto | anterior | contexto (viés de período) |
 | `extensao_peca`, `frase_media`, `legibilidade`, `erros_por_mil` | qualidade linguística da peça de cada parte | autos (sub-estudo) | anterior | linguagem |
 | `intensificadores`, `latinismos`, `registro` | vocabulário das partes | autos (sub-estudo), léxicos versionados | anterior | linguagem |
 | `fidelidade_relatorio` | seção 6.4 | autos (sub-estudo) | decisão | P5 |
-| `unidade_judiciaria` | vara ou câmara | DataJud | anterior | **só efeito aleatório; nada é publicado por unidade** |
+| `unidade_judiciaria` | vara ou câmara (`orgao_codigo`, já guardado no banco) | DataJud | anterior | **só efeito aleatório; nada é publicado por unidade** |
 
 Variáveis que identificam magistrado não são coletadas. A unidade entra apenas como efeito
 aleatório de controle.
@@ -521,13 +521,39 @@ sub-estudo (seção 10).
 6. **Modelo de linguagem externo** nas etapas automáticas, ou só modelos locais (seção 10)?
 7. **Saúde como matéria sensível:** ampliar `politica.materia_sensivel`?
 8. **Equivalência em H3:** a margem de ±5 pontos é adequada?
+9. **Tabela de municípios e cobertura:** a tabela de conversão (TJRN, TJMT, TJTO, TRF5, TRF1) e
+   o teste de cobertura por tribunal dependem de dados do CNJ (cadastro de serventias, Justiça em
+   Números), que este ambiente não alcança. Liberar `www.cnj.jus.br` no ambiente ou enviar os
+   arquivos?
 
 ## 13. Situação das fontes (outubro de 2026)
 
-- **DataJud:** acessível deste ambiente; os campos conferem com `coleta/datajud.py`. Respostas
-  lentas (estouros de 60 s nas primeiras tentativas, resolvidos pelas novas tentativas). O TJRN
-  informa `codigoMunicipioIBGE` com código próprio de 4 dígitos, não o IBGE de 7, o que precisa ser
-  corrigido antes de usar `idhm` e `porte_comarca`.
-- **DJEN:** a API responde 403 do CloudFront ("configured to block access from your country") a
-  acessos de fora do Brasil. A coleta do inteiro teor precisa rodar de máquina no Brasil. Os campos
-  usados em `coleta/djen.py` ainda não foram conferidos contra uma resposta real.
+Levantamento feito nos 91 índices do DataJud, por agregação (códigos de movimento e de município,
+com contagens), mais testes de coleta.
+
+**DataJud**
+
+- Os campos conferem com `coleta/datajud.py`. As respostas são lentas: consultas pesadas passam de
+  60 s (o cliente agora espera 120 s), e agregações em índices grandes dão 504 com frequência.
+- `dataAjuizamento` vem em três formatos, às vezes no mesmo índice (o TJSP mistura
+  "20220312164429" e "2022-03-22T15:46:13.000Z"). O filtro de período na consulta cobre os três:
+  em 12 tribunais de todos os ramos, 240 de 240 processos sorteados ficaram no período.
+- **Município:** em 78 dos 85 tribunais conferidos até aqui, mais de 99% dos processos têm código
+  IBGE válido ou município legível no nome do órgão. Não servem sem uma tabela de conversão: TJRN
+  (numeração própria), TJMT (campo vazio), TJTO e TRF5 (código zero) e 38% do TRF1 (sobretudo
+  gabinetes de segundo grau). Essas lacunas afetam diretamente H4 (viés regional).
+- **Cobertura:** o índice do TJDFT tem 543 mil processos, menos que o TJAC e o TJAP; deve estar
+  incompleto. Comparações regionais precisam de um teste de cobertura por tribunal e ano
+  (processos no DataJud ÷ casos novos do Justiça em Números) antes de entrar nos modelos.
+- **Movimentos:** a auditoria dos códigos usados nos 91 tribunais corrigiu leituras erradas em
+  volume (REGRAS.md, 7.2). Nos juizados de vários tribunais, o julgamento aparece só como
+  "Homologação de Decisão de Juiz Leigo" (2 milhões de ocorrências), que não diz o resultado: ali
+  o resultado depende do texto da decisão.
+- O índice do TRE do DF é `tre-df`; a lista usava `tre-dft`, que não existe.
+
+**DJEN**
+
+- A API responde 403 do CloudFront ("configured to block access from your country") a acessos de
+  fora do Brasil. A coleta do inteiro teor precisa rodar de máquina no Brasil, e os campos usados em
+  `coleta/djen.py` ainda não foram conferidos contra uma resposta real. `dikemetria sondar --fonte
+  djen` mostra a estrutura do item sem valores, para essa conferência.

@@ -9,7 +9,8 @@ Jurimetria aberta sobre decisões judiciais públicas. Leia o README (finalidade
 pip install -e ".[dev]"
 pytest -q                       # todos os testes; precisam passar antes de cada commit
 ruff check . && ruff format --check .
-dikemetria --help               # analisar, coletar, sondar, estimar, classificar, amostra, validar, relatorio
+python -m dikemetria.guarda     # nenhum dado pessoal versionado
+dikemetria --help               # analisar, autos, coletar, sondar, estimar, classificar, amostra, validar, relatorio
 ```
 
 ## Mapa do código (`dikemetria/`)
@@ -26,6 +27,9 @@ dikemetria --help               # analisar, coletar, sondar, estimar, classifica
 | `jurimetria.py`, `estatistica.py` | medidas agregadas (Wilson, log-odds, reforma, valores) |
 | `relatorio.py` | relatório HTML/CSV público |
 | `corpus.py` | banco SQLite local (só texto pseudonimizado) |
+| `autos.py` | autos completos do eproc: peças por evento; só decisões finais entram no corpus |
+| `municipios.py`, `dados/` | município da unidade com código IBGE confirmado; lista do IBGE |
+| `guarda.py` | barra documentos, bancos e CPF/CNPJ/processos reais no git |
 
 ## Regras que não se negociam
 
@@ -39,20 +43,24 @@ dikemetria --help               # analisar, coletar, sondar, estimar, classifica
 
 ## Estado (outubro de 2026)
 
-- PR luccas-amorim/dikemetria#1 (pacote, coleta, regras de avaliação e de cálculo, relatório)
-  mesclado.
-- **DataJud** testado de verdade nesta nuvem: os campos conferem com `coleta/datajud.py`. As
-  respostas são lentas (estouros de 60 s resolvidos pelas novas tentativas). O TJRN usa código
-  próprio em `codigoMunicipioIBGE`, que não é IBGE. O limite por tribunal conta antes do filtro de
-  período: de 300 processos lidos, 70 ficaram.
-- **DJEN** bloqueia acessos de fora do Brasil (403 do CloudFront, "block access from your
-  country"). Liberar o domínio no ambiente não basta: a coleta do inteiro teor precisa rodar de
-  máquina no Brasil. Os campos de `coleta/djen.py` seguem sem conferência contra resposta real.
-- Correções vindas de dados reais: extinções do JEC (códigos 11376, 11377 e 11378) e, na
-  pseudonimização, nome de PJ seguido de "S.A."/"LTDA", OAB no formato do eproc e nomes junto da
-  OAB (casos fictícios nos testes).
-- `docs/DESENHO_DE_PESQUISA.md`: rascunho do desenho, construído sobre o piloto e **aguardando
-  revisão do autor**. Não implementar os modelos antes dessa revisão.
+- PRs luccas-amorim/dikemetria#1 e #2 mesclados. O histórico de `main` foi reescrito para tirar
+  autos com dados pessoais; `python -m dikemetria.guarda` (CI e `.githooks/pre-commit`) impede
+  que isso se repita. Ative o gancho em cada clone: `git config core.hooksPath .githooks`.
+- **Rede desta nuvem:** só `api-publica.datajud.cnj.jus.br` e `comunicaapi.pje.jus.br` (além de
+  PyPI e raw.githubusercontent.com). CNJ, IBGE e docs.github.com são bloqueados.
+- **DataJud** funciona, mas é lento (cliente com 120 s). Levantamento dos 91 índices em
+  `docs/DESENHO_DE_PESQUISA.md`, seção 13: formatos de data, municípios (TJRN, TJMT, TJTO, TRF5 e
+  parte do TRF1 precisam de tabela de conversão), TJDFT incompleto, `tre-df` (não `tre-dft`).
+  Coleta com limite sorteia a amostra (`ordem`, `semente`) e filtra o período na consulta.
+- **DJEN** bloqueia acessos de fora do Brasil (403 do CloudFront). A coleta do inteiro teor e a
+  conferência dos campos (`dikemetria sondar --fonte djen`, que mostra só a estrutura) precisam
+  rodar de máquina no Brasil.
+- **Movimentos:** auditados contra os códigos em uso nos 91 tribunais (REGRAS.md, 7.2). Ao achar
+  um nome novo de julgamento, acrescente o caso em `tests/test_resultado.py` antes do código.
+- **Autos completos** (eproc): `autos.py` separa as peças; coleta e análise usam só sentença,
+  acórdão e decisão monocrática; `dikemetria autos` exporta as peças para o sub-estudo.
+- `docs/DESENHO_DE_PESQUISA.md`: rascunho **aguardando revisão do autor**. Não implementar os
+  modelos antes dessa revisão.
 
 ## Linha de pesquisa em desenho
 
