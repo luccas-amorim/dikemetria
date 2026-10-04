@@ -39,12 +39,20 @@ dikemetria --help               # analisar, coletar, sondar, estimar, classifica
 
 ## Estado (outubro de 2026)
 
-- PR luccas-amorim/dikemetria#1 traz o pacote, a coleta, as regras de avaliação e de cálculo e o
-  relatório. CI verde. A coleta só foi testada com respostas simuladas.
-- O ambiente de nuvem foi configurado para liberar `api-publica.datajud.cnj.jus.br` e
-  `comunicaapi.pje.jus.br`. Primeiro passo numa sessão nova: `dikemetria sondar --fonte datajud`
-  e `dikemetria sondar --fonte djen`, e ajustar `coleta/datajud.py` e `coleta/djen.py` se os
-  campos reais diferirem dos documentados.
+- PR luccas-amorim/dikemetria#1 (pacote, coleta, regras de avaliação e de cálculo, relatório)
+  mesclado.
+- **DataJud** testado de verdade nesta nuvem: os campos conferem com `coleta/datajud.py`. As
+  respostas são lentas (estouros de 60 s resolvidos pelas novas tentativas). O TJRN usa código
+  próprio em `codigoMunicipioIBGE`, que não é IBGE. O limite por tribunal conta antes do filtro de
+  período: de 300 processos lidos, 70 ficaram.
+- **DJEN** bloqueia acessos de fora do Brasil (403 do CloudFront, "block access from your
+  country"). Liberar o domínio no ambiente não basta: a coleta do inteiro teor precisa rodar de
+  máquina no Brasil. Os campos de `coleta/djen.py` seguem sem conferência contra resposta real.
+- Correções vindas de dados reais: extinções do JEC (códigos 11376, 11377 e 11378) e, na
+  pseudonimização, nome de PJ seguido de "S.A."/"LTDA", OAB no formato do eproc e nomes junto da
+  OAB (casos fictícios nos testes).
+- `docs/DESENHO_DE_PESQUISA.md`: rascunho do desenho, construído sobre o piloto e **aguardando
+  revisão do autor**. Não implementar os modelos antes dessa revisão.
 
 ## Linha de pesquisa em desenho
 
@@ -74,6 +82,5 @@ utilidade pública, em agregado. Decisões já tomadas com o autor:
 7. **Fontes**: inteiro teor das decisões pelo DJEN; um inteiro teor piloto enviado pelo autor no
    chat (processar só localmente, pseudonimizado, nunca commitar).
 
-Próximo entregável: `docs/DESENHO_DE_PESQUISA.md` (perguntas, hipóteses, variáveis, esquema de
-anotação, medidas, modelos, protocolo de validação), construído a partir do piloto, para revisão
-do autor antes de implementar.
+O desenho está em `docs/DESENHO_DE_PESQUISA.md`, com as decisões pendentes na seção 12. O piloto
+foi apagado do repositório depois do uso e nunca deve voltar a ele.
