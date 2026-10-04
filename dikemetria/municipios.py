@@ -96,7 +96,9 @@ def municipio_no_nome(nome_orgao: str | None, ufs: tuple[str, ...]) -> int | Non
                 candidatos.add((len(nome_municipio), codigo))
     if not candidatos:
         # Último trecho depois de " - " ou de "de/do/da", sem a UF no fim.
-        segmentos = [_normalizar(p) for p in re.split(r"\s+[-–]\s+", nome_orgao.replace("/", " "))]
+        segmentos = [
+            _normalizar(p) for p in re.split(r"\s*[-–]\s+|\s+[-–]\s*", nome_orgao.replace("/", " "))
+        ]
         trechos = [segmentos[-1]] if len(segmentos) > 1 else []
         trechos += [nome[m.end() :] for m in re.finditer(r"\s(?:de|do|da|dos|das)\s", nome)]
         for trecho in trechos:
@@ -104,6 +106,12 @@ def municipio_no_nome(nome_orgao: str | None, ufs: tuple[str, ...]) -> int | Non
             if trecho in por_nome:
                 candidatos.add((len(trecho), por_nome[trecho]))
                 break
+        if not candidatos and len(segmentos) > 1:
+            # "2ª TR - R1 Teresina": o município fecha o último trecho.
+            ultimo = re.sub(rf"\s(?:{'|'.join(ufs)})$", "", segmentos[-1])
+            for nome_municipio, codigo in por_nome.items():
+                if ultimo.endswith(" " + nome_municipio):
+                    candidatos.add((len(nome_municipio), codigo))
     if not candidatos:
         return None
     maior = max(tamanho for tamanho, _ in candidatos)

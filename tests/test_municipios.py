@@ -41,6 +41,9 @@ def test_municipio_no_fim_do_nome_do_orgao():
     trf1 = selecionar(["trf1"])[0].ufs
     assert municipios.municipio_no_nome("15ª Vara JEF - Salvador", trf1) == 2927408
     assert municipios.municipio_no_nome("1ª TR - R3 - São Luís", trf1) == 2111300
+    assert municipios.municipio_no_nome("2ª TR - R1 Teresina", trf1) == 2211001
+    assert municipios.municipio_no_nome("05ª Vara JEF- Macapá", trf1) == 1600303
+    assert municipios.municipio_no_nome("Vara Única da Comarca de Embu-Guaçu", ("sp",)) == 3515103
     ms = ("ms",)
     assert municipios.municipio_no_nome("2ª Vara do Juizado Especial de Dourados", ms) == 5003702
     for sem_municipio in ("Gabinete 09", "28ª Vara Federal", "Vara de Família"):
