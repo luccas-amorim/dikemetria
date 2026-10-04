@@ -9,9 +9,10 @@ Dikemetria é a medida de como se julga: como os tribunais decidem determinadas 
 vocabulário e com que fundamentos, publicada de forma aberta, reprodutível e auditável, sem pôr
 peso em nenhum dos pratos.
 
-> **Estágio: protótipo.** O código atual (2024) extrai o texto de uma decisão em PDF, normaliza,
-> conta termos e localiza referências a artigos e códigos. Tudo o que vem abaixo de
-> "Para onde vai" depende de financiamento.
+> **Estágio: protótipo funcional.** O pacote coleta metadados (DataJud) e decisões (DJEN) dos
+> 91 tribunais cobertos pelas fontes nacionais, pseudonimiza, classifica o resultado e gera um
+> relatório agregado. A coleta em escala e a validação manual da classificação dependem de
+> financiamento.
 
 ---
 
@@ -50,25 +51,70 @@ aconselhar quem litiga. Nada aqui constitui consultoria ou assessoria jurídica.
 
 ## O que já existe
 
-| Arquivo | Etapa |
+| Módulo | Etapa |
 |---|---|
-| `text_extraction.py` | extrai o texto de decisões em PDF |
-| `pre_processing.py` | limpa e normaliza o texto jurídico |
-| `analyses.py` | frequência de termos, referências a artigos e códigos, termos jurídicos |
-| `analyses_view.py` | gráficos das frequências |
-| `text_mining.py` | executa o fluxo completo sobre um arquivo |
-| `colab.py` | versão exploratória para Google Colab (DOCX, spaCy) |
+| `dikemetria/coleta/datajud.py` | metadados e movimentos de 91 tribunais pela API Pública do DataJud (CNJ) |
+| `dikemetria/coleta/djen.py` | texto de sentenças e acórdãos publicados no Diário de Justiça Eletrônico Nacional |
+| `dikemetria/coleta/arquivos.py` | decisões em PDF, DOCX, TXT ou HTML guardadas localmente |
+| `dikemetria/pseudonimizacao.py` | remove nomes de pessoas naturais, CPF, RG, endereços, OAB, contas e contatos |
+| `dikemetria/politica.py` | regras de LGPD: exclui segredo de justiça e marca matérias sensíveis |
+| `dikemetria/estrutura.py` | separa relatório, fundamentação e dispositivo |
+| `dikemetria/avaliacao.py` | avalia o dispositivo por capítulos: ação, reconvenção, recurso, embargos; motivo e confiança |
+| `dikemetria/valores.py` | valores da condenação por categoria, honorários, repetição, juros e correção |
+| `dikemetria/resultado.py` | rótulos de resultado e leitura dos movimentos da TPU |
+| `dikemetria/consolidacao.py` | uma decisão por processo e instância, unindo texto e movimentos |
+| `dikemetria/referencias.py` | artigos, leis, súmulas, temas e número CNJ, normalizados |
+| `dikemetria/jurimetria.py` | taxas com IC de Wilson, taxa nacional, reforma em 2º grau, valores, tempos, normas e vocabulário |
+| `dikemetria/relatorio.py` | relatório HTML, tabelas CSV e dicionário de dados |
+| `dikemetria/validacao.py` | amostra para rotulagem manual e medida de acerto da classificação |
+
+As regras de avaliação das decisões e de cálculo das medidas estão em
+[docs/REGRAS.md](docs/REGRAS.md), com o conjunto-referência de dispositivos que as testa em
+`tests/dados/dispositivos.csv`.
+
+Toda coleta registra a proveniência de cada resposta (URL, parâmetros, data e hash) e é retomável:
+se cair, a próxima execução continua do ponto em que parou. O banco local guarda só texto
+pseudonimizado e o hash do original. Nenhuma tabela agrega por órgão julgador ou magistrado, e
+grupos com menos de 10 casos não são publicados.
+
+## Como usar
+
+Requer Python 3.11 ou superior.
 
 ```bash
-pip install PyPDF2 nltk matplotlib
-python text_mining.py   # lê temp/data/documento.pdf
+pip install -e ".[dev]"
+
+# Uma decisão
+dikemetria analisar decisao.pdf --json analise.json --svg palavras.svg
+
+# Um recorte em todos os tribunais (veja recortes/exemplo.toml)
+dikemetria tribunais                                   # os 91 tribunais cobertos
+dikemetria estimar recortes/exemplo.toml               # quantos processos há em cada um
+dikemetria coletar recortes/exemplo.toml --fonte datajud
+dikemetria coletar recortes/exemplo.toml --fonte djen
+dikemetria coletar --fonte arquivos --pasta minhas_decisoes/
+
+# Validação da classificação
+dikemetria amostra --n 200 --saida amostra.csv         # preencha a coluna resultado_manual
+dikemetria validar amostra.csv
+
+# Relatório público
+dikemetria relatorio --recorte recortes/exemplo.toml --saida saida/
 ```
+
+Antes de uma coleta grande, `dikemetria sondar --fonte datajud` e `dikemetria sondar --fonte djen`
+mostram os campos atuais de cada API. A chave pública do DataJud é divulgada pelo CNJ e muda de
+tempos em tempos; se ela expirar, defina `DATAJUD_API_KEY`. O STF não está no DataJud.
+
+Para o Google Colab, veja `notebooks/colab.ipynb`. Testes: `pytest`; estilo: `ruff check .`.
 
 ## Para onde vai, com apoio
 
 - **Coleta pelo [Argos](https://github.com/luccas-amorim/argos):** decisões capturadas com
   proveniência (URL, data, hash), em vez de PDFs avulsos.
-- **Pseudonimização automática** antes de qualquer análise, com testes que comprovem a remoção.
+- **Pseudonimização com revisão humana:** a automática já existe e tem testes; falta medir a
+  taxa de nomes que escapam numa amostra real.
+- **Validação da classificação** de resultados contra rotulagem manual, publicada com cada versão.
 - **Corpus por matéria**, começando por um recorte pequeno e bem delimitado, com metodologia
   publicada.
 - **Resultados abertos:** tabelas e relatórios versionados, citáveis, com o código que os gerou.

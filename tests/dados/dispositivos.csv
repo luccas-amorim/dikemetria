@@ -1,0 +1,86 @@
+dispositivo,resultado,resultado_acao,motivo_contem,tipo
+"Ante o exposto, JULGO PROCEDENTE o pedido para declarar inexigível o débito.",procedente,procedente,,sentenca
+"Diante do exposto, julgo procedentes os pedidos formulados na inicial.",procedente,procedente,,sentenca
+"Isto posto, JULGO TOTALMENTE PROCEDENTE a ação.",procedente,procedente,,sentenca
+"Pelo exposto, acolho o pedido e condeno a ré ao pagamento de R$ 5.000,00.",procedente,procedente,,sentenca
+"Ante o exposto, com fundamento no art. 487, I, do CPC, julgo procedente o pedido.",procedente,procedente,,sentenca
+"Posto isso, julgo-o procedente.",procedente,procedente,,sentenca
+"Isso posto, condeno o réu ao pagamento de R$ 3.000,00 a título de danos morais.",procedente,procedente,,sentenca
+"Ante o exposto, JULGO IMPROCEDENTE o pedido.",improcedente,improcedente,,sentenca
+"Julgo improcedentes os pedidos e condeno a autora ao pagamento das custas.",improcedente,improcedente,,sentenca
+"Rejeito os pedidos, com resolução do mérito (art. 487, I, CPC).",improcedente,improcedente,,sentenca
+"Ante o exposto, não acolho os pedidos iniciais.",improcedente,improcedente,,sentenca
+"Ante o exposto, julgo a ação improcedente.",improcedente,improcedente,,sentenca
+"Ante o exposto, JULGO PARCIALMENTE PROCEDENTE o pedido.",parcialmente_procedente,parcialmente_procedente,,sentenca
+"Julgo procedente em parte a ação para condenar o réu.",parcialmente_procedente,parcialmente_procedente,,sentenca
+"Julgo PROCEDENTES, em parte, os pedidos para condenar a ré.",parcialmente_procedente,parcialmente_procedente,,sentenca
+"Acolho em parte os pedidos para declarar inexigível o débito.",parcialmente_procedente,parcialmente_procedente,,sentenca
+"Julgo procedente o pedido de declaração de inexigibilidade e improcedente o pedido de danos morais.",parcialmente_procedente,parcialmente_procedente,resultados distintos,sentenca
+"Julgo procedente o pedido em relação ao réu Banco Alfa e improcedente em relação à ré Loja Beta.",parcialmente_procedente,parcialmente_procedente,resultados distintos,sentenca
+"Julgo IMPROCEDENTE a reconvenção e PROCEDENTE o pedido inicial.",procedente,procedente,,sentenca
+"Julgo improcedentes os pedidos da inicial e procedente a reconvenção.",improcedente,improcedente,,sentenca
+"Quanto à reconvenção, julgo-a procedente. Julgo improcedentes os pedidos iniciais.",improcedente,improcedente,,sentenca
+"Julgo PROCEDENTE o pedido inicial e IMPROCEDENTE o pedido contraposto.",procedente,procedente,,sentenca
+"Julgo improcedente a impugnação ao valor da causa e procedente o pedido.",procedente,procedente,,sentenca
+"Julgo procedente a denunciação da lide e improcedente o pedido principal.",improcedente,improcedente,,sentenca
+"Julgo extinto o processo, sem resolução do mérito, em relação ao corréu Gama e, no mais, JULGO PROCEDENTE o pedido.",procedente,procedente,extinção,sentenca
+"Pronuncio a prescrição e julgo extinto o processo com resolução do mérito, nos termos do art. 487, II, do CPC.",improcedente,improcedente,prescrição,sentenca
+"Reconheço a decadência do direito e julgo extinto o feito com resolução do mérito.",improcedente,improcedente,decadência,sentenca
+"Julgo extinto o processo com resolução do mérito, com fundamento no art. 487, II, do CPC.",improcedente,improcedente,"art. 487, II",sentenca
+"Homologo o reconhecimento do pedido e julgo extinto o processo, nos termos do art. 487, III, a.",procedente,procedente,reconhecimento,sentenca
+"Homologo a renúncia à pretensão formulada na ação.",improcedente,improcedente,renúncia,sentenca
+"Homologo, por sentença, o acordo celebrado entre as partes, nos termos do art. 487, III, b, do CPC.",homologacao_acordo,homologacao_acordo,,sentenca
+"Homologo a transação e julgo extinto o processo com resolução do mérito.",homologacao_acordo,homologacao_acordo,,sentenca
+"Homologo por sentença a conciliação realizada em audiência.",homologacao_acordo,homologacao_acordo,,sentenca
+"JULGO EXTINTO o processo, sem resolução do mérito, nos termos do art. 485, VI, do CPC.",extinto_sem_merito,extinto_sem_merito,ilegitimidade,sentenca
+"Homologo a desistência e julgo extinto o feito, nos termos do art. 485, VIII, do CPC.",extinto_sem_merito,extinto_sem_merito,desistência,sentenca
+"Julgo extinto o processo sem julgamento do mérito, ante o abandono da causa.",extinto_sem_merito,extinto_sem_merito,abandono,sentenca
+"Indefiro a petição inicial e julgo extinto o processo.",extinto_sem_merito,extinto_sem_merito,indeferimento,sentenca
+"Reconheço a litispendência e julgo extinto o processo sem resolução do mérito.",extinto_sem_merito,extinto_sem_merito,litispendência,sentenca
+"Julgo extinto o processo, nos termos do art. 485, IV, do CPC.",extinto_sem_merito,extinto_sem_merito,pressuposto,sentenca
+"Intime-se a parte autora para emendar a inicial em 15 dias.",indeterminado,,,outro
+"ACORDAM, em sessão, por unanimidade, negar provimento ao recurso.",nao_provido,,,acordao
+"Ante o exposto, conheço do recurso e nego-lhe provimento.",nao_provido,,,acordao
+"Recurso conhecido e não provido. Sentença mantida por seus próprios fundamentos.",nao_provido,,,acordao
+"Recurso desprovido.",nao_provido,,,acordao
+"Apelo improvido.",nao_provido,,,acordao
+"Sentença mantida por seus próprios fundamentos.",nao_provido,,,acordao
+"Ante o exposto, dou provimento ao recurso para reformar a sentença.",provido,,,acordao
+"Conheço do recurso e dou-lhe provimento para julgar procedente o pedido.",provido,procedente,,acordao
+"Deram provimento ao recurso para julgar improcedente a ação.",provido,improcedente,,acordao
+"Recurso provido.",provido,,,acordao
+"Dá-se provimento ao recurso.",provido,,,acordao
+"Anulo a sentença e determino o retorno dos autos à origem para regular instrução.",provido,,anulação,acordao
+"Dou parcial provimento ao recurso para reduzir a indenização para R$ 5.000,00.",parcialmente_provido,,,acordao
+"Deram parcial provimento ao apelo.",parcialmente_provido,,,acordao
+"Recurso conhecido e parcialmente provido.",parcialmente_provido,,,acordao
+"Recurso provido em parte.",parcialmente_provido,,,acordao
+"Dou provimento parcial ao recurso para julgar parcialmente procedente o pedido.",parcialmente_provido,parcialmente_procedente,,acordao
+"Não conheço do recurso.",nao_conhecido,,,acordao
+"Julgo prejudicado o recurso.",nao_conhecido,,prejudicado,acordao
+"Não conheço de parte do recurso e, na parte conhecida, nego-lhe provimento.",nao_provido,,conhecimento parcial,acordao
+"Dou provimento ao recurso do autor e nego provimento ao recurso do réu.",indeterminado,,resultados distintos,acordao
+"Rejeito os embargos de declaração.",indeterminado,,,embargos_declaracao
+"Acolho os embargos de declaração para sanar a omissão, sem efeitos infringentes.",indeterminado,,,embargos_declaracao
+"Acolho parcialmente os embargos de declaração.",indeterminado,,,embargos_declaracao
+"Conheço dos embargos de declaração e nego-lhes provimento.",indeterminado,,,embargos_declaracao
+"Afasto a prescrição e julgo procedente o pedido.",procedente,procedente,,sentenca
+"Não reconheço a prescrição alegada e julgo improcedente o pedido.",improcedente,improcedente,,sentenca
+"Deixo de reconhecer a decadência e julgo procedente a ação.",procedente,procedente,,sentenca
+"Ante o exposto, rejeito os embargos à execução e determino o prosseguimento da execução.",improcedente,improcedente,,sentenca
+"Acolho os embargos à execução para declarar a nulidade do título.",procedente,procedente,,sentenca
+"Acolho parcialmente os embargos do devedor para reconhecer o excesso de execução.",parcialmente_procedente,parcialmente_procedente,,sentenca
+"Julgo improcedentes os embargos de terceiro.",improcedente,improcedente,,sentenca
+"Rejeito os embargos monitórios e constituo de pleno direito o título executivo judicial.",procedente,procedente,,sentenca
+"Acolho os embargos monitórios e julgo improcedente o pedido monitório.",improcedente,improcedente,,sentenca
+"Ante o exposto, CONCEDO A SEGURANÇA para determinar a matrícula do impetrante.",procedente,procedente,,sentenca
+"Ante o exposto, DENEGO A SEGURANÇA.",improcedente,improcedente,,sentenca
+"Concedo parcialmente a segurança pleiteada.",parcialmente_procedente,parcialmente_procedente,,sentenca
+"Ante o exposto, julgo improcedente a pretensão punitiva e ABSOLVO o réu, com fundamento no art. 386, VII, do CPP.",improcedente,improcedente,,sentenca
+"Absolvo o acusado da imputação do art. 155 e condeno-o como incurso no art. 157 do Código Penal.",parcialmente_procedente,parcialmente_procedente,resultados distintos,sentenca
+"Deu-se provimento ao recurso.",provido,,,acordao
+"Negou-se provimento ao apelo.",nao_provido,,,acordao
+"Conhecer do recurso de revista e, no mérito, dar-lhe provimento.",provido,,,acordao
+"Dou provimento ao recurso para reconhecer a prescrição e julgar extinto o processo com resolução do mérito.",provido,improcedente,prescrição,acordao
+"Não conheço dos embargos de declaração.",indeterminado,,,embargos_declaracao
+"Converto o julgamento em diligência para a realização de perícia.",indeterminado,,,outro
