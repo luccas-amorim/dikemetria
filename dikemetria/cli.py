@@ -227,11 +227,36 @@ def _sondar(args) -> int:
         hits = dados.get("hits", {}).get("hits", [])
         item = hits[0]["_source"] if hits else {}
     else:
-        dados, _ = Cliente().requisitar(
-            "GET", djen.URL, params={"siglaTribunal": tribunal.sigla_djen, "itensPorPagina": 1}
-        )
+        from datetime import date, timedelta
+
+        from dikemetria.coleta.http import ErroColeta
+
+        dia = (date.today() - timedelta(days=1)).isoformat()
+        try:
+            dados, _ = Cliente(tentativas=2).requisitar(
+                "GET",
+                djen.URL,
+                params={
+                    "siglaTribunal": tribunal.sigla_djen,
+                    "dataDisponibilizacaoInicio": dia,
+                    "dataDisponibilizacaoFim": dia,
+                    "pagina": 1,
+                    "itensPorPagina": 20,
+                },
+            )
+        except ErroColeta as erro:
+            bloqueio = "HTTP 403" in str(erro) and "could not be satisfied" in str(erro)
+            print("O DJEN recusou o acesso." if bloqueio else f"Erro: {str(erro)[:400]}")
+            if bloqueio:
+                print("A API só responde a conexões do Brasil; rode este comando de lá.")
+            return 1
         itens = dados.get("items") or dados.get("itens") or []
         item = itens[0] if itens else {}
+        # Campos públicos que não identificam pessoas: mostram se o órgão traz a comarca.
+        publicos = ("tipoDocumento", "tipoComunicacao", "nomeOrgao", "idOrgao", "nomeClasse")
+        print(f"{len(itens)} comunicações em {dia}. Exemplos de campos sem dados pessoais:")
+        for exemplo in itens[:10]:
+            print("  ", {campo: exemplo.get(campo) for campo in publicos if campo in exemplo})
     print("Chaves da resposta:", sorted(dados))
     print("Campos do item:", sorted(item))
     # Só tipos, nenhum valor: pode ser colado numa conversa ou issue sem expor dados pessoais.

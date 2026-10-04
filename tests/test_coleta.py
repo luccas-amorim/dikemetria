@@ -286,3 +286,32 @@ def test_estrutura_do_sondar_nao_mostra_valores():
     assert esqueleto["destinatarios"] == [{"nome": "texto", "polo": "texto"}]
     assert esqueleto["datadisponibilizacao"] == "texto (dd/mm/aaaa)"
     assert esqueleto["link"] == "nulo" and esqueleto["ativo"] == "lógico"
+
+
+def test_sondar_djen_mostra_campos_publicos_e_nunca_o_texto(monkeypatch, capsys):
+    from dikemetria.cli import main
+    from dikemetria.coleta.http import Cliente
+
+    item = {
+        "texto": "Fulano de Tal, CPF ...",
+        "nomeOrgao": "1ª Vara Cível da Comarca de Touros",
+        "tipoDocumento": "Sentença",
+        "destinatarios": [{"nome": "Fulano de Tal", "polo": "A"}],
+    }
+    monkeypatch.setattr(Cliente, "requisitar", lambda self, *a, **k: ({"items": [item]}, None))
+    assert main(["sondar", "--fonte", "djen", "--tribunal", "tjrn"]) == 0
+    saida = capsys.readouterr().out
+    assert "Comarca de Touros" in saida and "Sentença" in saida
+    assert "Fulano" not in saida
+
+
+def test_sondar_djen_explica_o_bloqueio(monkeypatch, capsys):
+    from dikemetria.cli import main
+    from dikemetria.coleta.http import Cliente
+
+    def recusa(self, *a, **k):
+        raise ErroColeta("GET ... -> HTTP 403: <TITLE>ERROR: The request could not be satisfied")
+
+    monkeypatch.setattr(Cliente, "requisitar", recusa)
+    assert main(["sondar", "--fonte", "djen", "--tribunal", "tjrn"]) == 1
+    assert "conexões do Brasil" in capsys.readouterr().out
