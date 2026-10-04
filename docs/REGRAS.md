@@ -224,6 +224,12 @@ o nome indica remessa). Os demais movimentos são lidos pelo nome:
 | Não provido | "Não-Provimento", "Conhecimento em Parte e Não-Provimento ou Denegação", "Conhecimento para negar provimento" |
 | Provido | "Provimento", "Provimento (art. 557 do CPC)", "Conhecimento para dar provimento" |
 
+**Auditoria.** `docs/dados/movimentos_datajud.csv` lista os 1.141 códigos de movimento em uso
+nos 91 tribunais (outubro de 2026), com nome, ocorrências, número de tribunais e o rótulo dado por
+estas regras; `tests/test_resultado.py` confere que os rótulos continuam os mesmos. As contagens de
+TJMG, TJPR, TJRS e TRT3 vêm de amostra (agregação completa estoura o tempo da API), e 358 códigos
+recentes, com 0,3% das ocorrências, ficaram sem nome.
+
 **Pedido contraposto (JEC).** Em "Procedência do pedido e improcedência do pedido contraposto",
 só o trecho do pedido do autor é lido, como na seção 4.1.
 

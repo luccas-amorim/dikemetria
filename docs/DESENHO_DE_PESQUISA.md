@@ -529,7 +529,8 @@ sub-estudo (seção 10).
 ## 13. Situação das fontes (outubro de 2026)
 
 Levantamento feito nos 91 índices do DataJud, por agregação (códigos de movimento e de município,
-com contagens), mais testes de coleta.
+com contagens; em TJMG, TJPR, TJRS e TRT3, por amostra), mais testes de coleta. São 1.141 códigos
+de movimento e 3,7 bilhões de ocorrências; a tabela está em `docs/dados/movimentos_datajud.csv`.
 
 **DataJud**
 
@@ -538,10 +539,11 @@ com contagens), mais testes de coleta.
 - `dataAjuizamento` vem em três formatos, às vezes no mesmo índice (o TJSP mistura
   "20220312164429" e "2022-03-22T15:46:13.000Z"). O filtro de período na consulta cobre os três:
   em 12 tribunais de todos os ramos, 240 de 240 processos sorteados ficaram no período.
-- **Município:** em 78 dos 85 tribunais conferidos até aqui, mais de 99% dos processos têm código
-  IBGE válido ou município legível no nome do órgão. Não servem sem uma tabela de conversão: TJRN
+- **Município:** em 84 dos 91 tribunais, mais de 99% dos processos têm código IBGE válido ou
+  município legível no nome do órgão. Não servem sem uma tabela de conversão: TJRN
   (numeração própria), TJMT (campo vazio), TJTO e TRF5 (código zero) e 38% do TRF1 (sobretudo
-  gabinetes de segundo grau). Essas lacunas afetam diretamente H4 (viés regional).
+  gabinetes de segundo grau). Lacunas menores: TJCE (núcleo virtual sem município, 3%) e TJMMG (um
+gabinete com código de outra UF, 10%). Essas lacunas afetam diretamente H4 (viés regional).
 - **Cobertura:** o índice do TJDFT tem 543 mil processos, menos que o TJAC e o TJAP; deve estar
   incompleto. Comparações regionais precisam de um teste de cobertura por tribunal e ano
   (processos no DataJud ÷ casos novos do Justiça em Números) antes de entrar nos modelos.

@@ -112,3 +112,23 @@ def test_primeiro_julgamento_em_ordem_cronologica():
 def test_sem_julgamento():
     classificacao, data = classificar_movimentos([{"codigo": 26, "nome": "Distribuição"}])
     assert classificacao.resultado == R.INDETERMINADO and data is None
+
+
+def test_tabela_de_auditoria_acompanha_as_regras():
+    """docs/dados/movimentos_datajud.csv: códigos em uso nos 91 tribunais e o rótulo esperado.
+
+    Se uma mudança de regra alterar algum rótulo, confira o caso e regenere a tabela.
+    """
+    import csv
+    from pathlib import Path
+
+    tabela = Path(__file__).parent.parent / "docs" / "dados" / "movimentos_datajud.csv"
+    divergentes = []
+    with open(tabela, encoding="utf-8") as arquivo:
+        for linha in csv.DictReader(arquivo):
+            if not linha["nome"]:
+                continue
+            rotulo = classificar_movimento(int(linha["codigo"]), linha["nome"])
+            if (rotulo.value if rotulo else "") != linha["rotulo"]:
+                divergentes.append((linha["codigo"], linha["nome"], linha["rotulo"], rotulo))
+    assert divergentes == []
