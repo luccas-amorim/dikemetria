@@ -33,6 +33,9 @@ CREATE TABLE IF NOT EXISTS processos (
     evidencia TEXT,
     sensivel INTEGER NOT NULL DEFAULT 0,
     proveniencia TEXT,        -- JSON
+    municipio_codigo TEXT,    -- código como veio do tribunal
+    municipio_metodo TEXT,    -- ibge, tabela, nome do órgão, não resolvido
+    orgao_codigo INTEGER,     -- unidade judiciária: só controle estatístico, nunca publicada
     PRIMARY KEY (tribunal, numero, grau)
 );
 CREATE TABLE IF NOT EXISTS documentos (
@@ -66,6 +69,17 @@ CREATE TABLE IF NOT EXISTS progresso (
 """
 
 
+_COLUNAS_NOVAS_PROCESSOS = (
+    ("municipio_codigo", "TEXT"),
+    ("municipio_metodo", "TEXT"),
+    ("orgao_codigo", "INTEGER"),
+)
+_COLUNAS_PROCESSOS = (
+    "tribunal, numero, grau, classe_codigo, classe_nome, assuntos, municipio_ibge, "
+    "data_ajuizamento, data_julgamento, duracao_dias, resultado, evidencia, sensivel, "
+    "proveniencia, municipio_codigo, municipio_metodo, orgao_codigo"
+)
+
 _COLUNAS_DOCUMENTOS = (
     "id, fonte, tribunal, numero, tipo, data, classe_nome, texto, sha256_original, resultado, "
     "evidencia, sensivel, substituicoes, url, proveniencia, avaliacao"
@@ -87,6 +101,11 @@ class Corpus:
         if "avaliacao" not in colunas:
             with self.conexao:
                 self.conexao.execute("ALTER TABLE documentos ADD COLUMN avaliacao TEXT")
+        colunas = {linha[1] for linha in self.conexao.execute("PRAGMA table_info(processos)")}
+        with self.conexao:
+            for coluna, tipo in _COLUNAS_NOVAS_PROCESSOS:
+                if coluna not in colunas:
+                    self.conexao.execute(f"ALTER TABLE processos ADD COLUMN {coluna} {tipo}")
 
     def fechar(self) -> None:
         self.conexao.close()
@@ -118,12 +137,17 @@ class Corpus:
                 p.evidencia,
                 int(p.sensivel),
                 proveniencia.como_json() if proveniencia else None,
+                p.municipio_codigo,
+                p.municipio_metodo,
+                p.orgao_codigo,
             )
             for p in processos
         ]
         with self.conexao:
             self.conexao.executemany(
-                "INSERT OR REPLACE INTO processos VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", linhas
+                f"INSERT OR REPLACE INTO processos ({_COLUNAS_PROCESSOS}) "
+                f"VALUES ({','.join('?' * 17)})",
+                linhas,
             )
         return len(linhas)
 

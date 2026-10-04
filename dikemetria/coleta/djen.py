@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import re
 from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import date, timedelta
@@ -60,6 +61,15 @@ def _primeiro(item: dict, *chaves: str):
     return None
 
 
+def _data_iso(valor) -> str | None:
+    """AAAA-MM-DD a partir de "2026-09-30", "2026-09-30T10:00:00" ou "30/09/2026"."""
+    texto = str(valor or "").strip()
+    if re.match(r"\d{2}/\d{2}/\d{4}", texto):
+        dia, mes, ano = texto[:10].split("/")
+        return f"{ano}-{mes}-{dia}"
+    return texto[:10] if re.match(r"\d{4}-\d{2}-\d{2}", texto) else None
+
+
 def nomes_destinatarios(item: dict) -> list[str]:
     nomes = [d.get("nome") for d in item.get("destinatarios") or [] if isinstance(d, dict)]
     for adv in item.get("destinatarioadvogados") or []:
@@ -89,8 +99,7 @@ def converter_documento(item: dict, tribunal: str, fonte: str = "djen") -> Docum
         tribunal=tribunal,
         numero=numero,
         tipo=_primeiro(item, "tipoDocumento", "tipoComunicacao"),
-        data=str(_primeiro(item, "data_disponibilizacao", "datadisponibilizacao") or "")[:10]
-        or None,
+        data=_data_iso(_primeiro(item, "data_disponibilizacao", "datadisponibilizacao")),
         classe_nome=classe,
         texto=pseudo.texto,
         sha256_original=hashlib.sha256(bruto.encode("utf-8")).hexdigest(),

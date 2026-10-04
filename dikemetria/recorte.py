@@ -19,8 +19,12 @@ class RecorteDataJud:
     graus: list[str] = field(default_factory=list)  # G1, G2, JE, TR, SUP...
     ajuizamento_desde: date | None = None
     ajuizamento_ate: date | None = None
-    limite_por_tribunal: int | None = None
+    limite_por_tribunal: int | None = None  # conta os processos guardados, depois dos filtros
     tamanho_pagina: int = 500
+    # Com limite, a ordem decide quais processos entram. "aleatoria" sorteia (semente fixa, para
+    # reproduzir); "atualizacao" segue a data da última atualização do registro no DataJud.
+    ordem: str = "aleatoria"
+    semente: int = 2026
 
 
 @dataclass

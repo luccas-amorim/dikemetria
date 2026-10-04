@@ -13,6 +13,8 @@ graus = ["G1", "JE"]          # primeiro grau e juizados especiais
 ajuizamento_desde = 2020-01-01
 ajuizamento_ate = 2024-12-31
 limite_por_tribunal = 2000    # comece pequeno; retire para a coleta completa
+ordem = "aleatoria"           # com limite: amostra sorteada ("atualizacao" = ordem do DataJud)
+semente = 2026                # mesma semente, mesma amostra
 
 [djen]
 texto = "inexigibilidade"

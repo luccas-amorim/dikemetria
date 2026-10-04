@@ -23,7 +23,9 @@ def test_recorte_de_exemplo_carrega():
 
 def test_consulta_combina_grupos_com_e_e_valores_com_ou():
     consulta = datajud.montar_consulta(
-        RecorteDataJud(assuntos_codigos=[6226, 10433], graus=["G1"]), tamanho=100, apos=[123]
+        RecorteDataJud(assuntos_codigos=[6226, 10433], graus=["G1"], ordem="atualizacao"),
+        tamanho=100,
+        apos=[123],
     )
     must = consulta["query"]["bool"]["must"]
     assert len(must) == 2
@@ -33,6 +35,28 @@ def test_consulta_combina_grupos_com_e_e_valores_com_ou():
     ]
     assert consulta["search_after"] == [123]
     assert consulta["sort"] == [{"@timestamp": {"order": "asc"}}]
+
+
+def test_consulta_filtra_periodo_nos_dois_formatos_e_sorteia():
+    recorte = RecorteDataJud(
+        assuntos_codigos=[6226],
+        ajuizamento_desde=date(2022, 1, 1),
+        ajuizamento_ate=date(2023, 12, 31),
+    )
+    consulta = datajud.montar_consulta(recorte, tamanho=10)
+    sorteio = consulta["query"]["function_score"]
+    assert sorteio["random_score"] == {"seed": 2026, "field": "_seq_no"}
+    periodo = sorteio["query"]["bool"]["must"][1]["bool"]["should"]
+    faixas = [f["range"]["dataAjuizamento"] for f in periodo]
+    # Cada formato do DataJud cai na sua faixa; o dia seguinte ao fim fica de fora.
+    for faixa, dentro, depois in zip(
+        faixas,
+        ["20231231235959", "20231231", "2023-12-31T23:59:59.000Z"],
+        ["20240101000000", "20240101", "2024-01-01T00:00:00.000Z"],
+        strict=True,
+    ):
+        assert faixa["gte"] <= dentro <= faixa["lte"] < depois
+    assert consulta["sort"][0] == {"_score": {"order": "desc"}}
 
 
 @pytest.mark.parametrize(
@@ -93,6 +117,31 @@ def test_coleta_datajud_respeita_limite(cliente_falso):
     recorte = RecorteDataJud(limite_por_tribunal=3, tamanho_pagina=10)
     assert sum(len(p) for p, _, _ in datajud.coletar(cliente, TJSP, recorte)) == 3
     assert sessao.requisicoes[0]["json"]["size"] == 3
+
+
+def test_limite_conta_os_guardados_e_para_de_ler(cliente_falso):
+    fora = {"dataAjuizamento": "20150101"}
+    pagina1 = {
+        "hits": {
+            "hits": [hit_datajud("1", PROCEDENCIA, [1], **fora), hit_datajud("2", PROCEDENCIA, [2])]
+        }
+    }
+    pagina2 = {"hits": {"hits": [hit_datajud("3", PROCEDENCIA, [3])]}}
+    cliente, sessao = cliente_falso([pagina1, pagina2])
+    recorte = RecorteDataJud(
+        ajuizamento_desde=date(2020, 1, 1), limite_por_tribunal=2, tamanho_pagina=2
+    )
+    guardados = [p.numero for procs, _, _ in datajud.coletar(cliente, TJSP, recorte) for p in procs]
+    assert guardados == ["2", "3"]
+    assert sessao.requisicoes[1]["json"]["size"] == 1  # só o que falta para o limite
+
+    sempre_fora = {"hits": {"hits": [hit_datajud("9", PROCEDENCIA, [9], **fora)]}}
+    cliente, sessao = cliente_falso([sempre_fora] * 20)
+    recorte = RecorteDataJud(
+        ajuizamento_desde=date(2020, 1, 1), limite_por_tribunal=1, tamanho_pagina=1
+    )
+    assert sum(len(p) for p, _, _ in datajud.coletar(cliente, TJSP, recorte)) == 0
+    assert len(sessao.requisicoes) == datajud.LEITURAS_POR_GUARDADO
 
 
 def test_contar(cliente_falso):
@@ -206,3 +255,34 @@ def test_ingestao_de_arquivos_pdf_docx_txt(tmp_path):
     assert resultados["c.pdf"][0].resultado == "improcedente"
     assert resultados["vazio.txt"][0] is None
     assert "JOÃO CARLOS" not in resultados["b.docx"][0].texto
+
+
+@pytest.mark.parametrize(
+    ("bruto", "esperado"),
+    [
+        ("2026-09-30", "2026-09-30"),
+        ("2026-09-30T10:00:00", "2026-09-30"),
+        ("30/09/2026", "2026-09-30"),
+        (None, None),
+    ],
+)
+def test_data_do_djen(bruto, esperado):
+    assert djen._data_iso(bruto) == esperado
+
+
+def test_estrutura_do_sondar_nao_mostra_valores():
+    from dikemetria.cli import estrutura
+
+    item = {
+        "texto": "Fulano de Tal",
+        "id": 7,
+        "datadisponibilizacao": "30/09/2026",
+        "destinatarios": [{"nome": "Fulano", "polo": "A"}],
+        "ativo": True,
+        "link": None,
+    }
+    esqueleto = estrutura(item)
+    assert "Fulano" not in str(esqueleto)
+    assert esqueleto["destinatarios"] == [{"nome": "texto", "polo": "texto"}]
+    assert esqueleto["datadisponibilizacao"] == "texto (dd/mm/aaaa)"
+    assert esqueleto["link"] == "nulo" and esqueleto["ativo"] == "lógico"

@@ -18,21 +18,26 @@ from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import date, datetime
 
-from dikemetria import politica
+from dikemetria import municipios, politica
 from dikemetria.coleta.http import Cliente, Proveniencia
-from dikemetria.coleta.tribunais import Tribunal
+from dikemetria.coleta.tribunais import TRIBUNAIS, Tribunal, selecionar
 from dikemetria.recorte import RecorteDataJud
 from dikemetria.resultado import classificar_movimentos
 
 log = logging.getLogger(__name__)
 
 URL_BASE = "https://api-publica.datajud.cnj.jus.br"
+LEITURAS_POR_GUARDADO = 5
+SIGLAS = {t.sigla for t in TRIBUNAIS}
 CHAVE_PUBLICA = "cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw=="
 
 
 def cliente_datajud(intervalo: float = 1.0) -> Cliente:
     chave = os.environ.get("DATAJUD_API_KEY", CHAVE_PUBLICA)
-    return Cliente(intervalo=intervalo, cabecalhos={"Authorization": f"APIKey {chave}"})
+    # Consultas com agregação ou filtro em índices grandes passam de 60 s com frequência.
+    return Cliente(
+        intervalo=intervalo, tempo_limite=120, cabecalhos={"Authorization": f"APIKey {chave}"}
+    )
 
 
 @dataclass
@@ -43,7 +48,10 @@ class Processo:
     classe_codigo: int | None
     classe_nome: str | None
     assuntos: list[dict] = field(default_factory=list)
-    municipio_ibge: int | None = None
+    municipio_ibge: int | None = None  # só código existente no IBGE (municipios.py)
+    municipio_codigo: str | None = None  # como veio do tribunal, para conferência
+    municipio_metodo: str = "não resolvido"  # "ibge", "tabela", "nome do órgão"...
+    orgao_codigo: int | None = None  # unidade judiciária: só controle estatístico, nunca publicada
     data_ajuizamento: str | None = None  # AAAA-MM-DD
     data_julgamento: str | None = None
     resultado: str = "indeterminado"
@@ -76,6 +84,38 @@ def converter_data(valor: str | None) -> str | None:
         return None
 
 
+def _filtro_periodo(recorte: RecorteDataJud) -> list[dict]:
+    """Período de ajuizamento na própria consulta, nos formatos que os tribunais usam.
+
+    O DataJud grava `dataAjuizamento` como "20220405141207", "20220405" ou "2022-04-05T...". Nos
+    índices em que o campo é data, os formatos só de dígitos são lidos como milissegundos desde
+    1970 (por isso a faixa deles é escrita no mesmo formato); nos índices em que é texto, a
+    comparação é lexicográfica. Cada formato tem a sua faixa e basta casar uma. Formatos cruzados
+    podem trazer alguns processos de fora do período, e o filtro local de `_no_periodo` continua
+    valendo.
+    """
+    desde, ate = recorte.ajuizamento_desde, recorte.ajuizamento_ate
+    if not (desde or ate):
+        return []
+    faixas: list[dict] = [{}, {}, {}]  # 14 dígitos, 8 dígitos, ISO
+    if desde:
+        dia = desde.strftime("%Y%m%d")
+        faixas[0]["gte"], faixas[1]["gte"] = dia + "000000", dia
+        faixas[2]["gte"] = f"{desde.isoformat()}T00:00:00.000Z"
+    if ate:
+        dia = ate.strftime("%Y%m%d")
+        faixas[0]["lte"], faixas[1]["lte"] = dia + "235959", dia
+        faixas[2]["lte"] = f"{ate.isoformat()}T23:59:59.999Z"
+    return [
+        {
+            "bool": {
+                "should": [{"range": {"dataAjuizamento": faixa}} for faixa in faixas],
+                "minimum_should_match": 1,
+            }
+        }
+    ]
+
+
 def montar_consulta(recorte: RecorteDataJud, tamanho: int, apos: list | None = None) -> dict:
     """Consulta Elasticsearch: cada grupo de critérios é um 'OU', e os grupos se somam com 'E'."""
     grupos: list[list[dict]] = []
@@ -89,11 +129,20 @@ def montar_consulta(recorte: RecorteDataJud, tamanho: int, apos: list | None = N
         grupos.append([{"match": {"grau": g}} for g in recorte.graus])
 
     must = [{"bool": {"should": grupo, "minimum_should_match": 1}} for grupo in grupos]
-    consulta: dict = {
-        "size": tamanho,
-        "query": {"bool": {"must": must}} if must else {"match_all": {}},
-        "sort": [{"@timestamp": {"order": "asc"}}],
-    }
+    must += _filtro_periodo(recorte)
+    query: dict = {"bool": {"must": must}} if must else {"match_all": {}}
+    if recorte.ordem == "aleatoria":
+        query = {
+            "function_score": {
+                "query": query,
+                "random_score": {"seed": recorte.semente, "field": "_seq_no"},
+                "boost_mode": "replace",
+            }
+        }
+        ordem = [{"_score": {"order": "desc"}}, {"@timestamp": {"order": "asc"}}]
+    else:
+        ordem = [{"@timestamp": {"order": "asc"}}]
+    consulta: dict = {"size": tamanho, "query": query, "sort": ordem}
     if apos:
         consulta["search_after"] = apos
     return consulta
@@ -111,6 +160,13 @@ def converter_processo(fonte: dict, tribunal: str) -> Processo:
 
     classificacao, data_julgamento = classificar_movimentos(fonte.get("movimentos") or [])
     nomes_assuntos = " ".join(a["nome"] or "" for a in assuntos)
+    codigo_municipio = orgao.get("codigoMunicipioIBGE")
+    ufs = selecionar([tribunal])[0].ufs if tribunal in SIGLAS else ()
+    municipio, metodo = municipios.resolver(codigo_municipio, orgao.get("nome"), ufs, tribunal)
+    try:
+        orgao_codigo = int(orgao.get("codigo"))
+    except (TypeError, ValueError):
+        orgao_codigo = None
     return Processo(
         tribunal=tribunal,
         numero=str(fonte.get("numeroProcesso", "")),
@@ -118,7 +174,10 @@ def converter_processo(fonte: dict, tribunal: str) -> Processo:
         classe_codigo=classe.get("codigo"),
         classe_nome=classe.get("nome"),
         assuntos=assuntos,
-        municipio_ibge=orgao.get("codigoMunicipioIBGE"),
+        municipio_ibge=municipio,
+        municipio_codigo=None if codigo_municipio is None else str(codigo_municipio),
+        municipio_metodo=metodo,
+        orgao_codigo=orgao_codigo,
         data_ajuizamento=converter_data(fonte.get("dataAjuizamento")),
         data_julgamento=converter_data(data_julgamento),
         resultado=classificacao.resultado.value,
@@ -161,15 +220,26 @@ def coletar(
     """Percorre as páginas de um tribunal.
 
     Rende (processos da página, cursor para retomar, proveniência). Processos em segredo de
-    justiça e fora do período são descartados aqui, antes de chegar ao banco.
+    justiça e fora do período são descartados aqui, antes de chegar ao banco. O limite conta os
+    processos guardados; para não varrer o índice inteiro atrás deles, a leitura para depois de
+    `LEITURAS_POR_GUARDADO` vezes o limite.
     """
     url = f"{URL_BASE}/{tribunal.indice_datajud}/_search"
-    vistos = 0
+    limite = recorte.limite_por_tribunal
+    guardados = lidos = 0
     while True:
         tamanho = recorte.tamanho_pagina
-        if recorte.limite_por_tribunal is not None:
-            tamanho = min(tamanho, recorte.limite_por_tribunal - vistos)
+        if limite is not None:
+            tamanho = min(tamanho, limite - guardados)
             if tamanho <= 0:
+                return
+            if lidos >= LEITURAS_POR_GUARDADO * limite:
+                log.warning(
+                    "%s: %d processos lidos e só %d no recorte; a coleta parou aqui",
+                    tribunal.sigla,
+                    lidos,
+                    guardados,
+                )
                 return
         dados, proveniencia = cliente.requisitar(
             "POST", url, json_corpo=montar_consulta(recorte, tamanho, cursor)
@@ -177,7 +247,7 @@ def coletar(
         hits = dados.get("hits", {}).get("hits", [])
         if not hits:
             return
-        vistos += len(hits)
+        lidos += len(hits)
         cursor = hits[-1].get("sort")
         processos = []
         for hit in hits:
@@ -185,6 +255,7 @@ def coletar(
             if processo.nivel_sigilo or not _no_periodo(processo, recorte):
                 continue
             processos.append(processo)
+        guardados += len(processos)
         yield processos, cursor, proveniencia
         if len(hits) < tamanho or cursor is None:
             return

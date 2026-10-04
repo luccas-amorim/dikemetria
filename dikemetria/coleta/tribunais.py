@@ -11,6 +11,22 @@ from dataclasses import dataclass
 UFS = "ac al am ap ba ce df es go ma mg ms mt pa pb pe pi pr rj rn ro rr rs sc se sp to".split()
 
 
+UFS_TRF = {
+    1: ("ac", "am", "ap", "ba", "df", "go", "ma", "mt", "pa", "pi", "ro", "rr", "to"),
+    2: ("es", "rj"),
+    3: ("ms", "sp"),
+    4: ("pr", "rs", "sc"),
+    5: ("al", "ce", "pb", "pe", "rn", "se"),
+    6: ("mg",),
+}
+UFS_TRT = {
+    1: ("rj",), 2: ("sp",), 3: ("mg",), 4: ("rs",), 5: ("ba",), 6: ("pe",), 7: ("ce",),
+    8: ("ap", "pa"), 9: ("pr",), 10: ("df", "to"), 11: ("am", "rr"), 12: ("sc",), 13: ("pb",),
+    14: ("ac", "ro"), 15: ("sp",), 16: ("ma",), 17: ("es",), 18: ("go",), 19: ("al",),
+    20: ("se",), 21: ("rn",), 22: ("pi",), 23: ("mt",), 24: ("ms",),
+}  # fmt: skip
+
+
 @dataclass(frozen=True)
 class Tribunal:
     sigla: str  # ex.: "tjsp", "trf3", "trt2", "tre-sp"
@@ -23,6 +39,19 @@ class Tribunal:
     @property
     def sigla_djen(self) -> str:
         return self.sigla.upper()
+
+    @property
+    def ufs(self) -> tuple[str, ...]:
+        """UFs da jurisdição; vazio para os tribunais superiores."""
+        if self.ramo == "superior":
+            return ()
+        if self.sigla.startswith("trf"):
+            return UFS_TRF[int(self.sigla[3:])]
+        if self.sigla.startswith("trt"):
+            return UFS_TRT[int(self.sigla[3:])]
+        prefixo = {"militar": "tjm", "eleitoral": "tre-"}.get(self.ramo, "tj")
+        uf = self.sigla.removeprefix(prefixo)
+        return ("df",) if uf in ("df", "dft") else (uf,)
 
 
 def _montar() -> tuple[Tribunal, ...]:
