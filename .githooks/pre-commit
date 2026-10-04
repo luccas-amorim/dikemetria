@@ -1,0 +1,4 @@
+#!/bin/sh
+# Barra dados pessoais antes do commit. Ative uma vez por clone:
+#   git config core.hooksPath .githooks
+exec python -m dikemetria.guarda --staged
