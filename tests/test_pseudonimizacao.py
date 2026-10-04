@@ -60,3 +60,48 @@ def test_papeis_encadeados_e_nome_antes_do_cargo():
     texto = "Relator Desembargador FULANO BELTRANO\nCarlos Eduardo Lima\nJuiz de Direito"
     resultado = pseudonimizar(texto).texto
     assert "FULANO" not in resultado and "Carlos" not in resultado
+
+
+# Formatos dos autos do eproc, vistos num processo piloto. Nomes e números fictícios.
+
+
+def test_pessoa_juridica_qualificada_fica_no_texto():
+    texto = (
+        "em face de EXEMPLO VAREJO DO BRASIL S.A., inscrita no CNPJ sob o nº "
+        "12.345.678/0001-90. RÉU: EXEMPLO VAREJO DO BRASIL S.A .\n"
+        "Citada, a ré Exemplo Varejo do Brasil S/A, inscrito no CNPJ, contestou."
+    )
+    resultado = pseudonimizar(texto).texto
+    assert "EXEMPLO VAREJO DO BRASIL S.A." in resultado
+    assert "Exemplo Varejo do Brasil S/A" in resultado
+    assert "[PESSOA" not in resultado
+
+
+def test_advogados_no_formato_do_eproc():
+    texto = (
+        "Procurador(es):\n"
+        "FULANO DE TAL BELTRANO RJ123456\n"
+        "Usuário:\nSP654321 - CICRANO SOUZA LIMA - ADVOGADO\n"
+        "Requer intimações em nome de Fulano de Tal Beltrano, (OAB/RJ 123.456, a@b.com).\n"
+        "Rio de Janeiro, 25 de junho de 2026\n"
+        "Fulano de Tal Beltrano              Mévio Prado Nunes\n"
+        "OAB/RJ 123.456                      OAB/RJ 222.333\n"
+        "Procurador Citado/Intimado:\nCICRANO SOUZA LIMA, MÉVIO PRADO NUNES\n"
+    )
+    resultado = pseudonimizar(texto).texto
+    for nome in ("FULANO", "Fulano", "CICRANO", "Mévio", "MÉVIO"):
+        assert nome not in resultado
+    assert "RJ123456" not in resultado and "SP654321" not in resultado
+    assert residuos(resultado) == []
+
+
+def test_conectivos_e_expressoes_nao_viram_pessoa():
+    texto = (
+        "EXCELENTÍSSIMO SENHOR DOUTOR JUIZ DE DIREITO DA 2ª VARA CÍVEL\n"
+        "APELO DO RÉU PELA IMPROCEDÊNCIA - INCONFORMISMO\n"
+        "Fatos constitutivos da Autora."
+    )
+    resultado = pseudonimizar(texto).texto
+    assert "JUIZ DE DIREITO DA 2ª VARA" in resultado
+    assert "PELA IMPROCEDÊNCIA" in resultado
+    assert "[PESSOA" not in resultado

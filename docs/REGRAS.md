@@ -210,7 +210,9 @@ Código: `dikemetria/resultado.py`. Vale o **primeiro** movimento de julgamento 
 Códigos TPU 219, 220 e 221 = procedência, improcedência e procedência em parte. Pelos nomes:
 "Procedência em parte", "Improcedência", "Prescrição", "Decadência", "Procedência", "Homologação de
 transação", extinções ("sem resolução do mérito", "desistência", "abandono", "indeferimento",
-"litispendência", "coisa julgada"), "Provimento em parte", "Não-provimento", "Provimento",
+"litispendência", "coisa julgada"), extinções do JEC (Lei 9.099, art. 51: códigos 11376 "Ausência do
+autor à audiência", 11377 "Inadmissibilidade do procedimento sumaríssimo" e 11378 "Incompetência
+territorial", este só pelo código), "Provimento em parte", "Não-provimento", "Provimento",
 "Não-conhecimento". Movimentos sobre embargos de declaração, liminar, tutela, gratuidade,
 impugnação ao valor, exceção, incidente e cumprimento de sentença são ignorados.
 

@@ -51,15 +51,28 @@ _ANTES_DE_PAPEL = re.compile(
     rf"(?m)^(?P<nome>(?-i:{NOME_PROPRIO}))[ \t]*\n[ \t]*(?=(?:{_PAPEIS})\b)", re.IGNORECASE
 )
 
+# Advogados ao lado do número da OAB, já trocado por [OAB]: "FULANO DE TAL [OAB]",
+# "Fulano de Tal, ([OAB]" e, no eproc, "[OAB] - FULANO DE TAL - ADVOGADO".
+_ANTES_DE_OAB = re.compile(rf"(?P<nome>{NOME_PROPRIO})[ \t]*,?[ \t]*\(?[ \t]*\[OAB\]")
+_DEPOIS_DE_OAB = re.compile(rf"\[OAB\][ \t]*[-–][ \t]*(?P<nome>{NOME_PROPRIO})")
+
 # Palavras que indicam pessoa jurídica ou ente público: o nome fica no texto.
 _ENTIDADE = re.compile(
     r"\b(?:S\.?/?A\.?|LTDA|EIRELI|ME|EPP|BANCO|CIA|COMPANHIA|COOPERATIVA|ASSOCIA[ÇC][ÃA]O|"
     r"FUNDA[ÇC][ÃA]O|INSTITUTO|INSS|UNI[ÃA]O|ESTADO|MUNIC[ÍI]PIO|FAZENDA|MINIST[ÉE]RIO|"
     r"DEFENSORIA|PROCURADORIA|SECRETARIA|CAIXA|TELEF[ÔO]NICA|TELECOM|SEGURADORA|SEGUROS|"
-    r"CONDOM[ÍI]NIO|EMPRESA|COM[ÉE]RCIO|SERVI[ÇC]OS|PARTICIPA[ÇC][ÕO]ES|TRIBUNAL|VARA|"
+    r"LIMITADA|CONDOM[ÍI]NIO|EMPRESA|COM[ÉE]RCIO|SERVI[ÇC]OS|PARTICIPA[ÇC][ÕO]ES|TRIBUNAL|VARA|"
     r"JU[ÍI]ZO|C[ÂA]MARA|COMARCA|PODER|JUDICI[ÁA]RIO|REP[ÚU]BLICA)\b",
     re.IGNORECASE,
 )
+
+# Sufixo de pessoa jurídica logo depois do nome: "EXEMPLO VAREJO S.A., inscrita no CNPJ".
+_ENTIDADE_SEGUINTE = re.compile(
+    r"[ \t]*,?[ \t]*(?:S[ \t]*[./]?[ \t]*A\b|LTDA|LIMITADA|EIRELI)", re.IGNORECASE
+)
+
+# Nome não começa por conectivo ou preposição: "DE DIREITO DA", "PELA IMPROCEDÊNCIA".
+_COMECA_COM_CONECTIVO = re.compile(r"^(?:d[aeo]s?|e|pel[ao]s?|para|com|sem|n[ao]s?)\s", re.I)
 
 # Expressões em maiúsculas que parecem nomes mas são termos da própria decisão.
 _NAO_NOME = re.compile(
@@ -75,6 +88,14 @@ _DOCUMENTOS: list[tuple[str, re.Pattern]] = [
     ("CPF", re.compile(r"(?<![\d.])\d{3}\.\d{3}\.\d{3}-\d{2}(?!\d)|\bCPF[^\d\n]{0,12}\d{11}\b")),
     ("RG", re.compile(r"\bR\.?G\.?\s*(?:n[º°o.]*)?\s*[:\-]?\s*[\dA-Z][\d.\-xX]{4,}", re.I)),
     ("OAB", re.compile(r"\bOAB\s*/?\s*[A-Z]{2}\s*(?:n[º°o.]*)?\s*[:\-]?\s*\d[\d.]*[A-Z]?", re.I)),
+    # Formato do eproc: UF e número juntos ("SP123456").
+    (
+        "OAB",
+        re.compile(
+            r"(?<![\w/])(?:AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|"
+            r"RS|SC|SE|SP|TO)\d{5,6}[A-Z]?\b"
+        ),
+    ),
     ("CEP", re.compile(r"\bCEP\s*[:\-]?\s*\d{2}\.?\d{3}-?\d{3}\b|(?<!\d)\d{5}-\d{3}(?!\d)", re.I)),
     (
         "TELEFONE",
@@ -110,7 +131,25 @@ _COMECA_COM_PAPEL = re.compile(rf"^(?:{_PAPEIS})\b", re.IGNORECASE)
 
 def _eh_entidade(nome: str) -> bool:
     """Verdadeiro para pessoa jurídica, ente público ou expressão que não é nome."""
-    return bool(_ENTIDADE.search(nome) or _NAO_NOME.match(nome) or _COMECA_COM_PAPEL.match(nome))
+    return bool(
+        _ENTIDADE.search(nome)
+        or _NAO_NOME.match(nome)
+        or _COMECA_COM_PAPEL.match(nome)
+        or _COMECA_COM_CONECTIVO.match(nome)
+    )
+
+
+def _assinaturas(texto: str) -> list[str]:
+    """Nomes numa linha de assinatura, com a OAB na linha de baixo (um ou mais, lado a lado)."""
+    linhas = texto.splitlines()
+    nomes = []
+    for linha, seguinte in zip(linhas, linhas[1:], strict=False):
+        if "[OAB]" not in seguinte:
+            continue
+        partes = [p for p in re.split(r"[ \t]{2,}", linha.strip()) if p]
+        if partes and all(re.fullmatch(NOME_PROPRIO, p) for p in partes):
+            nomes.extend(partes)
+    return nomes
 
 
 class _Pseudonimos:
@@ -146,13 +185,15 @@ def pseudonimizar(
     nomes = {n.strip() for n in nomes_conhecidos if n and len(n.strip()) >= 4}
     nomes = {n for n in nomes if not _eh_entidade(n)}
 
-    def registrar(nome: str) -> None:
-        if not _eh_entidade(nome):
+    def registrar(nome: str, depois: str = "") -> None:
+        if not (_eh_entidade(nome) or _ENTIDADE_SEGUINTE.match(depois)):
             nomes.add(nome.strip())
 
-    for padrao in (_DEPOIS_DE_PAPEL, _QUALIFICADO, _ANTES_DE_PAPEL):
+    for padrao in (_DEPOIS_DE_PAPEL, _QUALIFICADO, _ANTES_DE_PAPEL, _ANTES_DE_OAB, _DEPOIS_DE_OAB):
         for m in padrao.finditer(texto):
-            registrar(m.group("nome"))
+            registrar(m.group("nome"), texto[m.end("nome") : m.end("nome") + 12])
+    for nome in _assinaturas(texto):
+        registrar(nome)
 
     if usar_spacy:
         nomes |= {n for n in _nomes_spacy(texto) if not _eh_entidade(n)}
