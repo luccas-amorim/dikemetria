@@ -49,6 +49,11 @@ def test_classificar_texto(dispositivo, esperado):
         (None, "Concessão da Antecipação de tutela", None),
         (None, "Acolhimento de Embargos de Declaração", None),
         (11010, "Mero expediente", None),
+        # Extinções do JEC (Lei 9.099, art. 51), vistas numa coleta real no TJRN.
+        (11376, "Ausência do autor à audiência", R.EXTINTO_SEM_MERITO),
+        (11377, "Inadmissibilidade do procedimento sumaríssimo", R.EXTINTO_SEM_MERITO),
+        (11378, "Incompetência territorial", R.EXTINTO_SEM_MERITO),
+        (None, "Incompetência territorial", None),  # fora do JEC, leva à remessa, não à extinção
     ],
 )
 def test_classificar_movimento(codigo, nome, esperado):

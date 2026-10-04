@@ -10,3 +10,5 @@ dist/
 /saida/
 /temp/
 *.sqlite
+# Autos e inteiros teores de teste: nunca no repositório
+/docs/processo-temp/

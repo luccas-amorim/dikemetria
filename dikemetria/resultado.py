@@ -68,7 +68,8 @@ _MOVIMENTOS: list[tuple[Resultado, re.Pattern]] = [
         re.compile(
             r"sem resolucao d[oe] merito|desistencia|abandono da causa|"
             r"indeferimento da peticao inicial|ausencia (?:das|de) condic|"
-            r"ausencia de pressupostos|perempcao|litispendencia|coisa julgada"
+            r"ausencia de pressupostos|perempcao|litispendencia|coisa julgada|"
+            r"ausencia do autor a audiencia|inadmissibilidade do procedimento sumarissimo"
         ),
     ),
     (Resultado.PARCIALMENTE_PROVIDO, re.compile(r"provimento em parte")),
@@ -81,6 +82,11 @@ CODIGOS_TPU = {
     219: Resultado.PROCEDENTE,
     220: Resultado.IMPROCEDENTE,
     221: Resultado.PARCIALMENTE_PROCEDENTE,
+    # Extinção no JEC (Lei 9.099, art. 51): ausência do autor, inadmissibilidade do rito e
+    # incompetência territorial. Esta última só pelo código: fora do JEC, o nome indica remessa.
+    11376: Resultado.EXTINTO_SEM_MERITO,
+    11377: Resultado.EXTINTO_SEM_MERITO,
+    11378: Resultado.EXTINTO_SEM_MERITO,
 }
 
 # Movimentos que nunca são o julgamento do pedido principal, mesmo contendo palavras parecidas.
