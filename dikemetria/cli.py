@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 import sys
 from pathlib import Path
 
@@ -15,11 +16,23 @@ log = logging.getLogger("dikemetria")
 
 
 def _analisar(args) -> int:
+    from dikemetria import autos
     from dikemetria.analise import analisar_documento
     from dikemetria.extracao import extrair_texto
     from dikemetria.pseudonimizacao import pseudonimizar
 
     texto = extrair_texto(args.arquivo)
+    if autos.eh_autos_eproc(texto):
+        finais = autos.decisoes_finais(texto)
+        if not finais:
+            raise SystemExit("Autos completos sem sentença nem acórdão; use `dikemetria autos`.")
+        peca = finais[-1]
+        print(
+            f"Autos completos: analisando {peca.nome} do evento {peca.evento} "
+            f"({len(finais)} decisão(ões) final(is) nos autos).",
+            file=sys.stderr,
+        )
+        texto = peca.texto
     if not args.sem_pseudonimizar:
         texto = pseudonimizar(texto).texto
     analise = analisar_documento(texto, top=args.top).como_dict()
@@ -37,6 +50,38 @@ def _analisar(args) -> int:
         svg = grafico_barras([(p, n / maximo, str(n)) for p, n in palavras], "Palavras frequentes")
         Path(args.svg).write_text(svg_autonomo(svg), encoding="utf-8")
         print(f"Gráfico gravado em {args.svg}")
+    return 0
+
+
+def _autos(args) -> int:
+    """Separa as peças de autos completos, pseudonimizadas, para o sub-estudo com autos."""
+    import csv
+
+    from dikemetria import autos
+    from dikemetria.extracao import extrair_texto
+    from dikemetria.pseudonimizacao import pseudonimizar
+
+    texto = extrair_texto(args.arquivo)
+    if not autos.eh_autos_eproc(texto):
+        raise SystemExit("Formato de autos não reconhecido (só eproc, por enquanto).")
+    saida = Path(args.saida)
+    saida.mkdir(parents=True, exist_ok=True)
+    gravadas = descartadas = 0
+    with open(saida / "indice.csv", "w", newline="", encoding="utf-8") as indice:
+        tabela = csv.writer(indice)
+        tabela.writerow(["arquivo", "evento", "tipo", "peca", "classe", "paginas", "data"])
+        for peca in autos.dividir(texto):
+            if peca.classe == "anexo" and not args.incluir_anexos:
+                descartadas += 1
+                continue
+            nome = f"evento-{peca.evento:03d}-{peca.sigla}{peca.ordem}.txt"
+            (saida / nome).write_text(pseudonimizar(peca.texto).texto, encoding="utf-8")
+            tabela.writerow(
+                [nome, peca.evento, peca.sigla, peca.nome, peca.classe, peca.paginas, peca.data]
+            )
+            gravadas += 1
+    print(f"{gravadas} peças pseudonimizadas em {saida}; {descartadas} anexos descartados.")
+    print("Revise os nomes que restarem antes de qualquer uso; nada disso vai para o git.")
     return 0
 
 
@@ -189,7 +234,25 @@ def _sondar(args) -> int:
         item = itens[0] if itens else {}
     print("Chaves da resposta:", sorted(dados))
     print("Campos do item:", sorted(item))
+    # Só tipos, nenhum valor: pode ser colado numa conversa ou issue sem expor dados pessoais.
+    print("Estrutura do item:")
+    print(json.dumps(estrutura(item), ensure_ascii=False, indent=2))
     return 0
+
+
+def estrutura(valor):
+    """Esqueleto de um JSON: as chaves e o tipo de cada valor, sem os valores."""
+    if isinstance(valor, dict):
+        return {chave: estrutura(v) for chave, v in sorted(valor.items())}
+    if isinstance(valor, list):
+        return [estrutura(valor[0])] if valor else []
+    if isinstance(valor, str) and re.fullmatch(r"\d{2}/\d{2}/\d{4}.*", valor):
+        return "texto (dd/mm/aaaa)"
+    if isinstance(valor, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}.*", valor):
+        return "texto (aaaa-mm-dd)"
+    return {str: "texto", bool: "lógico", int: "inteiro", float: "decimal"}.get(
+        type(valor), "nulo" if valor is None else type(valor).__name__
+    )
 
 
 def _classificar(args) -> int:
@@ -307,6 +370,12 @@ def construir_parser() -> argparse.ArgumentParser:
     p.add_argument("--refazer", action="store_true", help="ignora o progresso salvo")
     opcoes_coleta(p)
     p.set_defaults(func=_coletar)
+
+    p = sub.add_parser("autos", help="separa as peças de autos completos (eproc), pseudonimizadas")
+    p.add_argument("arquivo")
+    p.add_argument("--saida", default="dados/autos", help="pasta de saída, fora do git")
+    p.add_argument("--incluir-anexos", action="store_true", help="grava também os anexos")
+    p.set_defaults(func=_autos)
 
     p = sub.add_parser("sondar", help="confere os campos atuais da API de uma fonte")
     p.add_argument("--fonte", choices=["datajud", "djen"], default="datajud")

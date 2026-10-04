@@ -42,7 +42,9 @@ def _extrair_pdf(caminho: Path) -> str:
 
     try:
         leitor = PdfReader(caminho)
-        return "\n".join(pagina.extract_text() or "" for pagina in leitor.pages)
+        # Quebra de página ("\f") entre linhas próprias: preserva os limites das páginas, que
+        # `autos.py` usa para separar as peças, sem colar a última linha de uma página na próxima.
+        return "\n\f\n".join(pagina.extract_text() or "" for pagina in leitor.pages)
     except Exception as erro:  # pypdf lança vários tipos de erro para PDFs corrompidos
         raise ErroExtracao(f"Erro ao ler o PDF {caminho.name}: {erro}") from erro
 
