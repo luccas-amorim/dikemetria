@@ -69,6 +69,7 @@ aconselhar quem litiga. Nada aqui constitui consultoria ou assessoria jurídica.
 | `dikemetria/validacao.py` | amostra para rotulagem manual e medida de acerto da classificação |
 | `dikemetria/autos.py` | autos completos do eproc: separa as peças e lê só sentenças e acórdãos |
 | `dikemetria/municipios.py` | município da unidade judiciária com código do IBGE confirmado |
+| `dikemetria/cobertura.py` | cobertura do DataJud por tribunal, contra os casos novos do Justiça em Números |
 | `dikemetria/guarda.py` | barra no CI e antes do commit documentos, bancos e CPF/CNPJ/processos reais |
 
 As regras de avaliação das decisões e de cálculo das medidas estão em
@@ -93,6 +94,7 @@ dikemetria analisar decisao.pdf --json analise.json --svg palavras.svg
 # Um recorte em todos os tribunais (veja recortes/exemplo.toml)
 dikemetria tribunais                                   # os 91 tribunais cobertos
 dikemetria estimar recortes/exemplo.toml               # quantos processos há em cada um
+dikemetria cobertura --jn JN.csv --ano 2024            # DataJud contra o Justiça em Números
 dikemetria coletar recortes/exemplo.toml --fonte datajud
 dikemetria coletar recortes/exemplo.toml --fonte djen
 dikemetria coletar --fonte arquivos --pasta minhas_decisoes/

@@ -1,1142 +1,1142 @@
-codigo,nome,ocorrencias,tribunais,rotulo
-26,Distribuição,265072477,91,
-51,Conclusão,248625438,91,
-85,Petição,205815509,91,
-60,Expedição de documento,199984724,91,
-581,Documento,164594539,89,
-11383,Ato ordinatório,150984416,91,
-11010,Mero expediente,150800637,91,
-92,Publicação,147128556,89,
-246,Definitivo,139432622,88,
-123,Remessa,139283088,91,
-1051,Decurso de Prazo,124238681,88,
-22,Baixa Definitiva,100622141,90,
-1061,Disponibilização no Diário da Justiça Eletrônico,97347717,88,
-132,Recebimento,97241608,91,
-848,Trânsito em julgado,95845855,90,
-12164,Outras Decisões,77807574,91,
-12265,Expedida/certificada,68537753,50,
-12266,Confirmada,52143759,36,
-36,Redistribuição,45024964,91,
-106,Mandado,43231832,85,
-981,Recebimento,41436984,66,
-982,Remessa,36809098,47,
-12282,Expedida/Certificada,31515705,41,
-196,Extinção da execução ou do cumprimento da sentença,30626753,90,
-493,Entrega em carga/vista,28942423,69,
-985,Mandado,26970107,86,
-10966,Mudança de Classe Processual,25226696,68,
-219,Procedência,24017424,91,procedente
-898,Por decisão judicial,23088362,91,
-970,Audiência,22868951,68,
-220,Improcedência,22064540,91,improcedente
-12287,Expedida/Certificada,20570215,39,
-221,Procedência em Parte,20071021,91,parcialmente_procedente
-466,Homologação de Transação,19770469,88,homologacao_acordo
-12066,Cumprimento de Levantamento da Suspensão ,18894777,89,
-239,Não-Provimento,18565429,91,nao_provido
-787,Gratuidade da Justiça,17408390,61,
-14736,Inclusão no Juízo 100% Digital,15797584,52,
-245,Provisório,15402753,89,
-849,Reativação,13951389,73,
-11385,Execução/Cumprimento de Sentença Iniciada (o),13799072,48,
-15101,Conclusão,13778531,34,
-12740,de Conciliação,13346810,60,
-12291,Movimentação processual,13000606,87,
-12288,Confirmada,12895958,31,
-118,Protocolo de Petição,12531891,52,
-893,Desarquivamento,12443024,88,
-14739,Evolução da Classe Processual,11955803,62,
-12749,de Instrução,11950717,72,
-12215,Processo devolvido à Secretaria,11573758,44,
-1059,Sem efeito suspensivo,11236129,90,
-14732,Conversão de Autos Físicos em Eletrônicos,11196662,68,
-200,Não-Acolhimento de Embargos de Declaração,10829290,91,
-12200,Mérito,10097007,57,
-12185,Decisão Interlocutória de Mérito,9905186,86,
-135,Apensamento,8530727,72,
-785,Antecipação de tutela,8489474,91,
-463,Desistência,8305555,91,extinto_sem_merito
-11384,Liquidação iniciada,7996551,36,
-14738,Retificação de Classe Processual,7774388,87,
-12313,Pedido de inclusão em pauta virtual,7609807,47,
-12614,Remessa para o CEJUSC ou Centros de Conciliação/Mediação,7546458,57,
-12104,Inclusão em pauta,7544306,27,
-479,Custas,6962139,48,
-11022,Julgamento em Diligência,6951464,91,
-417,Inclusão em pauta,6894489,58,
-218,Sem Resolução de Mérito,6525858,33,extinto_sem_merito
-12115,Para julgamento de mérito,6474239,78,
-12283,Confirmada,6376705,30,
-276,Execução frustrada,6070388,85,
-332,Antecipação de tutela,6020788,91,
-193,Julgamento,5997970,34,
-237,Provimento,5778836,91,provido
-941,Incompetência,5733523,91,
-238,Provimento em Parte,5697080,91,parcialmente_provido
-12750,de Instrução e Julgamento,5649386,66,
-391,Denúncia,5576062,64,
-12619,Recebimento do CEJUSC ou Centros de Conciliação/Mediação,5474216,53,
-12174,Enviada ao Tribunal,5356437,44,
-339,Liminar,5278635,91,
-12747,Inicial,5205556,37,
-792,Liminar,5170986,91,
-12116,Para julgamento de mérito,5157223,36,
-461,Ausência das condições da ação,5144124,91,extinto_sem_merito
-459,Ausência de pressupostos processuais,5126160,91,extinto_sem_merito
-15085,Emenda à Inicial,5103352,62,
-12143,Mudança de Assunto Processual,5083879,32,
-15216,,4974091,61,
-12176,Paga,4763141,43,
-12067,Levantamento da Suspensão ou Dessobrestamento,4521477,84,
-12311,Pedido de inclusão,4512033,56,
-870,Autos Eliminados,4425011,33,
-471,Pronúncia de Decadência ou Prescrição,4238641,91,improcedente
-235,Não Conhecimento de recurso,4180931,89,nao_conhecido
-12444,deferimento,4175092,83,
-12387,Decisão de Saneamento e Organização,4131984,87,
-12621,Recebimento no CEJUSC ou Centros de Conciliação/Mediação,3976330,50,
-454,Indeferimento da petição inicial,3874303,91,extinto_sem_merito
-12142,Mudança de Parte,3783414,27,
-12065,Cumprimento de Suspensão ou Sobrestamento,3751758,46,
-11024,Assistência Judiciária Gratuita,3589486,61,
-12270,Documento,3497075,67,
-198,Acolhimento de Embargos de Declaração,3483234,90,
-334,Gratuidade da Justiça,3430592,67,
-12281,Comunicação eletrônica,3409746,20,
-12296,Registro Processual,3186402,38,
-272,"A depender do julgamento de outra causa, de outro juízo ou declaração incidente",3060656,89,
-11020,Requisição de Informações,3037780,91,
-979,Recebimento,2919358,53,
-12263,Intimação,2913370,17,
-1063,Determinação de arquivamento de procedimentos investigatórios,2836079,65,
-12252,Sentença confirmada,2794871,61,
-980,Remessa,2778589,55,
-458,Abandono da causa,2700658,87,extinto_sem_merito
-12175,Preparada para Envio,2656413,26,
-977,Recebimento,2623179,46,
-12430,Arquivamento,2611647,64,
-265,Recurso Extraordinário com repercussão geral,2385002,70,
-15238,,2312673,52,
-12315,Devolvidos os autos,2259606,34,
-12068,Levantamento da Suspensão ou Dessobrestamento,2208043,65,
-11975,Recurso Especial repetitivo,2187337,60,
-236,Negação de Seguimento,2171555,89,
-434,Recurso de Revista,2150635,37,
-394,Com efeito suspensivo,2099157,61,
-12187,Homologação de Decisão de Juiz Leigo,2058286,38,
-12751,de Julgamento,2032599,57,
-12548,Expedição de alvará de levantamento,2012985,59,
-11878,Prescrição,1963654,65,improcedente
-433,Recurso Especial,1829861,62,
-12457,Expedição de precatório/rpv,1826882,58,
-12284,Citação,1763276,15,
-12529,Decisão,1753126,13,
-12203,Adiado,1747971,84,
-12199,Julgado,1734879,11,
-12753,Preliminar,1685750,41,
-12214,Processo Encaminhado,1609604,16,
-16,Cálculo,1600125,20,
-871,Acolhimento em parte de Embargos de Declaração,1594578,91,
-12105,Inclusão do processo para julgamento eletrônico,1526420,5,
-14099,Homologação de Acordo em Execução ou em Cumprimento de Sentença,1487623,84,
-230,Recurso prejudicado,1476109,91,
-978,Remessa,1474365,39,
-12298,Cancelamento de Dívida Ativa,1409806,47,
-478,Cálculo de Liquidação,1395275,51,
-277,Convenção das Partes para Satisfação Voluntária da Obrigação em Execução ou Cumprimento de Sentença,1394243,85,
-12098,Incidente de Resolução de Demandas Repetitivas ,1372439,61,
-11983,Retificação de movimento,1371570,78,
-15164,Não Acolhimento de Embargos de Declaração,1361787,63,
-12268,Em Secretaria,1334956,48,
-897,Retirada de pauta,1303950,82,
-137,Desapensamento,1274000,68,
-14737,Exclusão do Juízo 100% Digital,1266754,49,
-12648,Determinação de Diligência,1257686,48,
-804,Recurso,1249146,90,
-12532,Infrutífera,1237740,14,
-14904,Agendada,1210101,16,
-12455,Indeferimento,1163290,80,
-432,Recurso Extraordinário,1146672,71,
-14903,Determinada/Designada,1111402,18,
-11376,Ausência do autor à audiência,1108437,58,extinto_sem_merito
-12167,Enviada ao Tribunal,1103734,49,
-818,Liberdade provisória,1086604,64,
-12318,Reconhecimento de prevenção,978632,61,
-12660,Deferimento do Pedido de Registro de Candidatura,967794,29,
-12652,Contas Aprovadas,945994,34,
-12742,de Custódia,926490,35,
-275,Força maior,911321,85,
-12624,Audiência do art. 334 CPC,910473,31,
-460,"Perempção, litispendência ou coisa julgada",885577,90,extinto_sem_merito
-12255,Redistribuição por prevenção,866453,64,
-456,Extinção,862126,46,
-15185,Cooperação Judiciária,860841,81,
-12658,Sistema de Candidaturas Fechado,843455,26,
-12189,Entrega de Documento,837462,33,
-12140,Prisão em Flagrante em Prisão Preventiva,836513,45,
-14999,Iniciada Tramitação Direta entre MP e Autoridade Policial,821053,24,
-11013,Convenção das Partes,800761,86,
-14093,Voto do Relator,797931,42,
-263,Réu revel citado por edital ,795317,59,
-12306,Perito,793770,43,
-1049,Pagamento integral do débito,789591,62,
-11009,Despacho,786015,29,
-12254,Sentença desconstituída,776923,54,
-12261,Emenda a inicial,774064,59,
-889,Antecipação de Tutela,770168,90,
-947,Por pendência de AIREsp,766001,29,
-901,Negação de seguimento,758265,88,
-3,Decisão,717946,30,
-972,Provimento (art. 557 do CPC),713190,84,provido
-15417,,710084,14,
-1050,Cumprimento da Pena,687854,63,
-442,Segurança,680492,89,
-928,Republicação,680049,51,
-12474,Distribuição,651296,55,
-11377,Inadmissibilidade do procedimento sumaríssimo,645798,38,extinto_sem_merito
-446,Segurança,632123,90,
-12294,Comparecimento do Réu/Apenado,627659,23,
-488,Cancelamento de Distribuição,600365,76,
-873,Deliberação em Sessão,596017,33,
-15246,,590785,16,
-1002,Progressão de regime,583481,34,
-11879,Decadência ou perempção,576323,57,improcedente
-11014,Convenção das Partes para Cumprimento Voluntário da obrigação,564630,65,
-15162,Acolhimento de Embargos de Declaração,563810,63,
-12028,Cumprimento de transação penal,563233,61,
-12259,"Prescrição intercorrente (art. 921, § 4º, CPC)",559357,80,improcedente
-11378,Incompetência territorial,558955,58,extinto_sem_merito
-788,Exceção de pré-executividade,557135,80,
-473,Ausência do Reclamante,555032,65,extinto_sem_merito
-892,Liminar,554116,91,
-11375,Inexistência de bens penhoráveis,545038,52,
-385,Com Resolução do Mérito,535869,38,
-112,Ofício,522224,52,
-15000,Finalizada Tramitação Direta entre MP e Autoridade Policial,521220,21,
-12646,Determinada a Redistribuição,519101,43,
-190,Reforma de decisão anterior,516755,80,
-866,Guarda Intermediária,512464,38,
-12290,Documento Expedido,510114,40,
-480,Atualização de conta,506913,53,
-12205,Retirado,502767,60,
-12295,Depósito de Bens/Dinheiro,477156,25,
-12307,Decretação de revelia,472344,61,
-447,Habeas corpus,465041,83,
-987,Ofício,461067,34,
-264,Suspensão Condicional do Processo,458029,62,
-12531,Frutífera,456278,13,
-11423,Medida protetiva,451703,32,
-83,Cancelamento da distribuição,446087,83,
-14974,Levantamento da Causa Suspensiva ou de Sobrestamento,444785,10,
-242,Conhecimento em Parte e Não-Provimento ou Denegação,429417,89,nao_provido
-371,Incompetência,428388,88,
-430,Recurso especial,412665,61,
-12169,Paga,412247,39,
-12325,Perda do objeto,403474,60,
-14971,Por Ação de Controle Concentrado de Constitucionalidade,402411,46,
-12204,Pedido de Vista,385229,84,
-12297,Atribuição de competência,384607,16,
-12659,Totalização de Eleições Efetuada,376451,28,
-12733,Homologação do Acordo de Não Persecução Penal,368987,63,
-431,Recurso de revista,367327,42,
-12277,Início,365773,21,
-12101,Inclusão do processo para julgamento eletrônico,360940,17,
-20087,,353829,1,
-15247,,353284,53,
-12310,Pauta,352663,8,
-11411,Cumprimento da suspensão condicional do processo,352008,61,
-12738,Homologação de Transação Penal,351904,60,homologacao_acordo
-1042,Morte do agente,348299,64,
-11018,Recebimento de Embargos à Execução,342270,47,
-15248,,337674,50,
-1046,Renúncia do queixoso ou perdão aceito ,336553,42,
-944,Desistência de Recurso,332550,91,extinto_sem_merito
-1043,"Anistia, graça ou indulto",330166,51,
-12654,Contas Aprovadas com Ressalvas,326585,33,
-11373,Anulação de sentença/acórdão,321528,90,
-945,Decisão anterior,315601,87,
-11795,Procedência do Pedido - Reconhecimento pelo réu,313563,81,procedente
-12539,Infrutífera,311543,27,
-884,Transação Penal,307597,58,
-12253,Sentença confirmada em parte,299255,55,
-11008,Desmembramento de Feitos,296708,78,
-11025,Suspensão ou Sobrestamento,292380,35,
-14702,Incidente ou Cautelar - Procedimento Resolvido,292217,55,
-12319,Não conhecimento do pedido,290188,53,nao_conhecido
-12149,Detração/Remição da Pena,283106,29,
-14902,Perícia,278630,2,
-12436,Conhecimento para não conhecer do Recurso Especial,275179,12,nao_conhecido
-12735,Extinção de Punibilidade em Razão do Cumprimento de Acordo de Não Persecução Penal,270383,61,
-67,Juntada,267317,33,
-1,Magistrado,265708,15,
-12271,Petição,264807,36,
-1019,Transferência da Execução da Pena,264665,45,
-268,Morte ou perda da capacidade,259190,82,
-15032,Manutenção da Prisão Preventiva,257843,48,
-175,Prisão em flagrante,255863,37,
-12651,Contas Não Prestação,254253,31,
-12293,Ato cumprido pela parte ou interessado (sem atributo),251870,28,
-128,Prisão,250569,69,
-1003,Remição,248941,35,
-14975,Suspensão/Sobrestamento por Recurso Extraordinário com Repercussão Geral,242358,55,
-15486,,241503,25,
-1054,Destinação Parcial,238586,24,
-381,Recurso,222279,65,
-12743,de Interrogatório,221864,61,
-12649,Homologado o Pedido,219781,56,
-12309,Retirada,218152,42,
-12752,de Mediação,211616,50,
-12458,Não conhecimento do habeas corpus,211435,56,nao_conhecido
-14985,Suspensão/Sobrestamento por Incidente de Resolução de Demandas Repetitivas,209667,53,
-12280,Interrupção,208664,10,
-12146,Liberdade Provisória,207311,46,
-12303,Defensor Dativo,202459,59,
-961,Suscitação de Conflito de Competência,201512,91,
-867,Guarda Permanente,199805,68,
-457,Paralisação por negligência das partes,199262,78,
-1013,Determinação,195909,24,
-12100,Por decisão do Presidente do STF  - SIRDR,195646,56,
-335,de pré-executividade,194751,76,
-11379,Incompetência em razão da pessoa,191121,60,
-241,Conhecimento em Parte e Provimento em Parte ou Concessão em Parte,190272,88,parcialmente_provido
-15186,Cooperação Judiciária,182807,62,
-481,Tributos,182018,45,
-12744,de Justificação,181382,47,
-10953,Pronúncia,180058,43,
-12459,Prejudicado,176210,64,
-12302,Curador,170673,49,
-15408,,168131,71,
-14961,Erro ou Recusa na Comunicação,167451,14,
-270,Convenção das Partes,166706,23,
-12114,Para análise da admissão do IAC,166096,3,
-15086,Deferimento em Parte,163502,74,
-311,Leilão ou Praça,160438,52,
-12150,Impedimento,158803,88,
-472,"Sumaríssimo (art. 852-B, § 1º/CLT)",158260,60,
-11796,Declaração de competência em conflito,157423,86,
-11374,Devedor não encontrado,156171,36,
-383,Impugnação ao cumprimento de sentença,155088,52,
-819,Livramento Condicional,153622,36,
-12151,Suspeição,153010,89,
-12168,Preparada para Envio,150653,22,
-12653,Contas Desaprovadas,150571,31,
-15163,Acolhimento em Parte de Embargos de Declaração,149155,63,
-450,Segurança,146168,87,
-11415,Comutação da pena,145824,31,
-14976,Suspensão/Sobrestamento por Recurso Especial Repetitivo,144549,53,
-14232,Acolhimento,143899,59,
-12745,do art. 16 da Lei 11.340,143024,22,
-1014,Regressão de Regime,140647,42,
-160,Recebimento,140065,20,
-12278,Fim,138893,17,
-313,Sessão do Tribunal do Júri,136986,29,
-12739,Admonitória,136166,36,
-15094,Pendência de Diplomação,136048,18,
-12099,Por decisão do Presidente do STJ - SIRDR,135371,42,
-14235,Rejeição,130077,60,
-11012,Conflito de Competência,126944,85,
-455,Renúncia ao direito pelo autor,126600,88,improcedente
-464,Ação intransmissível,121910,74,
-12330,Pedido conhecido em parte e procedente em parte,121438,56,parcialmente_procedente
-15103,Gratuidade da Justiça,120625,32,
-12267,Em audiência,120232,29,
-12472,Devolução dos autos à origem ,118686,57,
-1045,"Prescrição, decadência ou perempção",117297,30,improcedente
-443,Habeas corpus,115877,83,
-14997,Arquivamento Provisório - Aguardando Captura de Réu Condenado,114592,26,
-11002,Revogação da Suspensão do Processo,113643,52,
-14233,Não-Acolhimento,110705,61,
-12258,Emissão de juízo de retratação pelo Órgão Julgador,109944,80,
-14682,Medida Cautelar Diversa da Prisão,107489,50,
-429,Recurso extraordinário,106489,68,
-14095,Outros Votos,106438,35,
-12308,Substituição/Sucessão da Parte,105320,77,
-14234,Acolhimento em Parte,103404,51,
-14973,Por Recurso de Revista Repetitivo,101166,27,
-1055,Cadastramento,95824,25,
-11554,Indulto,92534,41,
-56,Requisição de informações,91572,45,
-15183,Pedido de Uniformização de Interpretação de Lei,91381,7,
-377,Acordo em execução ou em cumprimento de sentença,91251,59,
-12144,Unificação e Soma de Penas,91166,38,
-11019,Ordenação de entrega de autos,89304,81,
-25,Suspensão ou Sobrestamento,87188,30,
-240,Conhecimento em Parte e Provimento ou Concessão,86640,86,provido
-12453,improcedência,86436,51,improcedente
-12106,Adiamento do julgamento (art. 935 do CPC),84691,28,
-968,Não-Concessão,84111,22,
-14982,Suspensão/Sobrestamento Determinada por Ação de Controle Concentrado de Constitucionalidade  - STF,82946,40,
-11426,Medida protetiva,81396,29,
-402,Denúncia,80798,65,
-12694,Acolhimento (Registro Deferido),78803,28,
-374,Exceção de incompetência,78371,81,
-15409,,77238,54,
-14219,Contas Regularizadas,77034,29,
-12435,Conhecimento para negar provimento ao recurso especial,76054,20,nao_provido
-269,Impedimento ou Suspeição,74953,62,
-12274,Sobrestado,74685,60,
-12440,conhecimento para conhecer em parte o recurso especial e negar provimento,73587,4,nao_provido
-228,Arquivamento,73396,14,
-14969,Por Grupo de Representativos,72657,34,
-12272,Declinada a competência,71616,52,
-12314,Retirar pedido de pauta virtual,71386,41,
-15589,,70375,22,
-12141,Relaxamento do Flagrante,68791,47,
-105,Devolução,67375,11,
-12616,Composição Civil dos Danos,67277,29,
-817,Concessão,65508,22,
-11876,Absolvição Sumária do art. 397-CPP,65352,61,
-348,Liminar,64120,91,
-12451,Procedência,63389,48,procedente
-11003,Início do Cumprimento da Transação Penal,62992,25,
-20002,,62750,1,
-11380,Autor falecido e sem habilitação de sucessores,62455,55,
-50149,,62011,1,
-12305,Outros auxiliares de justiça,61942,55,
-12767,Por Divergência de Entendimento com Tribunal Superior,61365,26,
-63,Ordenação de entrega de autos,60788,19,
-151,Concessão de efeito suspensivo,60568,12,
-50146,,58919,1,
-388,Aditamento da denúncia,58091,58,
-12452,procedência parcial,57586,47,parcialmente_procedente
-1047,Retratação do agente,57489,43,
-11407,Improcedência do pedido e procedência do pedido contraposto,56865,53,improcedente
-12449,expedição de alvará de levantamento,56729,17,
-15562,,55816,24,
-11424,Medida protetiva,55019,27,
-12475,Habeas Corpus de ofício,54386,44,
-1060,Recurso,54325,25,
-1015,Suspensão do Processo,53261,25,
-12454,Pedido de Uniformização de Interpretação de Lei,52930,17,
-11409,Improcedência do pedido e improcedência do pedido contraposto,52326,52,improcedente
-15023,DRAP Deferido,52282,28,
-973,Extinção da Punibilidade,52188,36,
-12198,Deliberado em Sessão,52094,10,
-14906,Cancelada,50915,14,
-12766,Por Divergência de Entendimento com o STF,49941,28,
-12759,Realização de Procedimento Restaurativo,49358,22,
-50151,,49133,1,
-14212,Sistema de Candidaturas Reaberto,47924,24,
-14968,Por Incidente de Assunção de Competência - IAC,47384,46,
-15621,,46664,22,
-100000,,46312,1,
-865,Arquivista,46264,6,
-349,Assistência Judiciária Gratuita,46162,37,
-11406,Procedência em parte do pedido e improcedência do pedido contraposto,46077,48,parcialmente_procedente
-14981,Suspensão/Sobrestamento Determinada por Controvérsia,45838,49,
-347,Antecipação de Tutela,45817,85,
-1010,Saída Temporária,44313,53,
-12329,Pedido conhecido em parte e procedente,43960,54,procedente
-15098,Alteração da Foto,43441,28,
-15488,,42186,24,
-100001,,41351,1,
-11403,Procedência do pedido e improcedência do pedido contraposto,39928,55,procedente
-15729,,39792,8,
-15489,,39178,25,
-15622,,38254,23,
-0,,38234,2,
-266,Julgamento em Diligência,37679,23,
-940,Impedimento ou Suspeição,37104,82,
-11017,Incidente de Insanidade Mental,36938,49,
-15495,,36914,19,
-10961,Impronúncia,36561,48,
-15097,Alteração do Nome para Urna,35921,28,
-451,Habeas corpus,35774,72,
-12332,Prorrogado prazo de conclusão,35368,52,
-1062,Redisponibilização no Diário da Justiça Eletrônico,35088,27,
-15223,,35076,77,
-12359,Liminar Prejudicada,34847,58,
-12734,Revogação do Acordo de Não Persecução Penal,34785,56,
-393,Queixa,34586,39,
-48,Escrivão/Diretor de Secretaria/Secretário Jurídico,33525,19,
-14848,Ausência de Requerimento Administrativo Prévio,32973,30,extinto_sem_merito
-15063,Acolhimento em Parte,32550,26,
-12177,Cancelada,30922,42,
-50147,,30877,1,
-50152,,30648,1,
-1044,Retroatividade de lei,30278,41,
-821,Pena / Medida,30200,57,
-12285,Em Secretaria/Comparecimento Espontâneo,29985,29,
-14984,Suspensão/Sobrestamento Determinada por Recurso de Revista Repetitivo,29931,23,
-12173,Pequeno Valor,29742,4,
-12434,Conhecimento para dar provimento ao Recurso Especial ,29737,11,provido
-1053,Destinação,29702,26,
-11425,Medida protetiva,29687,30,
-12172,Suspensão,29610,16,
-12437,Conhecimento para determinar sua autuação como Recurso Especial,29317,3,
-12467,Desistência de pedido,29183,42,extinto_sem_merito
-404,Queixa,29171,55,
-12431,Embargos ,29140,58,
-12179,Suspensão,28961,15,
-12170,Cancelada,28919,40,
-15064,Não Acolhimento,28571,28,
-172,Deliberação da partilha,28383,36,
-12427,Agravo em recurso especial ,28343,26,
-14970,Por Controvérsia,28160,54,
-12746,em Execução,28131,28,
-12312,Retirar pedido de inclusão,28073,38,
-12679,Provimento (Registro Deferido),28055,28,provido
-12534,Infrutífera,26944,9,
-12148,Prisão Domiciliar,26794,44,
-15021,Destaque para Julgamento Presencial,26338,20,
-12737,Revogação da Suspensão Condicional do Processo,26140,57,
-14683,Medida Cautelar Diversa da Prisão,26134,44,
-12186,Cancelamento de Distribuição,25224,28,
-12035,Representação por ato infracional,24968,38,
-378,Homologação,24788,30,
-12273,Convertido em diligência,23319,51,
-12456,Recurso Ordinário,23235,36,
-11394,Homologada a Remissão,23150,46,
-11015,"Exceção de Incompetência, suspeição ou Impedimento",22656,82,
-15244,,21926,27,
-12256,Continência,21268,61,
-14908,Não Realizada,21061,14,
-12166,Precatório,20599,6,
-12165,Requisição de Pagamento,20329,8,
-14905,Realizada,19589,16,
-12331,Pedido conhecido em parte e improcedente,19454,53,improcedente
-14978,Suspensão/Sobrestamento Determinada por Decisão do Presidente do STJ - SIRDR,19334,35,
-14733,Prorrogação de Medida Protetiva,19075,23,
-15062,Acolhimento,19047,29,
-14210,Indeferimento do Pedido de Registro de Candidatura,19041,27,
-12432,Afetação,19003,18,
-15490,,18898,23,
-12320,Denegação de prevenção,18469,47,
-15730,,17814,4,
-11792,Livramento Condicional,17803,26,
-1048,Perdão judicial,17714,42,
-861,Arquivamento,17695,18,
-11408,Improcedência do pedido e procedência em parte do pedido contraposto,17685,42,improcedente
-15487,,17544,22,
-15027,Manutenção da Inscrição Eleitoral,17341,27,
-1009,Trabalho Externo,17079,33,
-15366,,16948,27,
-869,Entrega definitiva dos autos,16812,22,
-11404,Procedência em parte do pedido e procedência do pedido contraposto,16809,36,parcialmente_procedente
-15022,Rejeição de Justificativa do Mesário Faltoso ou Manutenção de Multa,16124,27,
-853,Conversão de Agravo de Instrumento em Recurso Especial ou Extraordinário,15913,21,
-202,Decretação de falência,15904,33,
-12769,Desclassificação de Delito,15862,32,
-50165,,15312,1,
-12540,Frutífera,15234,29,
-12438,conhecimento para dar parcial provimento ao recurso especial,15053,21,parcialmente_provido
-1017,Suspensão Condicional da Pena,14612,53,
-12147,Domiciliar,14606,31,
-373,Exceção de Impedimento ou Suspeição,14437,86,
-15627,,14378,2,
-1018,Transferência para outro Estabelecimento Penal,13473,32,
-1016,Suspensão Condicional da Pena,13359,38,
-12289,Cancelamento,13356,14,
-244,Conversão de Agravo de Instrumento em Agravo Retido,13130,29,
-14907,Reagendada,13124,12,
-115,Recebimento,12805,8,
-12445,Recurso Ordinário,12760,44,
-15563,,12716,19,
-12736,Unificação de Processos de Execução,12505,31,
-14094,Voto Divergente Vencedor,12359,25,
-12537,Não-realizada,12268,1,
-10964,Extinção por Cumprimento de Medida Sócio-Educativa,12118,50,
-50109,,11738,1,
-11405,Procedência em parte do pedido e procedência em parte do pedido contraposto,11670,44,parcialmente_procedente
-15025,Revogação da Transação Penal,11561,55,
-12213,Decisão Monocrática,11507,38,
-12092,Afetação ao rito dos recursos repetitivos ,11386,39,
-11,Declaração,10988,19,
-14211,Homologação da Renúncia ao Registro de Candidatura,10969,27,
-15158,Registro de Renúncia,10871,28,
-11023,Concessão,10869,23,
-15100,Alteração da Data de Nascimento do Candidato,10701,27,
-15726,,10498,3,
-12095,Incidente de resolução de demandas repetitivas,10351,51,
-12447,pagamento,10205,34,
-14776,Homologação em Parte,10193,25,
-14980,Suspensão/Sobrestamento Determinada por Grupo de Representativos,10143,25,
-15045,Audiência de Apresentação de Adolescente,10069,21,
-12673,Não-Procedência da Impugnação (Registro Deferido),9983,28,improcedente
-11877,Absolvição sumária - crimes dolosos contra a vida,9680,38,
-50112,,9613,1,
-15582,,9409,11,
-12608,Parcial,9288,13,
-14,Serventuário,9001,15,
-12171,Retificado,8938,12,
-50129,,8779,1,
-14937,Acolhimento da Justificativa do Mesário Faltoso ou Dispensa de Multa,8738,26,
-15188,Audiência de Depoimento Especial,8568,23,
-11381,Ausência de citação de sucessores do réu falecido,8472,36,extinto_sem_merito
-59999,,8321,1,
-389,Aditamento da queixa,8269,32,
-11401,Procedência do pedido e procedência do pedido contraposto,8239,47,procedente
-14977,Suspensão/Sobrestamento Determinada por Decisão do Presidente do STF - SIRDR,8194,47,
-11396,Concessão de remissão a adolescente com exclusão do processo,8095,38,
-138,Rejeição,8062,19,
-90000,,8004,1,
-1052,Bens Apreendidos,7989,8,
-462,Convenção de arbitragem,7978,63,
-15695,,7952,4,
-12275,Retificado,7789,37,
-146,Não-Homologação de prisão em flagrante,7763,42,
-15026,Cancelamento de Inscrição Eleitoral,7712,26,
-12690,Não-Provimento (Registro Indeferido),7647,29,nao_provido
-15413,,7479,25,
-50110,,7308,1,
-15030,Cancelamento de Filiação Partidária,7294,26,
-12700,Não-Acolhimento (Registro Indeferido),7290,27,
-12111,Para análise da admissão do IRDR,7287,4,
-12112,Para análise da admissão do IRDR,7265,4,
-12184,Suspensão Condicional do Processo,7186,42,
-11402,Procedência do pedido e procedência em parte do pedido contraposto,7097,39,procedente
-12202,Questão de Ordem,6672,47,
-50136,,6657,2,
-12322,Favorável,6610,24,
-7,Conversão,6490,16,
-50000,,6310,2,
-12032,Exequatur,6118,9,
-207,Não-Admissão,6071,16,
-12439,conhecimento para conhecer em parte o recurso especial e dar provimento ,5868,4,provido
-12667,Procedência da Impugnação (Registro Indeferido),5848,28,procedente
-206,Admissão,5817,17,
-900,Declaração de competência em conflito,5797,21,
-80000,,5692,1,
-500024,,5648,1,
-888,Concessão em parte,5590,19,
-12422,Devolução da carta rogatória ao juízo rogante,5584,32,
-444,Habeas data,5533,42,
-50004,,5516,3,
-11801,Reparação do dano,5476,42,
-15494,,5462,19,
-12741,de Acolhimento,5351,23,
-15569,,5272,14,
-12260,Autos restaurados,5271,22,
-12421,Juízo provisório para medidas urgentes,5232,37,
-50104,,5083,1,
-15065,Não Admissão,4959,24,
-15009,Por Impedimento ou Suspeição,4916,68,
-133,Acolhimento de exceção,4875,21,
-50002,,4828,1,
-988,Permissão de saída,4805,38,
-12188,Recambiamento de Preso,4594,28,
-50081,,4504,1,
-50107,,4443,1,
-12647,Mantida a Distribuição do Processo,4344,43,
-210,Concessão,4304,22,
-12207,Liminar,4284,41,
-12650,Não Homologado o Pedido,4157,50,
-15093,Cancelamento de Diplomação,3911,7,
-50137,,3837,1,
-104,Oficial de Justiça,3829,9,
-15102,Sessão Restaurativa,3819,20,
-12655,Identificada Possível Dissidência Partidária,3751,29,
-15157,Registro de Falecimento,3602,27,
-15322,,3585,39,
-12264,Eletrônica,3454,11,
-15419,,3356,2,
-12615,Composição Civil,3308,6,
-12768,Manutenção de Acórdão,3183,30,
-50006,,3116,1,
-12178,Retificada,3088,13,
-12269,Desentranhamento,3085,6,
-271,"Exceção de Incompetência, suspeição ou Impedimento",3078,19,
-50156,,3018,1,
-990,Direito de visita,2932,30,
-50157,,2932,1,
-12257,Definição de tese jurídica em incidentes repetitivos,2922,63,
-20019,,2887,1,
-399,Aditamento da denúncia,2780,41,
-14091,Devolvidos os autos após Pedido de Vista,2775,17,
-12695,Acolhimento (Registro Indeferido),2731,26,
-15081,Busca e Apreensão de Adolescente,2712,22,
-12180,Prestação de Serviços à Comunidade,2649,30,
-999,,2596,2,
-12689,Não-Provimento (Registro Deferido),2579,27,nao_provido
-12429,Embargos de Divergência,2563,17,
-12182,Liberdade Assistida,2533,23,
-12299,Prorrogação de cumprimento de pena/medida de segurança,2522,38,
-50140,,2510,1,
-212,Denegação,2478,17,
-15205,,2452,18,
-12301,Advogado Voluntário,2444,39,
-15252,,2426,21,
-14979,Suspensão/Sobrestamento Determinada por Incidente de Assunção de Competência - IAC,2421,40,
-15099,Alteração do Número do Candidato,2404,29,
-12206,Ratificação,2340,2,
-15049,Audiência Concentrada Protetiva,2284,19,
-15491,,2265,24,
-12201,Liminar,2264,43,
-278,Recebimento de Embargos à Execução,2238,18,
-60408,,2214,1,
-12041,Recuperação judicial,2208,26,
-18,Distribuidor,2176,10,
-12527,Mediação,2111,3,
-50142,,2098,1,
-12300,Nomeação,2092,10,
-10963,Progressão de Medida Sócio-Educativa,2078,32,
-12536,Infrutífera,2036,8,
-163,Não-Recebimento,2013,14,
-15204,,2011,17,
-50000221,,1942,1,
-15626,,1932,2,
-12094,Incidente de Resolução de demandas repetitivas (art. 981 e 982),1901,52,
-15211,,1834,17,
-208,Não-Decretação de Falência,1822,31,
-15050,Audiência Concentrada Infracional,1757,19,
-12103,Pauta,1683,12,
-5001,,1681,1,
-214,Concessão em Parte,1651,14,
-15168,"De Liquidação, Cumprimento de Sentença ou Execução por Nulidade da Fase de Conhecimento ",1641,10,
-12533,Frutífera,1615,5,
-1011,Inclusão em Regime Disciplinar Diferenciado,1531,40,
-15496,,1527,21,
-12145,Detração/Remição,1481,18,
-15201,,1480,16,
-12442,conhecimento para conhecer em parte o recurso especial ,1480,1,
-50100,,1478,2,
-15262,,1456,16,
-70000,,1432,1,
-12680,Provimento (Registro Indeferido),1408,26,provido
-50125,,1407,1,
-15165,Resolução Aprovada,1397,28,
-15266,,1359,20,
-15202,,1323,13,
-12327,Respondida,1318,41,
-50026,,1265,1,
-279,Incidente de Insanidade Mental,1253,15,
-15259,,1235,20,
-11395,Remissão ao adolescente com suspensão do processo,1230,22,
-50118,,1222,1,
-448,Habeas data,1212,44,
-11016,Exceção da Verdade,1201,36,
-15501,,1192,21,
-50102,,1166,2,
-12476,Medida protetiva determinada por autoridade policial,1143,24,
-12109,Para análise da admissão do recurso repetitivo ,1131,2,
-12324,Desfavorável,1095,16,
-14972,Por Decisão do Presidente do TST - SIRDR,1093,21,
-14681,Descumprimento de Medida Protetiva,1083,24,
-15096,Alteração da Declaração de Bens,1082,17,
-12428,Reclamação,1058,40,
-15203,,1057,18,
-50003,,1046,3,
-15206,,1043,21,
-12606,Remessa negociação consumidor.gov.br,1027,8,
-15503,,1024,8,
-15200,,1023,13,
-14096,Audiência Pública,1013,15,
-465,Confusão entre autor e réu,1000,27,
-15078,Substituição de Medida Socioeducativa,990,12,
-12425,Unificação de Medidas Socioeducativas,966,24,
-12441,Conhecimento para conhecer o recurso especial,962,6,
-12716,Não Conhecimento (Registro Indeferido),943,27,nao_conhecido
-15728,,932,6,
-1008,Autorização,912,15,
-15225,,898,4,
-11021,Conversão,887,10,
-15498,,882,13,
-14213,Acolhimento em Parte (Registro Deferido),882,20,
-12479,Medida protetiva determinada por autoridade policial,877,19,
-12719,Não Conhecimento (Registro Sem Julgamento),869,25,nao_conhecido
-15264,,839,19,
-12093,Desafetação ao rito dos recursos repetitivos ,819,31,
-15226,,812,2,
-12443,conhecimento em parte para dar provimento ao recurso especial,811,4,provido
-15426,,806,17,
-12607,Recebimento negociação consumidor.gov.br,806,9,
-50120,,805,1,
-50000220,,798,1,
-12163,Outras Decisões,764,5,
-15024,DRAP Indeferido,740,27,
-15565,,740,2,
-1274,,734,1,
-12535,Frutífera,701,7,
-15502,,683,8,
-15255,,674,16,
-15257,,658,14,
-12473,agravo em recurso especial ,616,8,
-12609,Parcial,616,6,
-15083,Manutenção de Internação Provisória,614,23,
-15504,,614,11,
-50144,,610,1,
-15249,,609,18,
-15727,,595,1,
-50000219,,587,1,
-14983,Suspensão/Sobrestamento Determinada por Decisão do Presidente do TST - SIRDR,585,20,
-15028,Acolhimento de Pedido de Inclusão em Lista Especial,578,21,
-50155,,572,1,
-12321,Parecer,568,3,
-50000461,,558,1,
-12663,Cancelamento do Pedido de Registro de Candidatura,553,27,
-12033,Sentença Estrangeira,541,6,
-50101,,519,1,
-55003,,517,1,
-50106,,513,1,
-15234,,511,10,
-55002,,498,1,
-15263,,493,12,
-15580,,487,17,
-14998,Arquivamento Provisório - Menor em Conflito com a Lei Aguardando Apreensão,479,14,
-12622,Remessa para Câmara de Conciliação/Mediação,478,14,
-50011377,,476,1,
-960,Conflito de Competência,472,17,
-15,Contador,470,10,
-15245,,466,13,
-12304,Intérprete/Tradutor,457,29,
-12699,Não-Acolhimento (Registro Deferido),453,26,
-12696,Acolhimento (Registro Cancelado),452,20,
-452,Habeas data,448,38,
-12097,Incidente de assunção de competência ,439,48,
-12096,Incidente de assunção de competência,431,55,
-50012325,,426,1,
-15493,,416,20,
-60015,,416,1,
-12286,Eletrônica,413,7,
-50001,,413,2,
-15256,,412,14,
-14092,Voto,405,3,
-15721,,403,4,
-12036,Representação por ato infracional,400,30,
-7771258,,400,1,
-50124,,398,1,
-11011,Homologada a Remissão,380,5,
-12209,Liminar,374,27,
-12526,Conciliação,374,4,
-50145,,372,1,
-15082,Revogação de Internação de Adolescente,368,18,
-50153,,364,1,
-15230,,363,20,
-12477,Não-Homologação,344,12,
-12715,Não Conhecimento (Registro Deferido),340,26,nao_conhecido
-50122,,324,1,
-12674,Não-Procedência da Impugnação (Registro Indeferido),315,23,improcedente
-12183,Justiça Restaurativa,305,18,
-20116,,297,1,
-15084,Desinternação de Adolescente,286,19,
-15414,,280,11,
-12617,Renúncia,277,5,
-50139,,276,1,
-12211,Liminar,274,29,
-14231,Impugnação ao Cumprimento de Sentença,272,6,
-20201,,268,1,
-50128,,261,1,
-445,Mandado de injunção,257,21,
-15499,,250,19,
-15213,,247,15,
-998,,243,1,
-12721,Negação de Seguimento (Registro Indeferido),232,22,
-400,Aditamento da queixa,224,34,
-15212,,224,13,
-15079,Suspensão de Medida Socioeducativa,221,15,
-14214,Acolhimento em Parte (Registro Indeferido),221,21,
-50012067,,217,1,
-15492,,216,18,
-50123,,208,2,
-15506,,207,14,
-50105,,205,1,
-50000459,,202,1,
-15029,Indeferimento de Pedido de Inclusão em Lista Especial,201,23,
-12669,Procedência em Parte da Impugnação (Registro Indeferido),201,25,parcialmente_procedente
-12292,Ato cumprido pela parte ou interessado,200,4,
-12724,Negação de Seguimento (Registro Sem Julgamento),197,24,
-12448,Demonstração de existência de repercussão geral e  manifestação sobre a questão constitucional,189,18,
-15207,,188,8,
-50424,,188,1,
-12446,Afetação tornada sem efeito,183,6,
-12450,impugnação à execução,183,6,
-15505,,177,15,
-250,,175,1,
-10965,Remissão a Adolescente Infrator,174,12,
-50117,,171,1,
-12611,Parcial,170,21,
-50132,,168,1,
-12717,Não Conhecimento (Registro Cancelado),165,22,nao_conhecido
-10962,Regressão de Medida Sócio-Educativa,163,23,
-15500,,160,15,
-449,Mandado de injunção,154,23,
-14218,Anulação de Sentença (Registro Sem Julgamento),149,21,
-12528,Conciliação,148,1,
-15166,Resolução Desaprovada,147,18,
-50000463,,147,1,
-50168,,144,1,
-15080,Reavaliação de Medida Socioeducativa,143,16,
-12618,Remessa CEJUSC,137,1,
-9990111,,135,1,
-12662,Cassação do Registro de Candidatura,132,18,
-12181,Reparação do Dano,129,15,
-59990,,127,1,
-12433,Conjunto Agravo e Recurso Especial,124,2,
-15067,REsp Sobrestado por Possível Prejudicialidade de RE,121,6,
-20200,,118,1,
-50131,,117,1,
-51806,,117,1,
-12748,de Instrução,114,1,
-15579,,110,7,
-14901,Perícia,109,2,
-55010,,108,1,
-300218,,107,1,
-12668,Procedência em Parte da Impugnação (Registro Deferido),106,17,parcialmente_procedente
-12323,Favorável em parte,105,12,
-15583,,100,5,
-50115,,99,1,
-50011378,,99,1,
-50135,,93,1,
-50000454,,93,1,
-15497,,91,17,
-7771303,,90,1,
-12685,Provimento em Parte (Registro Indeferido),88,19,parcialmente_provido
-15235,,85,6,
-15214,,85,11,
-122,Desacolhimento de Prisão,85,7,
-50126,,82,1,
-12720,Negação de Seguimento (Registro Deferido),81,15,
-15548,,80,4,
-15510,,78,10,
-12698,Acolhimento (Registro Sem Julgamento),77,22,
-500996,,77,1,
-15547,,77,5,
-15251,,76,13,
-55004,,73,1,
-50000460,,73,1,
-12657,Partido Movimentado,72,17,
-15061,Impugnação aos Cálculos de Liquidação,70,1,
-12664,Movimentar Partido,67,25,
-15508,,67,9,
-20249,,67,1,
-12328,Respondida em parte,66,24,
-15209,,65,11,
-15261,,62,12,
-15260,,62,4,
-50167,,60,1,
-15231,,59,10,
-12693,Não-Provimento (Registro Sem Julgamento),59,19,nao_provido
-971,Exceção da Verdade,57,6,
-50113,,55,1,
-50143,,53,1,
-12710,Anulação de Acórdão (Registro Deferido),50,9,
-50169,,49,1,
-12610,Parcial,49,6,
-50011376,,49,1,
-9991503,,49,1,
-15233,,46,8,
-453,Mandado de injunção,45,11,
-20020,,45,1,
-12701,Não-Acolhimento (Registro Cancelado),44,13,
-12792,Procedência da Impugnação (Registro Cassado),41,13,procedente
-15092,Registro de Candidatura,40,1,
-15265,,39,14,
-12683,Provimento (Registro Sem Julgamento),39,15,provido
-50000466,,39,1,
-15258,,38,8,
-50166,,38,1,
-500998,,38,1,
-15530,,38,2,
-50000471,,37,1,
-15715,,35,5,
-12722,Negação de Seguimento (Registro Cancelado),34,11,
-50005,,34,1,
-12034,Exequatur,33,5,
-15719,,33,5,
-12666,Procedência da Impugnação (Registro Deferido),33,3,procedente
-50240,,33,1,
-15531,,33,1,
-12697,Acolhimento (Registro Cassado),32,10,
-50116,,32,1,
-20000008,,32,1,
-15509,,31,11,
-300154,,31,1,
-15718,,31,3,
-15427,,29,4,
-15060,Não Admissão de Recurso de Embargos à SDC/TST,29,1,
-50103,,28,2,
-15507,,28,6,
-15561,,28,4,
-7770103,,28,1,
-12665,Procedência da Impugnação (Registro Deferido),27,11,procedente
-7770211,,27,1,
-392,Libelo,26,5,
-15625,,26,1,
-7771261,,26,1,
-500022,,24,1,
-50011379,,24,1,
-15415,,22,4,
-12102,"Adiamento do julgamento (CPC, art. 935)",22,1,
-12684,Provimento em Parte (Registro Deferido),22,10,parcialmente_provido
-12688,Provimento em Parte (Registro Sem Julgamento),22,11,parcialmente_provido
-15227,,21,3,
-15714,,21,4,
-50009,,20,1,
-12530,Conciliação,20,2,
-7777878,,20,1,
-12623,Recebimento de Câmara de Conciliação/Mediação,19,5,
-2012,,19,1,
-15717,,18,6,
-14217,Acolhimento em Parte (Registro sem Julgamento),18,5,
-50111,,18,1,
-50012069,,18,1,
-7770234,,18,1,
-12113,Para análise da admissão do IAC,17,3,
-12691,Não-Provimento (Registro Cancelado),17,12,nao_provido
-50114,,17,1,
-803,Libelo,17,3,
-15254,,16,10,
-12029,Recebe Teste,16,2,
-50161,,16,1,
-50127,,15,1,
-50163,,15,1,
-50011795,,14,1,
-15581,,14,2,
-12523,Conciliador,14,1,
-15540,,13,2,
-12108,Para análise de repercussão geral,13,1,
-15542,,13,1,
-50255,,13,1,
-7771305,,13,1,
-12681,Provimento (Registro Cancelado),12,5,provido
-12682,Provimento (Registro Cassado),12,7,provido
-50119,,12,1,
-7770190,,12,1,
-20000006,,12,1,
-50133,,11,1,
-12703,Não-Acolhimento (Registro Sem Julgamento),10,8,
-12675,Não-Procedência da Impugnação (Registro Cancelado),10,5,improcedente
-50164,,10,1,
-501642,,10,1,
-12661,Impugnação do Registro de Candidatura,10,2,
-50011406,,10,1,
-12676,Não-Procedência da Impugnação (Registro Cassado),9,4,improcedente
-55000,,9,1,
-14778,Sentença Estrangeira,9,1,
-50011409,,9,1,
-7770213,,9,1,
-15250,,9,1,
-15208,,8,2,
-15416,,8,2,
-390,Aditamento do libelo,8,3,
-14215,Acolhimento em Parte (Registro Cancelado),8,6,
-69,,8,1,
-799,Aditamento do libelo,8,2,
-12712,Anulação de Acórdão (Registro Cancelado),8,1,
-7771243,,8,1,
-15713,,7,2,
-12478,Medida protetiva determinada por autoridade policia,7,1,
-50012068,,7,1,
-12262,Emenda a inicial,7,1,
-50086,,7,1,
-15210,,6,2,
-15253,,6,2,
-12692,Não-Provimento (Registro Cassado),6,4,nao_provido
-55008,,6,1,
-50010,,6,2,
-50044,,6,1,
-50011403,,6,1,
-15232,,6,1,
-7770360,,6,1,
-7771247,,6,1,
-7771250,,6,1,
-7771253,,6,1,
-50029,,5,1,
-50158,,5,1,
-12678,Registro de Candidatura,5,1,
-14216,Acolhimento em Parte (Registro Cassado),5,3,
-15716,,5,2,
-7770225,,5,1,
-7770277,,5,1,
-7775008,,5,1,
-12702,Não-Acolhimento (Registro Cassado),4,2,
-50013,,4,1,
-55007,,4,1,
-12276,Cumprimento da pena,4,2,
-99999999,,4,1,
-15539,,4,3,
-12522,Auxiliar da Justiça,4,2,
-15725,,4,1,
-7771308,,4,1,
-15712,,4,1,
-15059,Não Admissão de Recurso de Embargos à SDI/TST,3,1,
-12110,Para análise da admissão do recurso repetitivo ,3,3,
-14777,Sentença Estrangeira,3,2,
-50093,,3,1,
-50162,,3,1,
-55006,,3,1,
-12670,Procedência em Parte da Impugnação (Registro Cancelado),3,2,parcialmente_procedente
-1311,,3,1,
-50011,,3,1,
-50041,,3,1,
-50045,,3,1,
-50999,,3,1,
-12210,Ratificação em Parte,3,2,
-7770275,,3,1,
-7771077,,3,1,
-7771146,,3,1,
-7772012,,3,1,
-7772203,,3,1,
-7775014,,3,1,
-12723,Negação de Seguimento (Registro Cassado),2,2,
-14680,Exequatur,2,2,
-12711,Anulação de Acórdao (Registro Indeferido),2,2,
-50130,,2,1,
-12672,Procedência em Parte da Impugnação (Registro Cassado),2,2,parcialmente_procedente
-12677,Procedência da Impugnação (Registro Cancelado),2,2,procedente
-50007,,2,1,
-50033,,2,1,
-50051,,2,1,
-60007,,2,1,
-50011407,,2,1,
-1235,,2,1,
-15229,,2,2,
-15541,,2,1,
-12326,Consulta,2,1,
-15585,,2,1,
-868,,2,1,
-15587,,2,2,
-15696,,2,2,
-12765,Envio para Juízo de Retratação ,2,1,
-7770173,,2,1,
-7770212,,2,1,
-7770227,,2,1,
-7770254,,2,1,
-7771015,,2,1,
-7771164,,2,1,
-7775011,,2,1,
-12107,Para análise de repercussão geral,1,1,
-12686,Provimento em Parte (Registro Cancelado),1,1,parcialmente_provido
-15058,Admissão de Recurso de Embargos à SDC/TST,1,1,
-50138,,1,1,
-50148,,1,1,
-50150,,1,1,
-55005,,1,1,
-55009,,1,1,
-55011,,1,1,
-500023,,1,1,
-12718,Não Conhecimento (Registro Cassado),1,1,nao_conhecido
-12714,Anulação de Acórdão (Registro Sem Julgamento),1,1,
-50008,,1,1,
-50018,,1,1,
-50024,,1,1,
-50037,,1,1,
-50043,,1,1,
-50000455,,1,1,
-50000457,,1,1,
-50011374,,1,1,
-50011401,,1,1,
-50011402,,1,1,
-50011404,,1,1,
-50011408,,1,1,
-50012256,,1,1,
-10131,,1,1,
-10132,,1,1,
-810004,,1,1,
-15780,,1,1,
-12713,Anulação de Acórdão (Registro Cassado),1,1,
-12524,Juiz Leigo,1,1,
-12687,Provimento em Parte (Registro Cassado),1,1,parcialmente_provido
-50289,,1,1,
-55555,,1,1,
-7770202,,1,1,
-7770215,,1,1,
-7770361,,1,1,
-7771240,,1,1,
-7771242,,1,1,
-7771245,,1,1,
-7771248,,1,1,
-7771257,,1,1,
-7771309,,1,1,
-7772388,,1,1,
+codigo,nome,ocorrencias,tribunais,rotulo,movimento_tpu,pais_tpu
+26,Distribuição,265072477,91,,Distribuído por #{tipo_de_distribuicao_redistribuicao},"14,18"
+51,Conclusão,248625438,91,,Conclusos #{tipo_de_conclusao},"14,48"
+85,Petição,205815509,91,,Juntada de Petição de #{tipo_de_documento},"14,48,67"
+60,Expedição de documento,199984724,91,,Expedição de #{tipo_de_documento}.,"14,48"
+581,Documento,164594539,89,,Juntada de #{tipo_de_documento},"14,48,67"
+11383,Ato ordinatório,150984416,91,,Ato ordinatório praticado,"14,48"
+11010,Mero expediente,150800637,91,,Proferido despacho de mero expediente,"1,11009"
+92,Publicação,147128556,89,,Publicado #{ato_publicado} em #{data}.,"14,48"
+246,Definitivo,139432622,88,,Arquivado Definitivamente,"14,48,861"
+123,Remessa,139283088,91,,Remetidos os Autos (#{motivo_da_remessa}) para #{destino},"14,48"
+1051,Decurso de Prazo,124238681,88,,Decorrido prazo de #{nome_da_parte} em #{data}.,"14,48"
+22,Baixa Definitiva,100622141,90,,Baixa Definitiva,"14,18"
+1061,Disponibilização no Diário da Justiça Eletrônico,97347717,88,,Disponibilizado no DJ Eletrônico em #(data),"14,48"
+132,Recebimento,97241608,91,,Recebidos os autos,"14,48"
+848,Trânsito em julgado,95845855,90,,Transitado em Julgado em #{data},"14,48"
+12164,Outras Decisões,77807574,91,,Proferidas outras decisões não especificadas,"1,3"
+12265,Expedida/certificada,68537753,50,,Expedida/certificada a intimação eletrônica,"14,48,12263,12264"
+12266,Confirmada,52143759,36,,Confirmada a intimação eletrônica,"14,48,12263,12264"
+36,Redistribuição,45024964,91,,Redistribuído por #{tipo_de_distribuicao_redistribuicao} em razão de #{motivo_da_redistribuicao},"14,18"
+106,Mandado,43231832,85,,Mandado devolvido #{resultado},"14,104,105"
+981,Recebimento,41436984,66,,Recebido pelo Distribuidor,"14,18"
+982,Remessa,36809098,47,,Remetidos os Autos (#{motivo_da_remessa}) da Distribuição ao #{destino},"14,18"
+12282,Expedida/Certificada,31515705,41,,Expedida/certificada a comunicação eletrôinica,"14,48,12281"
+196,Extinção da execução ou do cumprimento da sentença,30626753,90,,Extinta a execução ou o cumprimento da sentença,"1,193,385"
+493,Entrega em carga/vista,28942423,69,,Autos entregues em carga ao #{destinatario}.,"14,48"
+985,Mandado,26970107,86,,Recebido o Mandado para Cumprimento,"14,104,115"
+10966,Mudança de Classe Processual,25226696,68,,,"14,48"
+219,Procedência,24017424,91,procedente,Julgado procedente o pedido,"1,193,385"
+898,Por decisão judicial,23088362,91,,Processo Suspenso ou Sobrestado por Por decisão judicial,"1,3,25"
+970,Audiência,22868951,68,,"Audiência #{tipo_de_audiencia} #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48"
+220,Improcedência,22064540,91,improcedente,Julgado improcedente o pedido,"1,193,385"
+12287,Expedida/Certificada,20570215,39,,Expedida/certificada a citação eletrônica,"14,48,12284,12286"
+221,Procedência em Parte,20071021,91,parcialmente_procedente,Julgado procedente em parte o pedido,"1,193,385"
+466,Homologação de Transação,19770469,88,homologacao_acordo,Homologada a Transação,"1,193,385"
+12066,Cumprimento de Levantamento da Suspensão ,18894777,89,,Levantada a suspensão ou sobrestamento dos autos,"14,48"
+239,Não-Provimento,18565429,91,nao_provido,Conhecido o recurso de #{nome_da_parte} e não-provido,"1,193,385"
+787,Gratuidade da Justiça,17408390,61,,Concedida a gratuidade da justiça a #{nome_da_parte}.,"1,3,817"
+14736,Inclusão no Juízo 100% Digital,15797584,52,,Autos incluídos no Juízo 100% Digital,"14,48"
+245,Provisório,15402753,89,,Arquivado Provisoriamente,"14,48,861"
+849,Reativação,13951389,73,,Processo Reativado,"14,48"
+11385,Execução/Cumprimento de Sentença Iniciada (o),13799072,48,,Execução ou cumprimento de sentença Iniciada (o),"14,48"
+15101,Conclusão,13778531,34,,Cancelada a conclusão,"14,48,12289"
+12740,de Conciliação,13346810,60,,"Audiência de conciliação #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12291,Movimentação processual,13000606,87,,Cancelada a movimentação processual #{movimento_cancelado},"14,48,12289"
+12288,Confirmada,12895958,31,,Confirmada a citação eletrônica,"14,48,12284,12286"
+118,Protocolo de Petição,12531891,52,,Protocolizada Petição,"14,48"
+893,Desarquivamento,12443024,88,,Processo Desarquivado,"14,48"
+14739,Evolução da Classe Processual,11955803,62,,Evoluída a classe de #{classe_anterior} para #{classe_nova},"14,48"
+12749,de Instrução,11950717,72,,"Audiência de instrução #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12215,Processo devolvido à Secretaria,11573758,44,,Processo devolvido à Secretaria,"14,48"
+1059,Sem efeito suspensivo,11236129,90,,Recebido o recurso Sem efeito suspensivo,"1,3,160,1060"
+14732,Conversão de Autos Físicos em Eletrônicos,11196662,68,,Convertidos os autos físicos em eletrônicos,"14,48"
+200,Não-Acolhimento de Embargos de Declaração,10829290,91,,Embargos de Declaração Não-acolhidos,"1,193,385"
+12200,Mérito,10097007,57,,Deliberado em Sessão - Julgado - Mérito,"14,48,12198,12199"
+12185,Decisão Interlocutória de Mérito,9905186,86,,Decisão Interlocutória de Mérito,"1,3"
+135,Apensamento,8530727,72,,Apensado ao processo #{numero_do_processo},"14,48"
+785,Antecipação de tutela,8489474,91,,Não Concedida a tutela provisória,"1,3,968"
+463,Desistência,8305555,91,extinto_sem_merito,Extinto o processo por desistência,"1,193,218,456"
+11384,Liquidação iniciada,7996551,36,,Iniciada a liquidação,"14,48"
+14738,Retificação de Classe Processual,7774388,87,,Classe retificada de #{classe_anterior} para #{classe_nova},"14,48"
+12313,Pedido de inclusão em pauta virtual,7609807,47,,Pedido de inclusão em pauta de sessão virtual,"1,11009,12310"
+12614,Remessa para o CEJUSC ou Centros de Conciliação/Mediação,7546458,57,,Remetidos os Autos ao CEJUSC ou Centros de Conciliação/Mediação #{destino},"14,48"
+12104,Inclusão em pauta,7544306,27,,Inclusão em Pauta,"14,48,12103"
+479,Custas,6962139,48,,Realizado cálculo de custas,"14,15,16"
+11022,Julgamento em Diligência,6951464,91,,Convertido(a) o(a) Julgamento em Diligência,"1,11009,11021"
+417,Inclusão em pauta,6894489,58,,Incluído em pauta para #{data_hora} #{local}.,"14,48"
+218,Sem Resolução de Mérito,6525858,33,extinto_sem_merito,Julgamento Sem Resolução de Mérito,"1,193"
+12115,Para julgamento de mérito,6474239,78,,Inclusão em pauta para julgamento de mérito,"14,48,12103,12104"
+12283,Confirmada,6376705,30,,Confirmada a comunicação eletrônica,"14,48,12281"
+276,Execução frustrada,6070388,85,,Processo Suspenso por Execução Frustrada,"1,3,25"
+332,Antecipação de tutela,6020788,91,,Concedida a tutela provisória,"1,3,817"
+193,Julgamento,5997970,34,,Julgamento,1
+237,Provimento,5778836,91,provido,Conhecido o recurso de #{nome_da_parte} e provido,"1,193,385"
+941,Incompetência,5733523,91,,Declarada incompetência,"1,3,11"
+238,Provimento em Parte,5697080,91,parcialmente_provido,Conhecido o recurso de #{nome_da_parte} e provido em parte,"1,193,385"
+12750,de Instrução e Julgamento,5649386,66,,"Audiência de instrução e julgamento #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+391,Denúncia,5576062,64,,Recebida a denúncia contra #{nome_da_parte},"1,3,160"
+12619,Recebimento do CEJUSC ou Centros de Conciliação/Mediação,5474216,53,,Recebidos os autos do CEJUSC ou Centro de Conciliação/Mediação,"14,48"
+12174,Enviada ao Tribunal,5356437,44,,Requisição de pagamento de pequeno valor enviada ao Tribunal ou ao ente devedor,"14,48,12165,12173"
+339,Liminar,5278635,91,,Concedida a Medida Liminar,"1,3,817"
+12747,Inicial,5205556,37,,"Audiência inicial #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+792,Liminar,5170986,91,,Não Concedida a Medida Liminar,"1,3,968"
+12116,Para julgamento de mérito,5157223,36,,Inclusão em pauta de sessão virtual para julgamento,"14,48,12103,12105"
+461,Ausência das condições da ação,5144124,91,extinto_sem_merito,Extinto o processo por ausência das condições da ação,"1,193,218,456"
+459,Ausência de pressupostos processuais,5126160,91,extinto_sem_merito,Extinto o processo por ausência de pressupostos processuais,"1,193,218,456"
+15085,Emenda à Inicial,5103352,62,,Determinada a emenda à inicial,"1,3,1013"
+12143,Mudança de Assunto Processual,5083879,32,,Alterado o assunto processual,"14,48"
+15216,,4974091,61,,Determinada a citação de #{nome_da_parte},"1,11009"
+12176,Paga,4763141,43,,Requisição de pagamento de pequeno valor paga,"14,48,12165,12173"
+12067,Levantamento da Suspensão ou Dessobrestamento,4521477,84,,Determinado o levantamento da suspensão ou do sobrestamento dos autos,"1,3"
+12311,Pedido de inclusão,4512033,56,,Pedido de inclusão em pauta,"1,11009,12310"
+870,Autos Eliminados,4425011,33,,Autos Eliminados,"14,865"
+471,Pronúncia de Decadência ou Prescrição,4238641,91,improcedente,Declarada decadência ou prescrição,"1,193,385"
+235,Não Conhecimento de recurso,4180931,89,nao_conhecido,Não conhecido o recurso de #{tipo_de_documento} de #{nome_da_parte},"1,193,218"
+12444,deferimento,4175092,83,,Deferido o pedido de #{nome_da_parte}.,"1,3"
+12387,Decisão de Saneamento e Organização,4131984,87,,Decisão de Saneamento e de Organização do Processo,"1,3"
+12621,Recebimento no CEJUSC ou Centros de Conciliação/Mediação,3976330,50,,Recebidos os autos.,"14,48"
+454,Indeferimento da petição inicial,3874303,91,extinto_sem_merito,Indeferida a petição inicial,"1,193,218,456"
+12142,Mudança de Parte,3783414,27,,Alterada a parte,"14,48"
+12065,Cumprimento de Suspensão ou Sobrestamento,3751758,46,,Autos Suspensos ou Sobrestados,"14,48"
+11024,Assistência Judiciária Gratuita,3589486,61,,Concedida a Assistência Judiciária Gratuita a parte,"1,11009,11023"
+12270,Documento,3497075,67,,Desentranhado o documento,"14,48,12269"
+198,Acolhimento de Embargos de Declaração,3483234,90,,Embargos de Declaração Acolhidos,"1,193,385"
+334,Gratuidade da Justiça,3430592,67,,Gratuidade da justiça não concedida a #{nome_da_parte}.,"1,3,968"
+12281,Comunicação eletrônica,3409746,20,,Cominicação eletrônica,"14,48"
+12296,Registro Processual,3186402,38,,Registrado para #{motivos_de_registro},"14,18"
+272,"A depender do julgamento de outra causa, de outro juízo ou declaração incidente",3060656,89,,"Processo suspenso por depender do julgamento de outra causa, de outro juízo ou declaração incidente em #{numero_unico_do_processo}","1,3,25"
+11020,Requisição de Informações,3037780,91,,Determinada Requisição de Informações,"1,11009"
+979,Recebimento,2919358,53,,Recebidos os Autos pela Contadoria,"14,15"
+12263,Intimação,2913370,17,,Intimação,"14,48"
+1063,Determinação de arquivamento de procedimentos investigatórios,2836079,65,,Determinado o arquivamento do procedimento investigatório,"1,3,1013"
+12252,Sentença confirmada,2794871,61,nao_provido,Sentença confirmada,"1,193,385"
+980,Remessa,2778589,55,,Remetidos os autos da Contadoria ao #{destino}.,"14,15"
+458,Abandono da causa,2700658,87,extinto_sem_merito,Extinto o processo por abandono da causa pelo autor,"1,193,218,456"
+12175,Preparada para Envio,2656413,26,,Requisição de pagamento de pequeno valor preparada para envio,"14,48,12165,12173"
+977,Recebimento,2623179,46,,Recebimento pelo Arquivo,"14,865"
+12430,Arquivamento,2611647,64,,Determinado o arquivamento definitivo,"1,3,1013"
+265,Recurso Extraordinário com repercussão geral,2385002,70,,Processo Suspenso por Recurso Extraordinário com repercussão geral #{numero_tema_RG},"1,3,25"
+15238,,2312673,52,,Suspenso o processo por homologação de acordo ou transação,"1,11009,11025"
+12315,Devolvidos os autos,2259606,34,,Devolvidos os autos,"14,48"
+12068,Levantamento da Suspensão ou Dessobrestamento,2208043,65,,Determinado o levantamento da suspensão ou do sobrestamento dos autos,"1,11009"
+11975,Recurso Especial repetitivo,2187337,60,,Processo suspenso por Recurso Especial Repetitivo #{numero_tema_repetitivo},"1,3,25"
+236,Negação de Seguimento,2171555,89,nao_conhecido,Negado seguimento a Recurso,"1,193,218"
+434,Recurso de Revista,2150635,37,,Recurso de Revista não admitido,"1,3,207"
+394,Com efeito suspensivo,2099157,61,,Recebido o recurso Com efeito suspensivo,"1,3,160,1060"
+12187,Homologação de Decisão de Juiz Leigo,2058286,38,,Homologada a decisão do juiz leigo,"1,193,385"
+12751,de Julgamento,2032599,57,,"Audiência de julgamento #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12548,Expedição de alvará de levantamento,2012985,59,,Determinada a expedição do alvará de levantamento,"1,11009"
+11878,Prescrição,1963654,65,improcedente,Extinta a punibilidade por prescrição,"1,193,385,973"
+433,Recurso Especial,1829861,62,,Recurso Especial não admitido,"1,3,207"
+12457,Expedição de precatório/rpv,1826882,58,,Determinada expedição de Precatório/RPV,"1,3,1013"
+12284,Citação,1763276,15,,Citação,"14,48"
+12529,Decisão,1753126,13,,Proferida decisão por juiz leigo,"14,12522,12524"
+12203,Adiado,1747971,84,,Deliberado em Sessão - Adiado,"14,48,12198"
+12199,Julgado,1734879,11,,Deliberado em Sessão - Julgado,"14,48,12198"
+12753,Preliminar,1685750,41,,"Audiência preliminar #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12214,Processo Encaminhado,1609604,16,,Processo Encaminhado a #{destinatario},"14,48"
+16,Cálculo,1600125,20,,realizado cálculo de,"14,15"
+871,Acolhimento em parte de Embargos de Declaração,1594578,91,,Embargos de Declaração Acolhidos em Parte,"1,193,385"
+12105,Inclusão do processo para julgamento eletrônico,1526420,5,,Inclusão em pauta de sessão virtual,"14,48,12103"
+14099,Homologação de Acordo em Execução ou em Cumprimento de Sentença,1487623,84,,Homologado o Acordo em Execução ou em Cumprimento de Sentença,"1,193,385"
+230,Recurso prejudicado,1476109,91,nao_conhecido,Prejudicado o recurso #{nome_da_parte},"1,193,218"
+978,Remessa,1474365,39,,Remessa do Arquivo para #{destino},"14,865"
+12298,Cancelamento de Dívida Ativa,1409806,47,extinto_sem_merito,Extinto o processo pelo cancelamento da dívida ativa,"1,193,218,456"
+478,Cálculo de Liquidação,1395275,51,,Realizado Cálculo de Liquidação,"14,15,16"
+277,Convenção das Partes para Satisfação Voluntária da Obrigação em Execução ou Cumprimento de Sentença,1394243,85,,Processo Suspenso ou Sobrestado por Convenção das Partes para Satisfação Voluntária da Obrigação em Execução ou Cumprimento de Sentença,"1,3,25"
+12098,Incidente de Resolução de Demandas Repetitivas ,1372439,61,,Processo Suspenso por Incidente de Resolução de Demandas Repetitivas #{numero_tema_IRDR},"1,3,25"
+11983,Retificação de movimento,1371570,78,,Retificado o movimento #{movimento_retificado},"14,48"
+15164,Não Acolhimento de Embargos de Declaração,1361787,63,,Embargos de declaração não acolhidos,"1,3"
+12268,Em Secretaria,1334956,48,,Intimado em Secretaria,"14,48,12263"
+897,Retirada de pauta,1303950,82,,Retirado de pauta,"14,48"
+137,Desapensamento,1274000,68,,Desapensado do processo #{numero_do_processo},"14,48"
+14737,Exclusão do Juízo 100% Digital,1266754,49,,Autos excluídos do Juizo 100% Digital,"14,48"
+12648,Determinação de Diligência,1257686,48,,Determinada diligência,"1,3,1013"
+804,Recurso,1249146,90,,Não recebido o recurso de #{nome_da_parte}.,"1,3,163"
+12532,Infrutífera,1237740,14,,Conciliação infrutífera,"14,12522,12523,12528"
+14904,Agendada,1210101,16,,Perícia agendada,"14,48,14901"
+12455,Indeferimento,1163290,80,,Indeferido o pedido de #{nome_da_parte},"1,3"
+432,Recurso Extraordinário,1146672,71,,Recurso Extraordinário não admitido,"1,3,207"
+14903,Determinada/Designada,1111402,18,,Perícia determinada ou designada,"14,48,14901"
+11376,Ausência do autor à audiência,1108437,58,extinto_sem_merito,Extinto o processo por ausência do autor à audiência,"1,193,218,456"
+12167,Enviada ao Tribunal,1103734,49,,Requisição de pagamento de precatório enviada ao tribunal,"14,48,12165,12166"
+818,Liberdade provisória,1086604,64,,Concedida a Liberdade provisória de #{nome_da_parte}.,"1,3,817"
+12318,Reconhecimento de prevenção,978632,61,,Reconhecida a prevenção,"1,3"
+12660,Deferimento do Pedido de Registro de Candidatura,967794,29,,Deferido o pedido de registro de candidatura,"1,193,385,12678"
+12652,Contas Aprovadas,945994,34,,Contas aprovadas,"1,193,385"
+12742,de Custódia,926490,35,,"Audiência de custódia #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+275,Força maior,911321,85,,Processo Suspenso ou Sobrestado por Força maior,"1,3,25"
+12624,Audiência do art. 334 CPC,910473,31,,Audiência do art. 334 CPC conduzida por #{dirigida_por} #{situacao_da_audiencia} para #{data_hora} #{local}. .,"14,48,970"
+460,"Perempção, litispendência ou coisa julgada",885577,90,extinto_sem_merito,"Extinto o processo por Perempção, litispendência ou coisa julgada","1,193,218,456"
+12255,Redistribuição por prevenção,866453,64,,Determinação de redistribuição por prevenção,"1,3,1013"
+456,Extinção,862126,46,extinto_sem_merito,Extinto o processo sem resolução do mérito por,"1,193,218"
+15185,Cooperação Judiciária,860841,81,,em cooperação judiciária,1
+12658,Sistema de Candidaturas Fechado,843455,26,,Fechado o sistema de candidaturas,"14,48"
+12189,Entrega de Documento,837462,33,,Documento entregue,"14,48"
+12140,Prisão em Flagrante em Prisão Preventiva,836513,45,,Convertida a prisão em flagrante em prisão preventiva,"1,3,7"
+14999,Iniciada Tramitação Direta entre MP e Autoridade Policial,821053,24,,Iniciada a tramitação direta entre MP e autoridade policial,"14,48"
+11013,Convenção das Partes,800761,86,,Processo Suspenso por Convenção das Partes,"1,11009,11025"
+14093,Voto do Relator,797931,42,,Voto do relator proferido,"1,14092"
+263,Réu revel citado por edital ,795317,59,,Processo Suspenso por Réu revel citado por edital #{nome_da_parte},"1,3,25"
+12306,Perito,793770,43,,Nomeado perito,"1,3,12300"
+1049,Pagamento integral do débito,789591,62,,Extinta a Punibilidade por pagamento integral do débito,"1,193,385,973"
+11009,Despacho,786015,29,,Proferido despacho,1
+12254,Sentença desconstituída,776923,54,provido,Sentença desconstituída,"1,193,385"
+12261,Emenda a inicial,774064,59,,Recebida a emenda à inicial,"1,3,160"
+889,Antecipação de Tutela,770168,90,,Concedida em parte a tutela provisória,"1,3,888"
+947,Por pendência de AIREsp,766001,29,,Processo Suspenso ou Sobrestado por Por pendência de AIREsp,"1,3,25"
+901,Negação de seguimento,758265,88,nao_provido,Negado monocraticamente o provimento do recurso,"1,193,385"
+3,Decisão,717946,30,,Decisão ou Despacho,1
+972,Provimento (art. 557 do CPC),713190,84,provido,Provido monocraticamente o recurso,"1,193,385"
+15417,,710084,14,,Migrada a tramitação do processo do sistema eletrônico originário para o outro sistema eletrônico,"14,48"
+1050,Cumprimento da Pena,687854,63,,Extinta a Punibilidade por Cumprimento da Pena,"1,193,385,973"
+442,Segurança,680492,89,procedente,Concedida a Segurança a #{nome_da_parte},"1,193,385,210"
+928,Republicação,680049,51,,Republicado #{ato_publicado} em #{data}.,"14,48"
+12474,Distribuição,651296,55,,Determinada a distribuição do feito,"1,3,1013"
+11377,Inadmissibilidade do procedimento sumaríssimo,645798,38,extinto_sem_merito,Extinto o processo por inadmissibilidade do procedimento sumaríssimo,"1,193,218,456"
+446,Segurança,632123,90,improcedente,Denegada a Segurança a #{nome_da_parte},"1,193,385,212"
+12294,Comparecimento do Réu/Apenado,627659,23,,Ato cumprido pela parte ou interessado - Comparecimento do Réu/Apenado,"14,48,12292"
+488,Cancelamento de Distribuição,600365,76,,Cancelada a Distribuição,"14,18"
+873,Deliberação em Sessão,596017,33,,Deliberado em Sessão - #{tipo_de_deliberacao},"14,48"
+15246,,590785,16,,Não confirmada a citação eletrônica,"14,48,12284,12286"
+1002,Progressão de regime,583481,34,,Concedida Progressão de regime,"1,3,817"
+11879,Decadência ou perempção,576323,57,improcedente,Extinta a punibilidade por decadência ou perempção,"1,193,385,973"
+11014,Convenção das Partes para Cumprimento Voluntário da obrigação,564630,65,,Processo Suspenso por Convenção das Partes para Cumprimento Voluntário da obrigação,"1,11009,11025"
+15162,Acolhimento de Embargos de Declaração,563810,63,,Embargos de declaração acolhidos,"1,3"
+12028,Cumprimento de transação penal,563233,61,,Extinta a punibilidade por cumprimento da transação penal de #{nome_da_parte},"1,193,385,973"
+12259,"Prescrição intercorrente (art. 921, § 4º, CPC)",559357,80,improcedente,Determinação de suspensão ou sobrestamento dos autos em razão de prescrição intercorrente,"1,3,25"
+11378,Incompetência territorial,558955,58,extinto_sem_merito,Extinto o processo por incompetência territorial,"1,193,218,456"
+788,Exceção de pré-executividade,557135,80,,Rejeitada a exceção de pré-executividade,"1,3,138"
+473,Ausência do Reclamante,555032,65,extinto_sem_merito,Arquivamento Ausência do Reclamante,"1,193,218,228"
+892,Liminar,554116,91,,Concedida em parte a Medida Liminar,"1,3,888"
+11375,Inexistência de bens penhoráveis,545038,52,extinto_sem_merito,Extinto o processo por inexistência de bens penhoráveis,"1,193,218,456"
+385,Com Resolução do Mérito,535869,38,,Julgamento com Resolução de Mérito,"1,193"
+112,Ofício,522224,52,,Ofício Devolvido #{resultado},"14,104,105"
+15000,Finalizada Tramitação Direta entre MP e Autoridade Policial,521220,21,,Finalizada Tramitação Direta entre MP e Autoridade Policial,"14,48"
+12646,Determinada a Redistribuição,519101,43,,Determinada a redistribuição dos autos,"1,3,1013"
+190,Reforma de decisão anterior,516755,80,,Reformada decisão anterior #{tipo_da_decisao_anterior} datada de #{data},"1,3"
+866,Guarda Intermediária,512464,38,,Arquivo em Guarda Intermediária,"14,865"
+12290,Documento Expedido,510114,40,,Cancelado o documento,"14,48,12289"
+480,Atualização de conta,506913,53,,Conta Atualizada,"14,15,16"
+12205,Retirado,502767,60,,Deliberado em Sessão - Retirado por solicitação de #{membro_do_colegiado},"14,48,12198"
+12295,Depósito de Bens/Dinheiro,477156,25,,Ato cumprido pela parte ou interessado - depósito de bens/dinheiro,"14,48,12292"
+12307,Decretação de revelia,472344,61,,Decretada a revelia,"1,3"
+447,Habeas corpus,465041,83,improcedente,Denegado o Habeas Corpus a #{nome_da_parte},"1,193,385,212"
+987,Ofício,461067,34,,Recebido o Ofício para Entrega,"14,104,115"
+264,Suspensão Condicional do Processo,458029,62,,Suspensão Condicional do Processo,"1,3,25"
+12531,Frutífera,456278,13,,Conciliação frutífera,"14,12522,12523,12528"
+11423,Medida protetiva,451703,32,,Concedida medida protetiva de #{tipo_de_medida_protetiva} para #{destinatario_de_medida_protetiva},"1,3,817"
+83,Cancelamento da distribuição,446087,83,,Determinado o cancelamento da distribuição,"1,3"
+14974,Levantamento da Causa Suspensiva ou de Sobrestamento,444785,10,,Levantada a causa suspensiva ou de sobrestamento,"14,48"
+242,Conhecimento em Parte e Não-Provimento ou Denegação,429417,89,nao_provido,Conhecido em parte o recurso ou a ordem de #{nome_da_parte} e não-provido ou denegada,"1,193,385"
+371,Incompetência,428388,88,,Acolhida a exceção de Incompetência,"1,3,133"
+430,Recurso especial,412665,61,,Recurso especial admitido,"1,3,206"
+12169,Paga,412247,39,,Requisição de pagamento de precatório paga,"14,48,12165,12166"
+12325,Perda do objeto,403474,60,extinto_sem_merito,Extinto os autos em razão de perda de objeto,"1,193,218,456"
+14971,Por Ação de Controle Concentrado de Constitucionalidade,402411,46,,Processo suspenso ou sobrestado por ação de controle concentrado de constitucionalidade do tipo #{classe_acao_controle_constitucionalidade_STF} de número #{numero_classe_controle_constitucionalidade_STF},"1,3,25"
+12204,Pedido de Vista,385229,84,,Deliberado em Sessão - Pedido de Vista de #{membro_do_colegiado},"14,48,12198"
+12297,Atribuição de competência,384607,16,,Atribuição de competência temporária,"14,18"
+12659,Totalização de Eleições Efetuada,376451,28,,Efetuada a totalização das eleições,"14,48"
+12733,Homologação do Acordo de Não Persecução Penal,368987,63,,Homologado o Acordo de Não Persecução Penal de #{nome_da_parte},"1,3,378"
+431,Recurso de revista,367327,42,,Recurso de revista admitido,"1,3,206"
+12277,Início,365773,21,,Cumprimento da Pena - Início,"14,48,12276"
+12101,Inclusão do processo para julgamento eletrônico,360940,17,,Autos incluídos para julgamento eletrônico,"14,48"
+20087,,353829,1,,,
+15247,,353284,53,,Processo suspenso em razão de expedição de precatório,"1,3,25"
+12310,Pauta,352663,8,,Pauta,"1,11009"
+11411,Cumprimento da suspensão condicional do processo,352008,61,,Extinta a punibilidade por cumprimento da suspensão condicional do processo,"1,193,385,973"
+12738,Homologação de Transação Penal,351904,60,homologacao_acordo,Homologada a Transação Penal,"1,193,385"
+1042,Morte do agente,348299,64,,Extinta a Punibilidade por morte do agente,"1,193,385,973"
+11018,Recebimento de Embargos à Execução,342270,47,,Processo suspenso por recebimento de embargos à execução,"1,11009,11025"
+15248,,337674,50,,Processo suspenso em razão da expedição de RPV,"1,3,25"
+1046,Renúncia do queixoso ou perdão aceito ,336553,42,,Extinta a Punibilidade por renúncia do queixoso ou perdão aceito,"1,193,385,973"
+944,Desistência de Recurso,332550,91,extinto_sem_merito,Homologada a Desistência do Recurso,"1,3,378"
+1043,"Anistia, graça ou indulto",330166,51,,"Extinta a Punibilidade por anistia, graça ou indulto","1,193,385,973"
+12654,Contas Aprovadas com Ressalvas,326585,33,,Contas aprovadas com ressalvas,"1,193,385"
+11373,Anulação de sentença/acórdão,321528,90,provido,Anulada a(o) sentença/acórdão,"1,193,218"
+945,Decisão anterior,315601,87,,Revogada decisão anterior #{tipo_da_decisao_anterior} datada de #{data},"1,3,157"
+11795,Procedência do Pedido - Reconhecimento pelo réu,313563,81,procedente,Julgado procedente o pedido - reconhecimento pelo réu,"1,193,385"
+12539,Infrutífera,311543,27,,Mediação infrutífera,"14,12522,12525,12527"
+884,Transação Penal,307597,58,,Realizada Transação Penal,"1,193,385"
+12253,Sentença confirmada em parte,299255,55,parcialmente_provido,Sentença confirmada em parte,"1,193,385"
+11008,Desmembramento de Feitos,296708,78,,Desmembrado o feito,"14,48"
+11025,Suspensão ou Sobrestamento,292380,35,,Determinada a suspensão ou sobrestamento dos autos,"1,11009"
+14702,Incidente ou Cautelar - Procedimento Resolvido,292217,55,,Resolvido o procedimento incidente ou cautelar,"1,3"
+12319,Não conhecimento do pedido,290188,53,nao_conhecido,Pedido não conhecido,"1,193,218"
+12149,Detração/Remição da Pena,283106,29,,Detração/remição concedida,"1,3,817"
+14902,Perícia,278630,2,,,"14,48"
+12436,Conhecimento para não conhecer do Recurso Especial,275179,12,nao_conhecido,Conheço do agravo de #{nome_da_parte} para não conhecer do Recurso Especial,"1,193,385,12433"
+12735,Extinção de Punibilidade em Razão do Cumprimento de Acordo de Não Persecução Penal,270383,61,,Extinta a Punibilidade de #{nome_da_parte} em Razão de Cumprimento de Acordo de Não Persecução Penal,"1,193,385,973"
+67,Juntada,267317,33,,juntada de,"14,48"
+1,Magistrado,265708,15,,Ato praticado pelo magistrado,
+12271,Petição,264807,36,,Desentranhada a petição,"14,48,12269"
+1019,Transferência da Execução da Pena,264665,45,,Autorizada a Transferência do local da Execução da Pena,"1,3,1008"
+268,Morte ou perda da capacidade,259190,82,,Processo Suspenso por Morte ou perda da capacidade,"1,3,25"
+15032,Manutenção da Prisão Preventiva,257843,48,,Mantida a prisão preventida,"1,3,108"
+175,Prisão em flagrante,255863,37,,Homologada a Prisão em Flagrante,"1,3,378"
+12651,Contas Não Prestação,254253,31,,Contas não prestadas,"1,193,385"
+12293,Ato cumprido pela parte ou interessado (sem atributo),251870,28,,Ato cumprido pela parte ou interessado,"14,48,12292"
+128,Prisão,250569,69,,Revogada a Prisão,"1,3,157"
+1003,Remição,248941,35,,Declarada a Remição,"1,3,11"
+14975,Suspensão/Sobrestamento por Recurso Extraordinário com Repercussão Geral,242358,55,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento por Recurso Extraordinário com Repercussão Geral de número #{numero_tema_RG},"14,48,14974"
+15486,,241503,25,,Concedida a medida protetiva #{tipo_de_medida_protetiva_Lei_Maria_da_Penha},"1,3,817"
+1054,Destinação Parcial,238586,24,,Destinação Parcial de Bens Apreendidos,"14,48,1052"
+381,Recurso,222279,65,,Concedido efeito suspensivo a Recurso,"1,3,151"
+12743,de Interrogatório,221864,61,,"Audiência de interrogatório #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12649,Homologado o Pedido,219781,56,,Homologado o pedido,"1,193,385"
+12309,Retirada,218152,42,,Retirada de pauta,"14,48,12103"
+12752,de Mediação,211616,50,,"Audiência de mediação #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12458,Não conhecimento do habeas corpus,211435,56,nao_conhecido,Não conhecido o Habeas Corpus de #{nome_da_parte},"1,193,218"
+14985,Suspensão/Sobrestamento por Incidente de Resolução de Demandas Repetitivas,209667,53,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento por Incidente de Resolução de Demandas Repetitivas de número #{numero_tema_IRDR},"14,48,14974"
+12280,Interrupção,208664,10,,Cumprimento da Pena - Interrupção,"14,48,12276"
+12146,Liberdade Provisória,207311,46,,Não concedida a liberdade provisória de #{nome_da_parte},"1,3,968"
+12303,Defensor Dativo,202459,59,,Nomeado defensor dativo,"1,3,12300"
+961,Suscitação de Conflito de Competência,201512,91,,Suscitado Conflito de Competência,"1,3"
+867,Guarda Permanente,199805,68,,Arquivo em Guarda permanente,"14,865"
+457,Paralisação por negligência das partes,199262,78,extinto_sem_merito,Extinto o processo por negligência das partes,"1,193,218,456"
+1013,Determinação,195909,24,,Decisão Determinação,"1,3"
+12100,Por decisão do Presidente do STF  - SIRDR,195646,56,,Suspensão por Decisão do Presidente do STF em razão da SIRDR número #{numero_da_SIRDR},"1,3,25"
+335,de pré-executividade,194751,76,,Acolhida a exceção de pré-executividade,"1,3,133"
+11379,Incompetência em razão da pessoa,191121,60,extinto_sem_merito,Extinto o processo por incompetência em razão da pessoa,"1,193,218,456"
+241,Conhecimento em Parte e Provimento em Parte ou Concessão em Parte,190272,88,parcialmente_provido,Conhecido em parte o recurso ou a ordem de #{nome_da_parte} e provido em parte ou concedida em parte,"1,193,385"
+15186,Cooperação Judiciária,182807,62,,em cooperação judiciária,"14,48"
+481,Tributos,182018,45,,Realizado Cálculo de Tributos,"14,15,16"
+12744,de Justificação,181382,47,,"Audiência de justificação #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+10953,Pronúncia,180058,43,,Proferida Sentença de Pronúncia,"1,193,218"
+12459,Prejudicado,176210,64,extinto_sem_merito,Prejudicada a ação de #{nome_da_parte},"1,193,218"
+12302,Curador,170673,49,,Nomeado curador,"1,3,12300"
+15408,,168131,71,,Não conhecidos os embargos de declaração,"1,193,218"
+14961,Erro ou Recusa na Comunicação,167451,14,,Erro ou recusa na comunicação,"14,48,12281"
+270,Convenção das Partes,166706,23,,Processo Suspenso por Convenção das Partes,"1,3,25"
+12114,Para análise da admissão do IAC,166096,3,,Inclusão em pauta para análise da admissão do IAC,"14,48,12103,12104"
+15086,Deferimento em Parte,163502,74,,Deferido em parte o pedido de #{nome_da_parte},"1,3"
+311,Leilão ou Praça,160438,52,,Leilão ou Praça #{situacao_da_audiencia} em/para #{data_hora} #{local}.,"14,48"
+12150,Impedimento,158803,88,,Declarado impedimento por #{nome_do_magistrado},"1,3,11"
+472,"Sumaríssimo (art. 852-B, § 1º/CLT)",158260,60,extinto_sem_merito,"Arquivamento Sumaríssimo (art. 852-B, § 1º/CLT)","1,193,218,228"
+11796,Declaração de competência em conflito,157423,86,,Declarado competetente o #{nome_do_juizo},"1,193,385"
+11374,Devedor não encontrado,156171,36,extinto_sem_merito,Extinto o processo por devedor não encontrado,"1,193,218,456"
+383,Impugnação ao cumprimento de sentença,155088,52,,Decisão ou Despacho Concessão de efeito suspensivo Impugnação ao cumprimento de sentença,"1,3,151"
+819,Livramento Condicional,153622,36,,Concedido o Livramento condicional,"1,3,817"
+12151,Suspeição,153010,89,,Declarada suspeição por #{nome_do_magistrado},"1,3,11"
+12168,Preparada para Envio,150653,22,,Requisição de pagamento de precatório preparada para envio,"14,48,12165,12166"
+12653,Contas Desaprovadas,150571,31,,Contas desaprovadas,"1,193,385"
+15163,Acolhimento em Parte de Embargos de Declaração,149155,63,,Embargos de declaração acolhidos em parte,"1,3"
+450,Segurança,146168,87,parcialmente_procedente,Concedida em parte a Segurança a #{nome_da_parte}.,"1,193,385,214"
+11415,Comutação da pena,145824,31,,Concedida comutação de pena a #{nome_da_parte},"1,3,817"
+14976,Suspensão/Sobrestamento por Recurso Especial Repetitivo,144549,53,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento por Recurso Especial Repetitivo de número #{numero_tema_repetitivo},"14,48,14974"
+14232,Acolhimento,143899,59,,Acolhida a impugnação ao cumprimento de sentença,"1,3,14231"
+12745,do art. 16 da Lei 11.340,143024,22,,"Audiência do art. 16 da Lei 11.340 #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+1014,Regressão de Regime,140647,42,,Determinada a Regressão de Regime,"1,3,1013"
+160,Recebimento,140065,20,,Decisão ou Despacho Recebimento,"1,3"
+12278,Fim,138893,17,,Cumprimento da Pena - Fim,"14,48,12276"
+313,Sessão do Tribunal do Júri,136986,29,,Sessão do Tribunal do Juri #{situacao_da_audiencia} em/para #{data_hora} #{local}.,"14,48"
+12739,Admonitória,136166,36,,"Audiência admonitória #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+15094,Pendência de Diplomação,136048,18,,Registrada a pendência de diplomação no sistema de candidaturas,"14,48,15092"
+12099,Por decisão do Presidente do STJ - SIRDR,135371,42,,Suspensão por Decisão do Presidente do STJ em razão da SIRDR número #{numero_da_SIRDR},"1,3,25"
+14235,Rejeição,130077,60,,Rejeitada a impugnação ao cumprimento de sentença,"1,3,14231"
+11012,Conflito de Competência,126944,85,,Processo Suspenso ou Sobrestado por Conflito de Competência,"1,11009,11025"
+455,Renúncia ao direito pelo autor,126600,88,improcedente,Homologada renúncia pelo autor,"1,193,385"
+464,Ação intransmissível,121910,74,extinto_sem_merito,Extinto o processo por ser a ação intransmissível,"1,193,218,456"
+12330,Pedido conhecido em parte e procedente em parte,121438,56,parcialmente_procedente,Pedido conhecido em parte e procedente em parte,"1,193,385"
+15103,Gratuidade da Justiça,120625,32,,Gratuidade da justiça concedida em parte a #{nome_da_parte},"1,3,888"
+12267,Em audiência,120232,29,,Intimado em audiência,"14,48,12263"
+12472,Devolução dos autos à origem ,118686,57,,Determinada a devolução dos autos à origem para,"1,3,1013"
+1045,"Prescrição, decadência ou perempção",117297,30,improcedente,"Extinta a Punibilidade por prescrição, decadência ou perempção","1,193,385,973"
+443,Habeas corpus,115877,83,procedente,Concedido o Habeas Corpus a #{nome_da_parte},"1,193,385,210"
+14997,Arquivamento Provisório - Aguardando Captura de Réu Condenado,114592,26,,Processo arquivado provisoriamente aguardando a captura de réu/condenado,"14,48,861"
+11002,Revogação da Suspensão do Processo,113643,52,,Revogada a suspensão do processo,"1,3,157"
+14233,Não-Acolhimento,110705,61,,Não acolhida a impugnação ao cumprimento de sentença,"1,3,14231"
+12258,Emissão de juízo de retratação pelo Órgão Julgador,109944,80,,Emitido Juízo de retratação pelo colegiado,"1,193,385"
+14682,Medida Cautelar Diversa da Prisão,107489,50,,Concedida Medida Cautelar Diversa da Prisão de #{tipo_de_medida_cautelar_diversa_da_prisao},"1,3,817"
+429,Recurso extraordinário,106489,68,,Recurso extraordinário admitido,"1,3,206"
+14095,Outros Votos,106438,35,,Outros Votos Proferidos,"1,14092"
+12308,Substituição/Sucessão da Parte,105320,77,,Concedida a substituição/sucessão de parte,"1,3,817"
+14234,Acolhimento em Parte,103404,51,,Acolhida em parte a impugnação ao cumprimento de sentença,"1,3,14231"
+14973,Por Recurso de Revista Repetitivo,101166,27,,Processo suspenso ou sobrestado por recurso de revista repetitivo #{numero_tema_IRR},"1,3,25"
+1055,Cadastramento,95824,25,,Cadastramento de Bens Apreendidos,"14,48,1052"
+11554,Indulto,92534,41,,Concedido o indulto a #{nome_da_parte},"1,3,817"
+56,Requisição de informações,91572,45,,Decisão Requisita Informações,"1,3"
+15183,Pedido de Uniformização de Interpretação de Lei,91381,7,,Não admitido o Pedido de Uniformização de Interpretação de Lei (PUIL),"1,3,207"
+377,Acordo em execução ou em cumprimento de sentença,91251,59,,Homologado Acordo em execução ou em cumprimento de sentença,"1,3,378"
+12144,Unificação e Soma de Penas,91166,38,,Unificadas e somadas as penas,"1,3"
+11019,Ordenação de entrega de autos,89304,81,,Ordenada a entrega dos autos à parte,"1,11009"
+25,Suspensão ou Sobrestamento,87188,30,,Processo Suspenso ou Sobrestado por,"1,3"
+240,Conhecimento em Parte e Provimento ou Concessão,86640,86,provido,Conhecido em parte o recurso ou a ordem de #{nome_da_parte} e provido ou concedida,"1,193,385"
+12453,improcedência,86436,51,,Julgada improcedente a impugnação à execução de,"1,193,385,12450"
+12106,Adiamento do julgamento (art. 935 do CPC),84691,28,,Adiamento do julgamento para a primeira sessão seguinte,"14,48,12103"
+968,Não-Concessão,84111,22,,Decisão ou Despacho Não-Concessão,"1,3"
+14982,Suspensão/Sobrestamento Determinada por Ação de Controle Concentrado de Constitucionalidade  - STF,82946,40,,Levantada a causa suspensiva ou de sobrestamento por ação de controle concentrado de Constitucionalidade - STF #{classe_acao_controle_constitucionalidade_STF} de número #{numero_classe_controle_constitucionalidade_STF},"14,48,14974"
+11426,Medida protetiva,81396,29,,Revogada medida protetiva de #{tipo_de_medida_protetiva} para #{destinatario_de_medida_protetiva},"1,3,157"
+402,Denúncia,80798,65,,Rejeitada a denúncia,"1,3,138"
+12694,Acolhimento (Registro Deferido),78803,28,,Acolhido o registro deferido,"1,193,385,12678"
+374,Exceção de incompetência,78371,81,,Rejeitada a exceção de incompetência,"1,3,138"
+15409,,77238,54,,Não conhecidos os embargos de declaração,"1,3"
+14219,Contas Regularizadas,77034,29,,Contas regularizadas,"1,193,385"
+12435,Conhecimento para negar provimento ao recurso especial,76054,20,nao_provido,Conheço do agravo de #{nome_da_parte} para negar provimento ao Recurso Especial,"1,193,385,12433"
+269,Impedimento ou Suspeição,74953,62,,Declarado impedimento ou suspeição,"1,3,11"
+12274,Sobrestado,74685,60,,Deliberado em Sessão - Sobrestado,"14,48,12198"
+12440,conhecimento para conhecer em parte o recurso especial e negar provimento,73587,4,nao_provido,Conheço do agravo de #{nome_da_parte} para conhecer em parte o recurso especial e negar provimento,"1,193,385,12433"
+228,Arquivamento,73396,14,extinto_sem_merito,Arquivamento,"1,193,218"
+14969,Por Grupo de Representativos,72657,34,,Processo suspenso ou sobrestado por grupo de representativos do #{sigla_tribunal} de número #{numero_grupo_de_representativos},"1,3,25"
+12272,Declinada a competência,71616,52,,Deliberado em Sessão - declinada a competência,"14,48,12198"
+12314,Retirar pedido de pauta virtual,71386,41,,Retirado pedido de pauta de sessão virtual,"1,11009,12310"
+15589,,70375,22,,Homologados os cálculos,"1,3,378"
+12141,Relaxamento do Flagrante,68791,47,,Relaxado o flagrante,"1,3"
+105,Devolução,67375,11,,devolvido o,"14,104"
+12616,Composição Civil dos Danos,67277,29,,Extinta a punibilidade de #{nome_da_parte} por composição civil dos danos,"1,193,385,973"
+817,Concessão,65508,22,,Concessão,"1,3"
+11876,Absolvição Sumária do art. 397-CPP,65352,61,,Absolvido sumariamente o réu - art. 397 do CPP,"1,193,385"
+348,Liminar,64120,91,,Revogada a Medida Liminar,"1,3,157"
+12451,Procedência,63389,48,,Julgada procedente a impugnação à execução de,"1,193,385,12450"
+11003,Início do Cumprimento da Transação Penal,62992,25,,Iniciado o cumprimento da transação penal,"14,48"
+20002,,62750,1,,,
+11380,Autor falecido e sem habilitação de sucessores,62455,55,extinto_sem_merito,Extinto o processo por falecimento do autor sem habilitação de sucessores,"1,193,218,456"
+50149,,62011,1,,,
+12305,Outros auxiliares de justiça,61942,55,,Nomeado outro auxiliar da justiça,"1,3,12300"
+12767,Por Divergência de Entendimento com Tribunal Superior,61365,26,,Determinado o encaminhamento dos autos para juízo de retratação em razão de divergência com #{numero_tema_controversia_STJ},"1,3,12765"
+63,Ordenação de entrega de autos,60788,19,,Ordenada a entrega dos autos à parte,"1,3"
+151,Concessão de efeito suspensivo,60568,12,,Decisão ou Despacho Concessão de efeito suspensivo,"1,3"
+50146,,58919,1,,,
+388,Aditamento da denúncia,58091,58,,Recebido aditamento à denúncia contra #{nome_da_parte},"1,3,160"
+12452,procedência parcial,57586,47,,Julgada parcialmente procedente a impugnação à execução de,"1,193,385,12450"
+1047,Retratação do agente,57489,43,,Extinta a Punibilidade por retratação do agente,"1,193,385,973"
+11407,Improcedência do pedido e procedência do pedido contraposto,56865,53,improcedente,Julgado improcedente o pedido e procedente o pedido contraposto,"1,193,385"
+12449,expedição de alvará de levantamento,56729,17,,Determinada a expedição de alvará de levantamento,"1,11009,11010"
+15562,,55816,24,,Determinado o encaminhamento dos autos para juízo de retratação para análise de divergência com o #{numero_tema_RG},"1,11009,15561"
+11424,Medida protetiva,55019,27,,Concedida em parte medida protetiva de #{tipo_de_medida_protetiva} para #{destinatario_de_medida_protetiva},"1,3,888"
+12475,Habeas Corpus de ofício,54386,44,,Não conhecido o Habeas Corpus. Concedido o Habeas Corpus de ofício a #{nome_da_parte},"1,193,385,210"
+1060,Recurso,54325,25,,Recebido o recurso,"1,3,160"
+1015,Suspensão do Processo,53261,25,,Determinada Suspensão do Processo,"1,3,1013"
+12454,Pedido de Uniformização de Interpretação de Lei,52930,17,,Admitido o Pedido de Uniformização de Interpretação de Lei (PUIL) de,"1,3,206"
+11409,Improcedência do pedido e improcedência do pedido contraposto,52326,52,improcedente,Julgado improcedentes o pedido e o pedido contraposto,"1,193,385"
+15023,DRAP Deferido,52282,28,,DRAP deferido,"1,193,385,12678"
+973,Extinção da Punibilidade,52188,36,,Extinta a Punibilidade por,"1,193,385"
+12198,Deliberado em Sessão,52094,10,,Deliberado em Sessão,"14,48"
+14906,Cancelada,50915,14,,Perícia cancelada,"14,48,14901"
+12766,Por Divergência de Entendimento com o STF,49941,28,,Determinado o encaminhamento dos autos para juízo de retratação em razão de divergência com o #{numero_tema_RG},"1,3,12765"
+12759,Realização de Procedimento Restaurativo,49358,22,,Realizado o Procedimento restaurativo #{Tipo_Procedimento_Restaurativo} em #{data_hora} em #{local},"14,48"
+50151,,49133,1,,,
+14212,Sistema de Candidaturas Reaberto,47924,24,,Reaberto o sistema de candidaturas,"14,48"
+14968,Por Incidente de Assunção de Competência - IAC,47384,46,,Processo suspenso ou sobrestado por Incidente de Assunção de Competência do #{sigla_tribunal} de tema número #{numero_tema_IAC},"1,3,25"
+15621,,46664,22,,Negado seguimento ao recurso extraordinário (tema RG #{numero_tema_RG}),"1,3"
+100000,,46312,1,,,
+865,Arquivista,46264,6,,Atos praticados pelo arquivista,14
+349,Assistência Judiciária Gratuita,46162,37,,Revogada a gratuidade de justiça,"1,3,157"
+11406,Procedência em parte do pedido e improcedência do pedido contraposto,46077,48,parcialmente_procedente,Julgado procedente em parte o pedido e improcedente o pedido contraposto,"1,193,385"
+14981,Suspensão/Sobrestamento Determinada por Controvérsia,45838,49,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento Determinada por Controvérsia número #{numero_controversia},"14,48,14974"
+347,Antecipação de Tutela,45817,85,,Revogada a tutela provisória,"1,3,157"
+1010,Saída Temporária,44313,53,,Autorizada Saída Temporária,"1,3,1008"
+12329,Pedido conhecido em parte e procedente,43960,54,procedente,Pedido conhecido em parte e procedente,"1,193,385"
+15098,Alteração da Foto,43441,28,,Alterada a foto no sistema de candidaturas,"14,48,15092"
+15488,,42186,24,,Não concedida a medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha},"1,3,968"
+100001,,41351,1,,,
+11403,Procedência do pedido e improcedência do pedido contraposto,39928,55,procedente,Julgado procedente o pedido e improcedente o pedido contraposto,"1,193,385"
+15729,,39792,8,,Intimação expedida,"14,48,12263"
+15489,,39178,25,,Revogada a medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha},"1,3,157"
+15622,,38254,23,,Negado seguimento ao recurso especial (tema repetitivo #{numero_tema_repetitivo}),"1,3"
+0,,38234,2,,,
+266,Julgamento em Diligência,37679,23,,Convertido(a) o(a) Julgamento em Diligência,"1,3,7"
+940,Impedimento ou Suspeição,37104,82,,Acolhida a exceção de Impedimento ou Suspeição,"1,3,133"
+11017,Incidente de Insanidade Mental,36938,49,,Processo Suspenso ou Sobrestado por Incidente de Insanidade Mental,"1,11009,11025"
+15495,,36914,19,,Prorrogada a medida protetiva de #{tipo_de_medida_protetiva_da_Lei_Henry_Borel},"1,3"
+10961,Impronúncia,36561,48,,Proferida Sentença de Impronúncia,"1,193,218"
+15097,Alteração do Nome para Urna,35921,28,,Alterado o nome para urna no sistema de candidaturas,"14,48,15092"
+451,Habeas corpus,35774,72,parcialmente_procedente,Concedido em parte o Habeas Corpus a #{nome_da_parte},"1,193,385,214"
+12332,Prorrogado prazo de conclusão,35368,52,,Prorrogado prazo de conclusão,"1,3"
+1062,Redisponibilização no Diário da Justiça Eletrônico,35088,27,,Redisponibilizado no DJe em #(data),"14,48"
+15223,,35076,77,,Prejudicado o pedido de #{nome_da_parte},"1,3"
+12359,Liminar Prejudicada,34847,58,,Liminar Prejudicada,"1,3"
+12734,Revogação do Acordo de Não Persecução Penal,34785,56,,Revogado o acordo de não persecução penal de #{nome_da_parte},"1,3,157"
+393,Queixa,34586,39,,Recebida a queixa contra #{nome_da_parte},"1,3,160"
+48,Escrivão/Diretor de Secretaria/Secretário Jurídico,33525,19,,Ato praticado por Escrivão/Diretor de Secretaria/Secretário Jurídico,14
+14848,Ausência de Requerimento Administrativo Prévio,32973,30,extinto_sem_merito,Extinção por ausência de requerimento administrativo prévio,"1,193,218,456"
+15063,Acolhimento em Parte,32550,26,,Acolhida em parte a impugnação aos cálculos de liquidação apresentada por #{nome_da_parte}.,"1,3,15061"
+12177,Cancelada,30922,42,,Requisição de pagamento de pequeno valor cancelada,"14,48,12165,12173"
+50147,,30877,1,,,
+50152,,30648,1,,,
+1044,Retroatividade de lei,30278,41,,Extinta a Punibilidade por retroatividade de lei,"1,193,385,973"
+821,Pena / Medida,30200,57,,Convertido(a) o(a) Pena / Medida,"1,3,7"
+12285,Em Secretaria/Comparecimento Espontâneo,29985,29,,Citado em Secretaria/Comparecimento Espontâneo,"14,48,12284"
+14984,Suspensão/Sobrestamento Determinada por Recurso de Revista Repetitivo,29931,23,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento Determinada por Recurso de Revista Repetitivo #{numero_tema_IRR},"14,48,14974"
+12173,Pequeno Valor,29742,4,,Requisição de pagamento de pequeno valor minutada,"14,48,12165"
+12434,Conhecimento para dar provimento ao Recurso Especial ,29737,11,provido,Conheço do agravo de #{nome_da_parte} para dar provimento ao Recurso Especial,"1,193,385,12433"
+1053,Destinação,29702,26,,Destinação de Bens Apreendidos,"14,48,1052"
+11425,Medida protetiva,29687,30,,Não concedida medida protetiva,"1,3,968"
+12172,Suspensão,29610,16,,Requisição de pagamento de precatório suspensa,"14,48,12165,12166"
+12437,Conhecimento para determinar sua autuação como Recurso Especial,29317,3,,Conheço do agravo de #{nome_da_parte} para determinar sua autuação como Recurso Especial,"1,193,385,12433"
+12467,Desistência de pedido,29183,42,extinto_sem_merito,Homologada a desistência do pedido de,"1,3,378"
+404,Queixa,29171,55,,Rejeitada a queixa,"1,3,138"
+12431,Embargos ,29140,58,,"Admitidos os Embargos RISTJ, 216-V","1,3,206"
+12179,Suspensão,28961,15,,Requisição de pagamento de pequeno valor suspensa,"14,48,12165,12173"
+12170,Cancelada,28919,40,,Requisição de pagamento de precatório cancelada,"14,48,12165,12166"
+15064,Não Acolhimento,28571,28,,Não Acolhida a impugnação aos cálculos de liquidação apresentada por #{nome_da_parte},"1,3,15061"
+172,Deliberação da partilha,28383,36,,Deliberada da partilha,"1,3"
+12427,Agravo em recurso especial ,28343,26,,Não conhecido o agravo de,"1,3,207"
+14970,Por Controvérsia,28160,54,,Processo suspenso ou sobrestado por controvérsia de número #{numero_controversia},"1,3,25"
+12746,em Execução,28131,28,,"Audiência em execução #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12312,Retirar pedido de inclusão,28073,38,,Retirado pedido de inclusão em pauta,"1,11009,12310"
+12679,Provimento (Registro Deferido),28055,28,provido,Provido o registro deferido,"1,193,385,12678"
+12534,Infrutífera,26944,9,,Conciliação infrutífera,"14,12522,12524,12530"
+12148,Prisão Domiciliar,26794,44,,Concedida a prisão domiciliar a #{nome_da_parte},"1,3,817"
+15021,Destaque para Julgamento Presencial,26338,20,,Deliberado em sessão - Destaque para julgamento presencial solicitado por #{membro_do_colegiado},"14,48,12198"
+12737,Revogação da Suspensão Condicional do Processo,26140,57,,Revogada a Suspensão Condicional do Processo,"1,3,157"
+14683,Medida Cautelar Diversa da Prisão,26134,44,,Revogada a Medida Cautela Diversa da Prisão de #{tipo_de_medida_cautelar_diversa_da_prisao},"1,3,157"
+12186,Cancelamento de Distribuição,25224,28,,Cancelada a Distribuição,"14,48"
+12035,Representação por ato infracional,24968,38,,Recebida a representação contra #{nome_da_parte},"1,3,160"
+378,Homologação,24788,30,,Decisão ou Despacho Homologação,"1,3"
+12273,Convertido em diligência,23319,51,,Deliberado em Sessão - Convertido em diligência,"14,48,12198"
+12456,Recurso Ordinário,23235,36,,Não admitido o Recurso ordinário de,"1,3,207"
+11394,Homologada a Remissão,23150,46,,Homologada a remissão,"1,193,218"
+11015,"Exceção de Incompetência, suspeição ou Impedimento",22656,82,,"Processo Suspenso por Exceção de Incompetência, suspeição ou Impedimento","1,11009,11025"
+15244,,21926,27,,Homologado o acordo parcial em execução ou em cumprimento de sentença,"1,3"
+12256,Continência,21268,61,extinto_sem_merito,Extinto o processo sem resolução de mérito por continência,"1,193,218,456"
+14908,Não Realizada,21061,14,,Perícia não realizada,"14,48,14901"
+12166,Precatório,20599,6,,Requisição de Pagamento de Precatório Minutada,"14,48,12165"
+12165,Requisição de Pagamento,20329,8,,Movimentos referentes à requisição de pagamento,"14,48"
+14905,Realizada,19589,16,,Perícia realizada,"14,48,14901"
+12331,Pedido conhecido em parte e improcedente,19454,53,improcedente,Pedido conhecido em parte e improcedente,"1,193,385"
+14978,Suspensão/Sobrestamento Determinada por Decisão do Presidente do STJ - SIRDR,19334,35,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento Determinada por Decisão do Presidente do STJ - SIRDR de número #{numero_da_SIRDR},"14,48,14974"
+14733,Prorrogação de Medida Protetiva,19075,23,,Prorrogada a medida protetiva de #{tipo_de_medida_protetiva} a #{destinatario_da_medida_protetiva},"1,3"
+15062,Acolhimento,19047,29,,Acolhida a impugnação aos cálculos de liquidação apresentada por #{nome_da_parte},"1,3,15061"
+14210,Indeferimento do Pedido de Registro de Candidatura,19041,27,,Indeferido o pedido de registro de candidatura,"1,193,385,12678"
+12432,Afetação,19003,18,,Afetado o processo,"1,3"
+15490,,18898,23,,Prorrogada a medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha},"1,3"
+12320,Denegação de prevenção,18469,47,,Denegada a prevenção,"1,3"
+15730,,17814,4,,Medida protetiva de urgência em acompanhamento,"14,48"
+11792,Livramento Condicional,17803,26,,Suspenso o livramento condicional,"1,3"
+1048,Perdão judicial,17714,42,,Extinta a Punibilidade por perdão judicial,"1,193,385,973"
+861,Arquivamento,17695,18,,Processo Arquivado,"14,48"
+11408,Improcedência do pedido e procedência em parte do pedido contraposto,17685,42,improcedente,Julgado improcedentes o pedido e procedente em parte o pedido contraposto,"1,193,385"
+15487,,17544,22,,Concedida em parte a medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha},"1,3,888"
+15027,Manutenção da Inscrição Eleitoral,17341,27,,Mantida a inscrição eleitoral,"1,193,385"
+1009,Trabalho Externo,17079,33,,Autorizado Trabalho Externo,"1,3,1008"
+15366,,16948,27,,Acolhida em parte a exceção de pré-executividade,"1,3"
+869,Entrega definitiva dos autos,16812,22,,Entrega Definitiva dos Autos a #{nome_da_parte},"14,865"
+11404,Procedência em parte do pedido e procedência do pedido contraposto,16809,36,parcialmente_procedente,Julgado procedente em parte o pedido e procedente o pedido contraposto,"1,193,385"
+15022,Rejeição de Justificativa do Mesário Faltoso ou Manutenção de Multa,16124,27,,Rejeitada a justificativa do mesário falta ou mantida a multa,"1,193,385"
+853,Conversão de Agravo de Instrumento em Recurso Especial ou Extraordinário,15913,21,,Agravo de instrumento convertido em recurso especial ou extraordinário,"1,193,218"
+202,Decretação de falência,15904,33,,Decretada a falência,"1,193,385"
+12769,Desclassificação de Delito,15862,32,,Desclassificado o Delito,"1,3"
+50165,,15312,1,,,
+12540,Frutífera,15234,29,,Mediação frutífera,"14,12522,12525,12527"
+12438,conhecimento para dar parcial provimento ao recurso especial,15053,21,parcialmente_provido,Conheço do agravo de #{nome_da_parte} para dar parcial provimento ao Recurso Especial,"1,193,385,12433"
+1017,Suspensão Condicional da Pena,14612,53,,Concedida Suspensão Condicional da Pena,"1,3,817"
+12147,Domiciliar,14606,31,,Desacolhida a prisão domiciliar de #{nome_da_parte},"1,3,122"
+373,Exceção de Impedimento ou Suspeição,14437,86,,Rejeitada exceção de impedimento ou de suspeição,"1,3,138"
+15627,,14378,2,,Determinada a devolução dos autos à origem em decorrência da afetação de tema repetitivo (STJ %u2013 Tema #{numero_tema_repetitivo}),"1,3"
+1018,Transferência para outro Estabelecimento Penal,13473,32,,Autorizada Transferência para outro Estabelecimento Penal,"1,3,1008"
+1016,Suspensão Condicional da Pena,13359,38,,Revogada a Suspensão Condicional da Pena,"1,3,157"
+12289,Cancelamento,13356,14,,Cancelamento,"14,48"
+244,Conversão de Agravo de Instrumento em Agravo Retido,13130,29,,Agravo de Instrumento convertido em Agravo Retido,"1,193,218"
+14907,Reagendada,13124,12,,Perícia reagendada,"14,48,14901"
+115,Recebimento,12805,8,,recebido o mandado,"14,104"
+12445,Recurso Ordinário,12760,44,,Recurso ordinário de #{nome_da_parte} admitido,"1,3,206"
+15563,,12716,19,,Determinado o encaminhamento dos autos para juízo de retratação para análise de divergência com #{numero_tema_STJ},"1,11009,15561"
+12736,Unificação de Processos de Execução,12505,31,,Unificado o Processo de Execução ao processo #{numero_do_processo},"1,3"
+14094,Voto Divergente Vencedor,12359,25,,Voto Divergente Vencedor Proferido,"1,14092"
+12537,Não-realizada,12268,1,,,"14,12522,12525,12527"
+10964,Extinção por Cumprimento de Medida Sócio-Educativa,12118,50,,Extinto o Processo por Cumprimento da Medida Sócio-Educativa,"1,193,385"
+50109,,11738,1,,,
+11405,Procedência em parte do pedido e procedência em parte do pedido contraposto,11670,44,parcialmente_procedente,Julgado procedentes em parte o pedido e o pedido contraposto,"1,193,385"
+15025,Revogação da Transação Penal,11561,55,,Revogada a transação penal,"1,3,157"
+12213,Decisão Monocrática,11507,38,,Ratificada a Decisão Monocrática,"1,3,12206"
+12092,Afetação ao rito dos recursos repetitivos ,11386,39,,Afetação ao rito dos recursos repetitivos,"1,3"
+11,Declaração,10988,19,,Decisão ou Despacho Declaração,"1,3"
+14211,Homologação da Renúncia ao Registro de Candidatura,10969,27,,Homiologada a Renúncia ao Registro de Candidatura,"1,193,385,12678"
+15158,Registro de Renúncia,10871,28,,Registrada a renúncia no sistema de registro de candidaturas,"14,48,15092"
+11023,Concessão,10869,23,,,"1,11009"
+15100,Alteração da Data de Nascimento do Candidato,10701,27,,Alterada a data de nascimento do candidato no sistema de candidaturas,"14,48,15092"
+15726,,10498,3,,Citação de #{nome_da_parte} expedida,"14,48,12284"
+12095,Incidente de resolução de demandas repetitivas,10351,51,,Não-Admissão de Incidente de Resolução de Demandas Repetitivas,"1,3,207"
+12447,pagamento,10205,34,,Autorizado o pagamento,"1,3,1008"
+14776,Homologação em Parte,10193,25,,Decisão ou Despacho de Homologação,"1,3"
+14980,Suspensão/Sobrestamento Determinada por Grupo de Representativos,10143,25,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento Determinada por Grupo de Representativos do #{sigla_tribunal} de número #{numero_grupo_de_representativos},"14,48,14974"
+15045,Audiência de Apresentação de Adolescente,10069,21,,"Audiência de apresentação de adolescente #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12673,Não-Procedência da Impugnação (Registro Deferido),9983,28,improcedente,Não procede a impugnação ao registro deferido,"1,193,385,12661"
+11877,Absolvição sumária - crimes dolosos contra a vida,9680,38,,Absolvido sumariamente o réu - art. 415 do CPP,"1,193,385"
+50112,,9613,1,,,
+15582,,9409,11,,Não concessão de indulto,"1,3,968"
+12608,Parcial,9288,13,,Conciliação parcial,"14,12522,12523,12528"
+14,Serventuário,9001,15,,,
+12171,Retificado,8938,12,,Retificado o precatório,"14,48,12165,12166"
+50129,,8779,1,,,
+14937,Acolhimento da Justificativa do Mesário Faltoso ou Dispensa de Multa,8738,26,,Acolhida a justificativa do mesário faltoso ou dispensada a multa,"1,193,385"
+15188,Audiência de Depoimento Especial,8568,23,,Audiência de depoimento especial conduzida por #{dirigida_por} #{situacao_da_audiencia} para #{data_hora} #{local}. .,"14,48,970"
+11381,Ausência de citação de sucessores do réu falecido,8472,36,extinto_sem_merito,Extinto o processo por ausência de citação de sucessores do réu falecido,"1,193,218,456"
+59999,,8321,1,,,
+389,Aditamento da queixa,8269,32,,Recebido aditamento à queixa contra #{nome_da_parte},"1,3,160"
+11401,Procedência do pedido e procedência do pedido contraposto,8239,47,procedente,ulgado procedente o pedido e procedente o pedido contraposto,"1,193,385"
+14977,Suspensão/Sobrestamento Determinada por Decisão do Presidente do STF - SIRDR,8194,47,,Levantada Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento Determinada por Decisão do Presidente do STF - SIRDR número #{numero_da_SIRDR},"14,48,14974"
+11396,Concessão de remissão a adolescente com exclusão do processo,8095,38,,Concedida remissão ao adolescente com exclusão do processo,"1,193,218"
+138,Rejeição,8062,19,,Decisão ou Despacho Rejeição,"1,3"
+90000,,8004,1,,,
+1052,Bens Apreendidos,7989,8,,Bens Apreendidos -,"14,48"
+462,Convenção de arbitragem,7978,63,extinto_sem_merito,Extinto o processo por convenção de arbitragem,"1,193,218,456"
+15695,,7952,4,,Remetido para admissibilidade recursaç,"14,48"
+12275,Retificado,7789,37,,Deliberado em Sessão - Retificado,"14,48,12198"
+146,Não-Homologação de prisão em flagrante,7763,42,,Prisão em flagrante não homologada,"1,3"
+15026,Cancelamento de Inscrição Eleitoral,7712,26,,Cancelada a inscrição eleitoral,"1,193,385"
+12690,Não-Provimento (Registro Indeferido),7647,29,nao_provido,Não-provido o registro indeferido,"1,193,385,12678"
+15413,,7479,25,,Suspenso o processo em razão de ação coletiva processo nº #{numero_unico_processo},"1,3,25"
+50110,,7308,1,,,
+15030,Cancelamento de Filiação Partidária,7294,26,,Cancelada a filiação partidária,"1,193,385"
+12700,Não-Acolhimento (Registro Indeferido),7290,27,,Não acolhido o registro indeferido,"1,193,385,12678"
+12111,Para análise da admissão do IRDR,7287,4,,Inclusão em pauta para análise da admissão do IRDR,"14,48,12103,12104"
+12112,Para análise da admissão do IRDR,7265,4,,Inclusão do processo para julgamento eletrônico para análise da admissão do IRDR,"14,48,12103,12105"
+12184,Suspensão Condicional do Processo,7186,42,,Determinada a suspensão condicional do processo,"1,193,218"
+11402,Procedência do pedido e procedência em parte do pedido contraposto,7097,39,procedente,ulgado procedente o pedido e procedente em parte o pedido contraposto,"1,193,385"
+12202,Questão de Ordem,6672,47,,Deliberado em Sessão - Julgado - Questão de Ordem,"14,48,12198,12199"
+50136,,6657,2,,,
+12322,Favorável,6610,24,,Emitido parecer favorável,"1,193,385,12321"
+7,Conversão,6490,16,,Convertido(a) o(a),"1,3"
+50000,,6310,2,,,
+12032,Exequatur,6118,9,,Concedido o Exequatur,"1,193,385,210"
+207,Não-Admissão,6071,16,,Decisão ou Despacho Não-Admissão,"1,3"
+12439,conhecimento para conhecer em parte o recurso especial e dar provimento ,5868,4,provido,Conheço do agravo de #{nome_da_parte} para conhecer em parte o recurso especial e dar provimento,"1,193,385,12433"
+12667,Procedência da Impugnação (Registro Indeferido),5848,28,procedente,Procede a impugnação ao registro indeferido,"1,193,385,12661"
+206,Admissão,5817,17,,Decisão ou Despacho Admissão,"1,3"
+900,Declaração de competência em conflito,5797,21,,Julgado o conflito de competência,"1,193,385"
+80000,,5692,1,,,
+500024,,5648,1,,,
+888,Concessão em parte,5590,19,,Decisão ou Despacho Concessão em parte,"1,3"
+12422,Devolução da carta rogatória ao juízo rogante,5584,32,,Determinada a devolução da carta rogatória ao juízo rogante,"1,3,1013"
+444,Habeas data,5533,42,procedente,Concedido o Habeas Data a #{nome_da_parte},"1,193,385,210"
+50004,,5516,3,,,
+11801,Reparação do dano,5476,42,,Extinta a punibilidade pela reparação do dano,"1,193,385,973"
+15494,,5462,19,,Revogada a medida protetiva de #{tipo_de_medida_protetiva_Lei_Henry_Borel},"1,3,157"
+12741,de Acolhimento,5351,23,,"Audiência de acolhimento #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+15569,,5272,14,,"Audiência para homologação de acordo de não persecução penal #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+12260,Autos restaurados,5271,22,,Autos restaurados em #{data},"14,48"
+12421,Juízo provisório para medidas urgentes,5232,37,,"Designado o juízo #{nome_do_juizo} para resolver, em caráter provisório, as medidas urgentes","1,3,1013"
+50104,,5083,1,,,
+15065,Não Admissão,4959,24,,Não admitida a impugnação aos cálculos de liquidação apresentada por #{nome_da_parte},"1,3,15061"
+15009,Por Impedimento ou Suspeição,4916,68,,Processo suspenso por impedimento ou suspeição de número #{numero_unico_do_processo},"1,11009,11025"
+133,Acolhimento de exceção,4875,21,,Decisão ou Despacho Acolhimento de exceção,"1,3"
+50002,,4828,1,,,
+988,Permissão de saída,4805,38,,Concedida a Permissão de saída,"1,3,817"
+12188,Recambiamento de Preso,4594,28,,Decisão ou Despacho Autorização,"1,3,1008"
+50081,,4504,1,,,
+50107,,4443,1,,,
+12647,Mantida a Distribuição do Processo,4344,43,,Mantida a distribuição dos autos,"1,3"
+210,Concessão,4304,22,,Concedido(a),"1,193,385"
+12207,Liminar,4284,41,,Ratificada a liminar,"1,3,12206"
+12650,Não Homologado o Pedido,4157,50,,Não homologado o pedido,"1,193,385"
+15093,Cancelamento de Diplomação,3911,7,,Registrado o cancelamento de diplomação no sistema de candidaturas,"14,48,15092"
+50137,,3837,1,,,
+104,Oficial de Justiça,3829,9,,,14
+15102,Sessão Restaurativa,3819,20,,"Sessão Restaurativa #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48"
+12655,Identificada Possível Dissidência Partidária,3751,29,,Identificada possível dissidência partidária,"14,48"
+15157,Registro de Falecimento,3602,27,,Registrado o falecimento no sistema de registro de candidaturas,"14,48,15092"
+15322,,3585,39,,Sentença - Extinção da pena - Cumprimento Sursis,"1,193,385,973"
+12264,Eletrônica,3454,11,,Intimação eletrônica,"14,48,12263"
+15419,,3356,2,,o encaminhamento dos autos para juízo de retratação em razão de divergência com #{numero_tema_controversia_TNU},"1,3,12765"
+12615,Composição Civil,3308,6,,Realizada a Composição Civil,"1,193,385"
+12768,Manutenção de Acórdão,3183,30,,Mantido o Acórdão Divergente,"1,3"
+50006,,3116,1,,,
+12178,Retificada,3088,13,,Requisição de pagamento de pequeno valor retificada,"14,48,12165,12173"
+12269,Desentranhamento,3085,6,,Desentranhamento,"14,48"
+271,"Exceção de Incompetência, suspeição ou Impedimento",3078,19,,"Processo Suspenso por Exceção de Incompetência, suspeição ou Impedimento","1,3,25"
+50156,,3018,1,,,
+990,Direito de visita,2932,30,,Concedido Direito de visita,"1,3,817"
+50157,,2932,1,,,
+12257,Definição de tese jurídica em incidentes repetitivos,2922,63,,Definição de tese jurídica no incidente repetitivo #{nome_do_incidente_repetitivo},"1,193,385"
+20019,,2887,1,,,
+399,Aditamento da denúncia,2780,41,,Rejeitado o aditamento à denúncia,"1,3,138"
+14091,Devolvidos os autos após Pedido de Vista,2775,17,,Devolvidos os autos após Pedido de Vista,"14,48"
+12695,Acolhimento (Registro Indeferido),2731,26,,Acolhido o registro indeferido,"1,193,385,12678"
+15081,Busca e Apreensão de Adolescente,2712,22,,Determinada a busca e apreensão de adolescente,"1,3,1013"
+12180,Prestação de Serviços à Comunidade,2649,30,,Concedida remissão ao adolescente com suspensão do processo (PSC),"1,3,817,11395"
+999,,2596,2,,,
+12689,Não-Provimento (Registro Deferido),2579,27,nao_provido,Não provido o registro deferido,"1,193,385,12678"
+12429,Embargos de Divergência,2563,17,,Admitidos os Embargos de divergência,"1,3,206"
+12182,Liberdade Assistida,2533,23,,Concedida remissão ao adolescente com suspensão do processo (Liberdade Assistida),"1,3,817,11395"
+12299,Prorrogação de cumprimento de pena/medida de segurança,2522,38,,Prorrogado o cumprimento de pena/medida de segurança,"1,3"
+50140,,2510,1,,,
+212,Denegação,2478,17,,Denegado(a),"1,193,385"
+15205,,2452,18,,Mantido o acolhimento institucional ou em família acolhedora,"1,3"
+12301,Advogado Voluntário,2444,39,,Nomeado advogado voluntário,"1,3,12300"
+15252,,2426,21,,Processo extinto em razão da perda do caráter pedagógico da medida socioeducativa,"1,193,385"
+14979,Suspensão/Sobrestamento Determinada por Incidente de Assunção de Competência - IAC,2421,40,,Levantada a Causa Suspensiva de Suspensão ou de Sobrestamento - Suspensão/Sobrestamento Determinada por Incidente de Assunção de Competência - IAC do #{sigla_tribunal} de número #{numero_tema_IAC},"14,48,14974"
+15099,Alteração do Número do Candidato,2404,29,,Alterado o número do candidato no sistema de candidaturas,"14,48,15092"
+12206,Ratificação,2340,2,,Ratificação,"1,3"
+15049,Audiência Concentrada Protetiva,2284,19,,"Audiência Concentrada Protetiva #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}","14,48,970"
+15491,,2265,24,,Concedida a medida protetiva de #{tipo_de_medida_protetiva_Lei_Henry_Borel},"1,3,817"
+12201,Liminar,2264,43,,Deliberado em Sessão - Julgado - Liminar,"14,48,12198,12199"
+278,Recebimento de Embargos à Execução,2238,18,,Processo Suspenso ou Sobrestado por Recebimento de Embargos de Execução,"1,3,25"
+60408,,2214,1,,,
+12041,Recuperação judicial,2208,26,,Concedida a recuperação judicial,"1,193,385,210"
+18,Distribuidor,2176,10,,,14
+12527,Mediação,2111,3,,Atos de mediação,"14,12522,12525"
+50142,,2098,1,,,
+12300,Nomeação,2092,10,,Nomeado(a),"1,3"
+10963,Progressão de Medida Sócio-Educativa,2078,32,,Concedida Progressão de Medida Sócio-Educativa,"1,3,817"
+12536,Infrutífera,2036,8,,Conciliação infrutífera,"14,12522,12525,12526"
+163,Não-Recebimento,2013,14,,Decisão ou Despacho Não-Recebimento,"1,3"
+15204,,2011,17,,Processo suspenso por não localização do adolescente,"1,3,25"
+50000221,,1942,1,,,
+15626,,1932,2,,Devolução dos autos à origem em decorrência da afetação de tema de repercussão geral (STF %u2013 Tema #{numero_tema_RG}),"1,3"
+12094,Incidente de Resolução de demandas repetitivas (art. 981 e 982),1901,52,,Admissão de Incidente de Resolução de Demandas Repetitivas,"1,3,206"
+15211,,1834,17,,Pedido procedente com aplicação de medida socioeducativa de #{tipo_de_medida_socioeducativa},"1,193,385"
+208,Não-Decretação de Falência,1822,31,,Falência não decretada,"1,193,385"
+15050,Audiência Concentrada Infracional,1757,19,,"Audiência Concentrada infracional #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}","14,48,970"
+12103,Pauta,1683,12,,Pauta,"14,48"
+5001,,1681,1,,,
+214,Concessão em Parte,1651,14,,Concedido(a) em parte,"1,193,385"
+15168,"De Liquidação, Cumprimento de Sentença ou Execução por Nulidade da Fase de Conhecimento ",1641,10,,"Cancelada a liquidação, cumprimento de sentença ou execução por nulidade da fase de conhecimento","14,48,12289"
+12533,Frutífera,1615,5,,Conciliação frutífera,"14,12522,12524,12530"
+1011,Inclusão em Regime Disciplinar Diferenciado,1531,40,,Incluído em Regime Disciplinar Diferenciado,"1,3,1008"
+15496,,1527,21,,Concedida a medida de proteção de #{tipo_de_medida_de_proteção_Estatuto_do_Idoso},"1,3,817"
+12145,Detração/Remição,1481,18,,Detração/remissão revogada,"1,3,157"
+15201,,1480,16,,Homologado o plano individual de atendimento (PIA),"1,3,378"
+12442,conhecimento para conhecer em parte o recurso especial ,1480,1,,Conheço do agravo de #{nome_da_parte} para conhecer em parte o Recurso Especial,"1,193,385,12433"
+50100,,1478,2,,,
+15262,,1456,16,,Homologada a remissão sem aplicação de medida socioeducativa,"1,193,218,15260"
+70000,,1432,1,,,
+12680,Provimento (Registro Indeferido),1408,26,provido,Provido o registro indeferido,"1,193,385,12678"
+50125,,1407,1,,,
+15165,Resolução Aprovada,1397,28,,Resolução aprovada,"1,193,385"
+15266,,1359,20,,Homologada a remissão com aplicação de medida socioeducativa de advertência,"1,193,218,15260"
+15202,,1323,13,,Determinada a alteração ou complementação do plano individual de atendimento (PIA),"1,3,1013"
+12327,Respondida,1318,41,,Consulta respondida,"1,193,385,12326"
+50026,,1265,1,,,
+279,Incidente de Insanidade Mental,1253,15,,Processo Suspenso ou Sobrestado por Incidente de Insanidade Mental,"1,3,25"
+15259,,1235,20,,Concedida a remissão ao adolescente com extinção do processo mediante advertência,"1,193,218,15253"
+11395,Remissão ao adolescente com suspensão do processo,1230,22,,Concedida remissão ao adolescente #{nome_da_parte} com suspensão do processo,"1,3,817"
+50118,,1222,1,,,
+448,Habeas data,1212,44,improcedente,Denegado o Habeas Data a #{nome_da_parte},"1,193,385,212"
+11016,Exceção da Verdade,1201,36,,Processo Suspenso ou Sobrestado por Exceção da Verdade,"1,11009,11025"
+15501,,1192,21,,Concedida a medida de proteção de #{tipo_de_medida_de_proteção_ECA},"1,3,817"
+50102,,1166,2,,,
+12476,Medida protetiva determinada por autoridade policial,1143,24,,Homologada medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha} determinada por autoridade policial,"1,3,378"
+12109,Para análise da admissão do recurso repetitivo ,1131,2,,Inclusão do processo para julgamento eletrônico para análise da admissão do recurso repetitivo,"14,48,12103,12105"
+12324,Desfavorável,1095,16,,Emitido parecer desfavorável,"1,193,385,12321"
+14972,Por Decisão do Presidente do TST - SIRDR,1093,21,,Processo suspenso ou sobrestado por decisão do presidente do TST em SIRDR de número #{numero_da_SIRDR},"1,3,25"
+14681,Descumprimento de Medida Protetiva,1083,24,,Descumprida a medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha},"1,3"
+15096,Alteração da Declaração de Bens,1082,17,,Alterada a declaração de bens no sistema de candidaturas,"14,48,15092"
+12428,Reclamação,1058,40,,Reclamação admitida,"1,3,206"
+15203,,1057,18,,Mantida a sentença/decisão anterior,"1,3"
+50003,,1046,3,,,
+15206,,1043,21,,Determinado o desacolhimento institucional ou de família acolhedora,"1,3"
+12606,Remessa negociação consumidor.gov.br,1027,8,,Remetidos os autos para o consumidor.gov.br,"14,48"
+15503,,1024,8,,Não concedida a medida de proteção de #{tipo_de_medida_de_proteção_ECA},"1,3,968"
+15200,,1023,13,,Determinada a manutenção da medida socioeducativa,"1,3,1013"
+14096,Audiência Pública,1013,15,,"Audiência pública #{situacao_da_audiencia} dirigida por #{dirigida_por} em #{local}, em #{data_hora}","14,48,970"
+465,Confusão entre autor e réu,1000,27,extinto_sem_merito,Extinto o processo por confusão entre autor e réu,"1,193,218,456"
+15078,Substituição de Medida Socioeducativa,990,12,,Concedida a substituição de medida socioeducativa,"1,3,817"
+12425,Unificação de Medidas Socioeducativas,966,24,,Unificada a execução de medidas socioeducativas,"1,3"
+12441,Conhecimento para conhecer o recurso especial,962,6,,Conheço do agravo de #{nome_da_parte} para conhecer do Recurso Especial,"1,193,385,12433"
+12716,Não Conhecimento (Registro Indeferido),943,27,nao_conhecido,Não conhecido o registro indeferido,"1,193,218,12709"
+15728,,932,6,,Intimação Realizada,"14,48,12263"
+1008,Autorização,912,15,,Decisão ou Despacho Autorização,"1,3"
+15225,,898,4,,Indicado o recurso como representativo de controvérsia,"1,11009"
+11021,Conversão,887,10,,,"1,11009"
+15498,,882,13,,Não concedida a medida de proteção de #{tipo_de_medida_de_proteção_Estatuto_do_Idoso},"1,3,968"
+14213,Acolhimento em Parte (Registro Deferido),882,20,,Acolhido em parte o registro deferido,"1,193,385,12678"
+12479,Medida protetiva determinada por autoridade policial,877,19,,Revogada medida protetiva de #{tipo_de_medida_protetiva_Lei_Maria_da_Penha} determinada por autoridade policial,"1,3,157"
+12719,Não Conhecimento (Registro Sem Julgamento),869,25,nao_conhecido,Não conhecido o registro sem julgamento,"1,193,218,12709"
+15264,,839,19,,Homologada a remissão com aplicação de medida socioeducativa de prestação de serviços à comunidade,"1,193,218,15260"
+12093,Desafetação ao rito dos recursos repetitivos ,819,31,,Desafetação ao Rito dos Recursos Repetititvos,"1,3"
+15226,,812,2,,Rejeito a indicação de recurso como representativo de controvérsia,"1,11009"
+12443,conhecimento em parte para dar provimento ao recurso especial,811,4,provido,Conheço em parte do agravo de #{nome_da_parte} para dar provimento ao Recurso Especial,"1,193,385,12433"
+15426,,806,17,,Captura ou Apresentação de Desertor,"1,3,108"
+12607,Recebimento negociação consumidor.gov.br,806,9,,Recebidos os autos do consumidor.gov.br,"14,48"
+50120,,805,1,,,
+50000220,,798,1,,,
+12163,Outras Decisões,764,5,,,"1,3"
+15024,DRAP Indeferido,740,27,,DRAP indeferido,"1,193,385,12678"
+15565,,740,2,,Determinado o encaminhamento dos autos para juízo de retratação para análise de divergência com #{numero_tema_controversia_TNU},"1,11009,15561"
+1274,,734,1,,,
+12535,Frutífera,701,7,,Conciliação frutífera,"14,12522,12525,12526"
+15502,,683,8,,Concedida em parte a medida de proteção de #{tipo_de_medida_de_proteção_ECA},"1,3,888"
+15255,,674,16,,Concedida a remissão a adolescente com extinção do processo sem aplicação de medida socioeducativa,"1,193,218,15253"
+15257,,658,14,,Concedida a remissão a adolescente com extinção do processo mediante prestação de serviços à comunidade,"1,193,218,15253"
+12473,agravo em recurso especial ,616,8,,Convertido o agravo de #{nome_da_parte} em recurso especial,"1,3,7"
+12609,Parcial,616,6,,Conciliação parcialmente frutífera,"14,12522,12524,12530"
+15083,Manutenção de Internação Provisória,614,23,,Mantida a internação provisória,"1,3,15232"
+15504,,614,11,,Revogada a medida de proteção de #{tipo_de_medida_de_proteção_ECA},"1,3,157"
+50144,,610,1,,,
+15249,,609,18,,Extintos os autos em razão da morte de adolescente/socioeducando,"1,193,218,456"
+15727,,595,1,,Citação de #{nome_da_parte} não realizada,"14,48,12284"
+50000219,,587,1,,,
+14983,Suspensão/Sobrestamento Determinada por Decisão do Presidente do TST - SIRDR,585,20,,Levantada a Causa Suspensiva ou de Sobrestamento - Suspensão / Sobrestamento Determinada por Decisão do Presidente do TST - SIRDR de número #{numero_da_SIRDR},"14,48,14974"
+15028,Acolhimento de Pedido de Inclusão em Lista Especial,578,21,,Acolhido o pedido de inclusão em lista especial,"1,193,385"
+50155,,572,1,,,
+12321,Parecer,568,3,,Emitido parecer,"1,193,385"
+50000461,,558,1,,,
+12663,Cancelamento do Pedido de Registro de Candidatura,553,27,,Cancelado o pedido de registro de candidatura,"1,193,385,12678"
+12033,Sentença Estrangeira,541,6,,Homologada a Sentença Estrangeira,"1,193,385"
+50101,,519,1,,,
+55003,,517,1,,,
+50106,,513,1,,,
+15234,,511,10,,Unificadas as execuções de medidas socioeducativas sem reinício de prazo,"1,3,12425"
+55002,,498,1,,,
+15263,,493,12,,Homologa a remissão com aplicação de medida socioeducativa de liberdade assistida,"1,193,218,15260"
+15580,,487,17,,Concessão de reabilitação,"1,3,817"
+14998,Arquivamento Provisório - Menor em Conflito com a Lei Aguardando Apreensão,479,14,,Processo arquivado provisoriamente - adolescente aguardando apreensão,"14,48,861"
+12622,Remessa para Câmara de Conciliação/Mediação,478,14,,Remetido para Câmara de Conciliação/Mediação,"14,48"
+50011377,,476,1,,,
+960,Conflito de Competência,472,17,,Processo Suspenso ou Sobrestado por Conflito de Competência,"1,3,25"
+15,Contador,470,10,,,14
+15245,,466,13,,Processo extinto em razão de unificação de medidas socioeducativas,"1,193,218,456"
+12304,Intérprete/Tradutor,457,29,,Nomeado intérprete/tradutor,"1,3,12300"
+12699,Não-Acolhimento (Registro Deferido),453,26,,Não acolhido o registro deferido,"1,193,385,12678"
+12696,Acolhimento (Registro Cancelado),452,20,,Acolhido o registro cancelado,"1,193,385,12678"
+452,Habeas data,448,38,,Concedido em parte o Habeas Data a #{nome_da_parte},"1,193,385,214"
+12097,Incidente de assunção de competência ,439,48,,Não-Admissão de Incidente de Assunção de Competância,"1,3,207"
+12096,Incidente de assunção de competência,431,55,,Admissão de Incidente de Assunção de Competência,"1,3,206"
+50012325,,426,1,,,
+15493,,416,20,,Não concedida a medida protetiva de #{tipo_de_medida_protetiva_Lei_Henry_Borel},"1,3,968"
+60015,,416,1,,,
+12286,Eletrônica,413,7,,Citação eletrônica,"14,48,12284"
+50001,,413,2,,,
+15256,,412,14,,Concedida a remissão a adolescente com extinção do processo mediante liberdade assistida,"1,193,218,15253"
+14092,Voto,405,3,,,1
+15721,,403,4,,Citação #{nome_da_parte} realizada,"14,48,12284"
+12036,Representação por ato infracional,400,30,,Rejeitada a representação por ato infracional,"1,3,138"
+7771258,,400,1,,,
+50124,,398,1,,,
+11011,Homologada a Remissão,380,5,,Homologada a remissão,"1,3,378"
+12209,Liminar,374,27,,Não ratificada a liminar,"1,3,12208"
+12526,Conciliação,374,4,,Atos de conciliação,"14,12522,12525"
+50145,,372,1,,,
+15082,Revogação de Internação de Adolescente,368,18,,Revogada a internação provisória,"1,3"
+50153,,364,1,,,
+15230,,363,20,,Indeferida a internação provisória,"1,3,15229"
+12477,Não-Homologação,344,12,,Decisão ou despacho de não homologação,"1,3"
+12715,Não Conhecimento (Registro Deferido),340,26,nao_conhecido,Não conhecido o registro deferido,"1,193,218,12709"
+50122,,324,1,,,
+12674,Não-Procedência da Impugnação (Registro Indeferido),315,23,improcedente,Não procede a impugnação ao registro indeferido,"1,193,385,12661"
+12183,Justiça Restaurativa,305,18,,Concedida remissão ao adolescente com suspensão do processo (Justiça Restaurativa),"1,3,817,11395"
+20116,,297,1,,,
+15084,Desinternação de Adolescente,286,19,,Desinternado o adolescente,"1,3"
+15414,,280,11,,Levantada a suspensão do processo em razão de ação coletiva processo nº #{numero_unico_processo},"14,48,14974"
+12617,Renúncia,277,5,,Autos extintos por renúncia,"1,193,218,456"
+50139,,276,1,,,
+12211,Liminar,274,29,,Ratificada em parte a liminar,"1,3,12210"
+14231,Impugnação ao Cumprimento de Sentença,272,6,,Impugnação ao Cumprimento de Sentença,"1,3"
+20201,,268,1,,,
+50128,,261,1,,,
+445,Mandado de injunção,257,21,,Concedido o Mandado de injunção a #{nome_da_parte},"1,193,385,210"
+15499,,250,19,,Revogada a medida de proteção de #{tipo_de_medida_de_proteção_Estatuto_do_Idoso},"1,3,157"
+15213,,247,15,,Pedido procedente em parte com aplicação de medida socioeducativa de #{tipo_de_medida_socioeducativa},"1,193,385"
+998,,243,1,,,
+12721,Negação de Seguimento (Registro Indeferido),232,22,,Negado o seguimento do registro indeferido,"1,193,218,12709"
+400,Aditamento da queixa,224,34,,Rejeitado o aditamento à queixa,"1,3,138"
+15212,,224,13,,Pedido procedente sem aplicação de medida socioeducativa,"1,193,385"
+15079,Suspensão de Medida Socioeducativa,221,15,,Concedida a suspensão de medida socioeducativa,"1,3,817"
+14214,Acolhimento em Parte (Registro Indeferido),221,21,,Acolhido em parte o registro indeferido,"1,193,385,12678"
+50012067,,217,1,,,
+15492,,216,18,,Concedida em parte a medida protetiva de #{tipo_de_medida_protetiva_Lei_Henry_Borel},"1,3,888"
+50123,,208,2,,,
+15506,,207,14,,Concedida a medida de proteção #{tipo_de_medida_de_proteção_Lei_13431},"1,3,817"
+50105,,205,1,,,
+50000459,,202,1,,,
+15029,Indeferimento de Pedido de Inclusão em Lista Especial,201,23,,Indefere o pedido de inclusão em lista especial,"1,193,385"
+12669,Procedência em Parte da Impugnação (Registro Indeferido),201,25,parcialmente_procedente,Procede em parte a impugnação ao registro indeferido,"1,193,385,12661"
+12292,Ato cumprido pela parte ou interessado,200,4,,Ato cumprido pela parte ou interessado,"14,48"
+12724,Negação de Seguimento (Registro Sem Julgamento),197,24,,Negado o seguimento do registro sem julgamento,"1,193,218,12709"
+12448,Demonstração de existência de repercussão geral e  manifestação sobre a questão constitucional,189,18,,Determinada a demonstração de existência de repercussão geral e manifestação sobre a questão constitucional,"1,3,1013"
+15207,,188,8,,Autorizada a aproximação de pretendente à adoção,"1,3,1008"
+50424,,188,1,,,
+12446,Afetação tornada sem efeito,183,6,,Afetação do processo de #{nome_da_parte} tornada sem efeito,"1,3,206"
+12450,impugnação à execução,183,6,,,"1,193,385"
+15505,,177,15,,Prorrogada a medida de proteção de #{tipo_de_medida_de_proteção_ECA},"1,3"
+250,,175,1,,,
+10965,Remissão a Adolescente Infrator,174,12,,Concedida Remissão a Adolescente Infrator,"1,193,385,210"
+50117,,171,1,,,
+12611,Parcial,170,21,,Mediação parcial,"14,12522,12525,12527"
+50132,,168,1,,,
+12717,Não Conhecimento (Registro Cancelado),165,22,nao_conhecido,Não conhecido o registro cancelado,"1,193,218,12709"
+10962,Regressão de Medida Sócio-Educativa,163,23,,Determinada a Regressão de Medida Sócio-Educativa,"1,3,1013"
+15500,,160,15,,Prorrogada medida de proteção de #{tipo_de_medida_de_proteção_Estatuto_do_Idoso},"1,3"
+449,Mandado de injunção,154,23,,Denegado o Mandado de injunção a #{nome_da_parte},"1,193,385,212"
+14218,Anulação de Sentença (Registro Sem Julgamento),149,21,,Anulação de sentença em registro sem julgamento,"1,193,218,12709"
+12528,Conciliação,148,1,,Atos de conciliação,"14,12522,12523"
+15166,Resolução Desaprovada,147,18,,Resolução desaprovada,"1,193,385"
+50000463,,147,1,,,
+50168,,144,1,,,
+15080,Reavaliação de Medida Socioeducativa,143,16,,Determinada a reavaliação de medida socioeducativa,"1,3,1013"
+12618,Remessa CEJUSC,137,1,,Autos remetidos ao CEJUSC,"14,48"
+9990111,,135,1,,,
+12662,Cassação do Registro de Candidatura,132,18,,Cassado o registro de candidatura,"1,193,385,12678"
+12181,Reparação do Dano,129,15,,Concedida remissão ao adolescente com suspensão do processo (Reparação do Dano),"1,3,817,11395"
+59990,,127,1,,,
+12433,Conjunto Agravo e Recurso Especial,124,2,,Decisões em Agravo e Recurso Especial,"1,193,385"
+15067,REsp Sobrestado por Possível Prejudicialidade de RE,121,6,,REsp sobrestado por possível prejudicialidade de RE,"1,3,25"
+20200,,118,1,,,
+50131,,117,1,,,
+51806,,117,1,,,
+12748,de Instrução,114,1,,,"14,48,970,12747"
+15579,,110,7,,Não concessão de reabilitação,"1,3,968"
+14901,Perícia,109,2,,Perícia,"14,48"
+55010,,108,1,,,
+300218,,107,1,,,
+12668,Procedência em Parte da Impugnação (Registro Deferido),106,17,parcialmente_procedente,Procede em parte a impugnação ao registro deferido,"1,193,385,12661"
+12323,Favorável em parte,105,12,,Emitido parecer favorável em parte,"1,193,385,12321"
+15583,,100,5,,Não concessão de comutação de pena,"1,3,968"
+50115,,99,1,,,
+50011378,,99,1,,,
+50135,,93,1,,,
+50000454,,93,1,,,
+15497,,91,17,,Concedida em parte a medida de proteção de #{medida_de_proteção_Estatuto_do_Idoso},"1,3,888"
+7771303,,90,1,,,
+12685,Provimento em Parte (Registro Indeferido),88,19,parcialmente_provido,Provido em parte o registro indeferido,"1,193,385,12678"
+15235,,85,6,,Unificadas as execuções de medidas socioeducativas com reinício de prazo,"1,3,12425"
+15214,,85,11,,Pedido procedente em parte sem aplicação de medida socioeducativa,"1,193,385"
+122,Desacolhimento de Prisão,85,7,,Decisão ou Despacho Desacolhimento de Prisão,"1,3"
+50126,,82,1,,,
+12720,Negação de Seguimento (Registro Deferido),81,15,,Negado o seguimento do registro deferido,"1,193,218,12709"
+15548,,80,4,,Ocorrido erro/falha na citação eletrônica,"14,48,12284,12286"
+15510,,78,10,,Prorrogada a medida de proteção de #{tipo_de_medida_de_proteção_Lei_13431},"1,3"
+12698,Acolhimento (Registro Sem Julgamento),77,22,,Acolhido o registro sem julgamento,"1,193,385,12678"
+500996,,77,1,,,
+15547,,77,5,,Ocorrido erro/falha na intimação eletrônica,"14,48,12263,12264"
+15251,,76,13,,Processo extinto em razão da condição de doença grave do adolescente/socioeducando,"1,193,218,456,15250"
+55004,,73,1,,,
+50000460,,73,1,,,
+12657,Partido Movimentado,72,17,,Movimentado o partido,"14,48"
+15061,Impugnação aos Cálculos de Liquidação,70,1,,Impugnados os cálculos de liquidação,"1,3"
+12664,Movimentar Partido,67,25,,Determinada a movimentação de partido,"1,193,385"
+15508,,67,9,,Não concedida a medida de proteção de #{tipo_de_medida_de_proteção_Lei_13431},"1,3,968"
+20249,,67,1,,,
+12328,Respondida em parte,66,24,,Consulta respondida em parte,"1,193,385,12326"
+15209,,65,11,,Autorizada a busca ativa para adoção,"1,3,1008"
+15261,,62,12,,Homologada a remissão com aplicação de Justiça Restaurativa,"1,193,218,15260"
+15260,,62,4,,Homologada a remissão,"1,193,218"
+50167,,60,1,,,
+15231,,59,10,,Indeferida a internação sanção,"1,3,15229"
+12693,Não-Provimento (Registro Sem Julgamento),59,19,nao_provido,Não provido o registro sem julgamento,"1,193,385,12678"
+971,Exceção da Verdade,57,6,,Processo Suspenso ou Sobrestado por Exceção da Verdade,"1,3,25"
+50113,,55,1,,,
+50143,,53,1,,,
+12710,Anulação de Acórdão (Registro Deferido),50,9,,Anulado o acórdão de registro deferido,"1,193,218,12709"
+50169,,49,1,,,
+12610,Parcial,49,6,,Conciliação parcial,"14,12522,12525,12526"
+50011376,,49,1,,,
+9991503,,49,1,,,
+15233,,46,8,,Mantida a internação sanção,"1,3,15232"
+453,Mandado de injunção,45,11,,Concedido em parte o Mandado de Injunção a #{nome_da_parte},"1,193,385,214"
+20020,,45,1,,,
+12701,Não-Acolhimento (Registro Cancelado),44,13,,Não acolhido o registro cancelado,"1,193,385,12678"
+12792,Procedência da Impugnação (Registro Cassado),41,13,procedente,Procede a impugnação ao registro cassado,"1,193,385,12661"
+15092,Registro de Candidatura,40,1,,Registro de candidatura,"14,48"
+15265,,39,14,,Homologada a remissão com aplicação de medida socioeducativa de reparação de dano,"1,193,218,15260"
+12683,Provimento (Registro Sem Julgamento),39,15,provido,Provido o registro sem julgamento,"1,193,385,12678"
+50000466,,39,1,,,
+15258,,38,8,,Concedida a remissão ao adolescente com extinção do processo mediante reparação de dano,"1,193,218,15253"
+50166,,38,1,,,
+500998,,38,1,,,
+15530,,38,2,,Iniciada tramitação interna do PIC no MP,"14,48"
+50000471,,37,1,,,
+15715,,35,5,,Sessão restaurativa do tipo encontro usando o método/tecnia #{metodo_tecnica_justica_restaurativa} #{situacao_da_audiencia} em #{data_hora},"14,48,15102"
+12722,Negação de Seguimento (Registro Cancelado),34,11,,Negado o seguimento do registro cancelado,"1,193,218,12709"
+50005,,34,1,,,
+12034,Exequatur,33,5,,Não Concedido o Exequatur,"1,193,385"
+15719,,33,5,,Recebido na justiça restaurativa,"14,48"
+12666,Procedência da Impugnação (Registro Deferido),33,3,procedente,Procede a impugnação ao registro deferido,"1,193,385,12661"
+50240,,33,1,,,
+15531,,33,1,,Finalizada tramitação interna do PIC no MP,"14,48"
+12697,Acolhimento (Registro Cassado),32,10,,olhido o registro cassado,"1,193,385,12678"
+50116,,32,1,,,
+20000008,,32,1,,,
+15509,,31,11,,Revogada a medida de proteção de #{tipo_de_medida_de_proteção_Lei_13431},"1,3,157"
+300154,,31,1,,,
+15718,,31,3,,Remetido para a Justiça Restaurativa,"14,48"
+15427,,29,4,,"Audiência de admoestação #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora}, #{local}.","14,48,970"
+15060,Não Admissão de Recurso de Embargos à SDC/TST,29,1,,Não admitidos os Embargos à SDC de #{nome_da_parte},"1,3,207"
+50103,,28,2,,,
+15507,,28,6,,Concedida parcialmente a medida de proteção de #{tipo_de_medida_de_proteção_Lei_13431},"1,3,888"
+15561,,28,4,,Determinado o encaminhamento dos autos para juízo de retratação,"1,11009"
+7770103,,28,1,,,
+12665,Procedência da Impugnação (Registro Deferido),27,11,procedente,Procede a impugnação ao registro deferido,"1,193,385"
+7770211,,27,1,,,
+392,Libelo,26,5,,Recebido o Libelo,"1,3,160"
+15625,,26,1,,Devolução de autos à origem em decorrência da admissão de incidente de assunção de competência (#{sigla_tribunal} %u2013 IAC #{numero_tema_IAC}),"1,3"
+7771261,,26,1,,,
+500022,,24,1,,,
+50011379,,24,1,,,
+15415,,22,4,,: Suspenso o processo ou sobrestado o recurso por Incidente de Resolução de Demandas Repetitivas do TST de tema nº #{número_tema_IRDR},"1,3,25"
+12102,"Adiamento do julgamento (CPC, art. 935)",22,1,,Adiado o julgamento para a primeira sessão seguinte,"14,48"
+12684,Provimento em Parte (Registro Deferido),22,10,parcialmente_provido,Provido em parte o registro deferido,"1,193,385,12678"
+12688,Provimento em Parte (Registro Sem Julgamento),22,11,parcialmente_provido,Provido em parte o registro sem julgamento,"1,193,385,12678"
+15227,,21,3,,Reconsidero o despacho que indicou o recurso como representativo de controvérsia,"1,11009"
+15714,,21,4,,Sessão restaurativa do tipo pré-encontro usando o método/tecnia #{metodo_tecnica_justica_restaurativa} #{situacao_da_audiencia} em #{data_hora},"14,48,15102"
+50009,,20,1,,,
+12530,Conciliação,20,2,,Conciliação frutífera,"14,12522,12524"
+7777878,,20,1,,,
+12623,Recebimento de Câmara de Conciliação/Mediação,19,5,,Autos recebidos da Câmara de Conciliação/Mediação,"14,48"
+2012,,19,1,,,
+15717,,18,6,,Determinada a derivação para a justiça restaurativa,"1,3,1013"
+14217,Acolhimento em Parte (Registro sem Julgamento),18,5,,Acolhido em parte o registro sem julgamento,"1,193,385,12678"
+50111,,18,1,,,
+50012069,,18,1,,,
+7770234,,18,1,,,
+12113,Para análise da admissão do IAC,17,3,,Inclusão do processo para julgamento eletrônico para análise da admissão do IAC,"14,48,12103,12105"
+12691,Não-Provimento (Registro Cancelado),17,12,nao_provido,Não provido o registro cancelado,"1,193,385,12678"
+50114,,17,1,,,
+803,Libelo,17,3,,Não-recebido o libelo,"1,3,163"
+15254,,16,10,,Concedida a remissão a adolescente com extinção do processo mediante aplicação de Justiça Restaurativa,"1,193,218,15253"
+12029,Recebe Teste,16,2,,,"14,865"
+50161,,16,1,,,
+50127,,15,1,,,
+50163,,15,1,,,
+50011795,,14,1,,,
+15581,,14,2,,Revogação de reabilitação,"1,3,157"
+12523,Conciliador,14,1,,Atos de Conciliador,"14,12522"
+15540,,13,2,,Concedida a menagem-prisão,"1,3,817,15538"
+12108,Para análise de repercussão geral,13,1,,Inclusão em pauta para análise de repercussão geral,"14,48,12103,12104"
+15542,,13,1,,Revogada a menagem,"1,3,157"
+50255,,13,1,,,
+7771305,,13,1,,,
+12681,Provimento (Registro Cancelado),12,5,provido,Provido o registro cancelado,"1,193,385,12678"
+12682,Provimento (Registro Cassado),12,7,provido,Provido o registro cassado,"1,193,385,12678"
+50119,,12,1,,,
+7770190,,12,1,,,
+20000006,,12,1,,,
+50133,,11,1,,,
+12703,Não-Acolhimento (Registro Sem Julgamento),10,8,,Não acolhido o registro sem julgamento,"1,193,385,12678"
+12675,Não-Procedência da Impugnação (Registro Cancelado),10,5,improcedente,Não procede a impugnação ao registro cancelado,"1,193,385,12661"
+50164,,10,1,,,
+501642,,10,1,,,
+12661,Impugnação do Registro de Candidatura,10,2,,Decisões referentes à impugnação do registro de candidatura,"1,193,385"
+50011406,,10,1,,,
+12676,Não-Procedência da Impugnação (Registro Cassado),9,4,improcedente,Não procede a impugnação ao registro cassado,"1,193,385,12661"
+55000,,9,1,,,
+14778,Sentença Estrangeira,9,1,,Não homologada a sentença estrangeira,"1,193,385"
+50011409,,9,1,,,
+7770213,,9,1,,,
+15250,,9,1,,Processo extinto em razão de aplicação de pena privativa de liberdade ao adolescente/socioeducando,"1,193,218,456"
+15208,,8,2,,Revogada a autorização de aproximação de pretendente à adoção,"1,3,157"
+15416,,8,2,,Levantada a suspensão do processo ou sobrestamento do recurso por Incidente de Resolução de Demandas Repetitivas do TST de tema nº #{numero_tema_IRDR},"14,48,14974"
+390,Aditamento do libelo,8,3,,Recebido o aditamento do libelo,"1,3,160"
+14215,Acolhimento em Parte (Registro Cancelado),8,6,,Acolhido em parte o registro cancelado,"1,193,385,12678"
+69,,8,1,,,
+799,Aditamento do libelo,8,2,,Não-recebido aditamento do libelo,"1,3,163"
+12712,Anulação de Acórdão (Registro Cancelado),8,1,,Anulado o acórdão de registro cancelado,"1,193,218,12709"
+7771243,,8,1,,,
+15713,,7,2,,Realizado o procedimento restaurativo de forma infrutífera,"14,12522,15711"
+12478,Medida protetiva determinada por autoridade policia,7,1,,Não homologada a medida protetitva determinada por autoridade policial,"1,3,12477"
+50012068,,7,1,,,
+12262,Emenda a inicial,7,1,,,"1,3,160"
+50086,,7,1,,,
+15210,,6,2,,Revogada a autorização de busca ativa para adoção,"1,3,157"
+15253,,6,2,,Concedida a remissão a adolescente com extinção do processo,"1,193,218"
+12692,Não-Provimento (Registro Cassado),6,4,nao_provido,Não provido o registro cassado,"1,193,385,12678"
+55008,,6,1,,,
+50010,,6,2,,,
+50044,,6,1,,,
+50011403,,6,1,,,
+15232,,6,1,,Mantida a internação,"1,3"
+7770360,,6,1,,,
+7771247,,6,1,,,
+7771250,,6,1,,,
+7771253,,6,1,,,
+50029,,5,1,,,
+50158,,5,1,,,
+12678,Registro de Candidatura,5,1,,,"1,193,385"
+14216,Acolhimento em Parte (Registro Cassado),5,3,,Acolhido em parte o registro cassado,"1,193,385,12678"
+15716,,5,2,,Sessão restaurativa do tipo pós-encontro usando o método/tecnia #{metodo_tecnica_justica_restaurativa} #{situacao_da_audiencia} em #{data_hora}ituacao_da_audiencia} em #{data_hora},"14,48,15102"
+7770225,,5,1,,,
+7770277,,5,1,,,
+7775008,,5,1,,,
+12702,Não-Acolhimento (Registro Cassado),4,2,,Não acolhido o registro cassado,"1,193,385,12678"
+50013,,4,1,,,
+55007,,4,1,,,
+12276,Cumprimento da pena,4,2,,Cumprimento da pena,"14,48"
+99999999,,4,1,,,
+15539,,4,3,,Concedida a menagem-liberdade,"1,3,817,15538"
+12522,Auxiliar da Justiça,4,2,,Atos de Auxiliar da Justiça,14
+15725,,4,1,,Cientificado o credor sobre ausência de localização do devedor ou de seus bens,"14,48"
+7771308,,4,1,,,
+15712,,4,1,,Realizado o procedimento restaurativo de forma frutífera,"14,12522,15711"
+15059,Não Admissão de Recurso de Embargos à SDI/TST,3,1,,Não admitidos os Embargos à SDI de #{nome_da_parte},"1,3,207"
+12110,Para análise da admissão do recurso repetitivo ,3,3,,Inclusão em pauta para análise da admissão do recurso repetitivo,"14,48,12103,12104"
+14777,Sentença Estrangeira,3,2,,Homologada em parte a sentença estrangeira,"1,193,385"
+50093,,3,1,,,
+50162,,3,1,,,
+55006,,3,1,,,
+12670,Procedência em Parte da Impugnação (Registro Cancelado),3,2,parcialmente_procedente,Procedência em parta da impugnação ao registro cancelado,"1,193,385,12661"
+1311,,3,1,,,
+50011,,3,1,,,
+50041,,3,1,,,
+50045,,3,1,,,
+50999,,3,1,,,
+12210,Ratificação em Parte,3,2,,Ratificação em parte,"1,3"
+7770275,,3,1,,,
+7771077,,3,1,,,
+7771146,,3,1,,,
+7772012,,3,1,,,
+7772203,,3,1,,,
+7775014,,3,1,,,
+12723,Negação de Seguimento (Registro Cassado),2,2,,Negado o seguimento do registro cassado,"1,193,218,12709"
+14680,Exequatur,2,2,,Concedido em Parte do Exequatur,"1,193,385,214"
+12711,Anulação de Acórdao (Registro Indeferido),2,2,,Anulado o acórdão de registro indeferido,"1,193,218,12709"
+50130,,2,1,,,
+12672,Procedência em Parte da Impugnação (Registro Cassado),2,2,parcialmente_procedente,Procede em parte a impugnação do registro cassado,"1,193,385,12661"
+12677,Procedência da Impugnação (Registro Cancelado),2,2,procedente,Procede a impugnação do registro cancelado,"1,193,385,12661"
+50007,,2,1,,,
+50033,,2,1,,,
+50051,,2,1,,,
+60007,,2,1,,,
+50011407,,2,1,,,
+1235,,2,1,,,
+15229,,2,2,,Indeferida a internação,"1,3"
+15541,,2,1,,Não concedida a menagem,"1,3,968"
+12326,Consulta,2,1,,Consulta,"1,193,385"
+15585,,2,1,,Oficina de Pais #{situacao_da_audiencia} conduzida por #{dirigida_por} em/para #{data_hora},"14,48"
+868,,2,1,,,
+15587,,2,2,,Descumprida a medida protetiva de #{tipo_de_medida_protetiva_Lei_Henry_Borel},"1,3"
+15696,,2,2,,Remetidos os autos ao relator para diligências,"14,48"
+12765,Envio para Juízo de Retratação ,2,1,,,"1,3"
+7770173,,2,1,,,
+7770212,,2,1,,,
+7770227,,2,1,,,
+7770254,,2,1,,,
+7771015,,2,1,,,
+7771164,,2,1,,,
+7775011,,2,1,,,
+12107,Para análise de repercussão geral,1,1,,Inclusão do processo para julgamento eletrônico para análise da admissão da repercussão geral,"14,48,12103,12105"
+12686,Provimento em Parte (Registro Cancelado),1,1,parcialmente_provido,Provido em parte o registro cancelado,"1,193,385,12678"
+15058,Admissão de Recurso de Embargos à SDC/TST,1,1,,Admitidos os Embargos à SDC de #{nome_da_parte},"1,3,206"
+50138,,1,1,,,
+50148,,1,1,,,
+50150,,1,1,,,
+55005,,1,1,,,
+55009,,1,1,,,
+55011,,1,1,,,
+500023,,1,1,,,
+12718,Não Conhecimento (Registro Cassado),1,1,nao_conhecido,Não conhecido o registro cassado,"1,193,218,12709"
+12714,Anulação de Acórdão (Registro Sem Julgamento),1,1,,Anulado o acórdão do registro sem julgamento,"1,193,218,12709"
+50008,,1,1,,,
+50018,,1,1,,,
+50024,,1,1,,,
+50037,,1,1,,,
+50043,,1,1,,,
+50000455,,1,1,,,
+50000457,,1,1,,,
+50011374,,1,1,,,
+50011401,,1,1,,,
+50011402,,1,1,,,
+50011404,,1,1,,,
+50011408,,1,1,,,
+50012256,,1,1,,,
+10131,,1,1,,,
+10132,,1,1,,,
+810004,,1,1,,,
+15780,,1,1,,Processo Suspenso por Recurso Especial com relevância da questão federal reconhecida #{numero_tema_STJ},"1,3,25"
+12713,Anulação de Acórdão (Registro Cassado),1,1,,Anulado o acórdão de registro cassado,"1,193,218,12709"
+12524,Juiz Leigo,1,1,,Atos de Juiz Leigo,"14,12522"
+12687,Provimento em Parte (Registro Cassado),1,1,parcialmente_provido,Provido em parte o registro cassado,"1,193,385,12678"
+50289,,1,1,,,
+55555,,1,1,,,
+7770202,,1,1,,,
+7770215,,1,1,,,
+7770361,,1,1,,,
+7771240,,1,1,,,
+7771242,,1,1,,,
+7771245,,1,1,,,
+7771248,,1,1,,,
+7771257,,1,1,,,
+7771309,,1,1,,,
+7772388,,1,1,,,

@@ -521,10 +521,10 @@ sub-estudo (seção 10).
 6. **Modelo de linguagem externo** nas etapas automáticas, ou só modelos locais (seção 10)?
 7. **Saúde como matéria sensível:** ampliar `politica.materia_sensivel`?
 8. **Equivalência em H3:** a margem de ±5 pontos é adequada?
-9. **Tabela de municípios e cobertura:** a tabela de conversão (TJRN, TJMT, TJTO, TRF5, TRF1) e
-   o teste de cobertura por tribunal dependem de dados do CNJ (cadastro de serventias, Justiça em
-   Números), que este ambiente não alcança. Liberar `www.cnj.jus.br` no ambiente ou enviar os
-   arquivos?
+9. **Tabela de municípios:** o cadastro de unidades com município não é público no
+   www.cnj.jus.br (fica no MPM, com login, e num painel em outro domínio). Proposta: montá-la pelo
+   DJEN, cruzando o nome do órgão (que costuma citar a comarca) com o código do órgão no DataJud,
+   pelo número do processo. Depende da coleta no Brasil.
 
 ## 13. Situação das fontes (outubro de 2026)
 
@@ -544,9 +544,11 @@ de movimento e 3,7 bilhões de ocorrências; a tabela está em `docs/dados/movim
   (numeração própria), TJMT (campo vazio), TJTO e TRF5 (código zero) e 38% do TRF1 (sobretudo
   gabinetes de segundo grau). Lacunas menores: TJCE (núcleo virtual sem município, 3%) e TJMMG (um
 gabinete com código de outra UF, 10%). Essas lacunas afetam diretamente H4 (viés regional).
-- **Cobertura:** o índice do TJDFT tem 543 mil processos, menos que o TJAC e o TJAP; deve estar
-  incompleto. Comparações regionais precisam de um teste de cobertura por tribunal e ano
-  (processos no DataJud ÷ casos novos do Justiça em Números) antes de entrar nos modelos.
+- **Cobertura** (`dikemetria cobertura`): processos de 1º grau e juizado ajuizados no ano no
+  DataJud ÷ casos novos do Justiça em Números. Em 2024, 24 dos 27 tribunais estaduais ficaram entre
+  0,89 e 1,18. Fora disso: TJDFT 0,15 (índice incompleto), TJSE 1,34 e TJMG 1,71 (o DataJud tem
+  mais processos que os casos novos oficiais; provável duplicidade ou classes que o Justiça em
+  Números não conta). Tribunal fora de 0,8–1,25 não entra em comparação regional sem correção.
 - **Movimentos:** a auditoria dos códigos usados nos 91 tribunais corrigiu leituras erradas em
   volume (REGRAS.md, 7.2). Nos juizados de vários tribunais, o julgamento aparece só como
   "Homologação de Decisão de Juiz Leigo" (2 milhões de ocorrências), que não diz o resultado: ali

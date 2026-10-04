@@ -93,16 +93,59 @@ _MOVIMENTOS: list[tuple[Resultado, re.Pattern]] = [
     (Resultado.PROVIDO, re.compile(r"(?<!nao-)(?<!nao )\bprovimento\b(?! em parte)")),
 ]
 
+# Códigos lidos pelo número, conferidos com a hierarquia e o texto oficial da TPU (SGT/CNJ,
+# versão de 12/09/2026). Valem quando o nome que o tribunal manda ao DataJud é genérico
+# ("Segurança", "Arquivamento", "Negação de Seguimento") ou enganoso.
 CODIGOS_TPU = {
     219: Resultado.PROCEDENTE,
     220: Resultado.IMPROCEDENTE,
     221: Resultado.PARCIALMENTE_PROCEDENTE,
-    # Extinção no JEC (Lei 9.099, art. 51): ausência do autor, inadmissibilidade do rito e
-    # incompetência territorial. Esta última só pelo código: fora do JEC, o nome indica remessa.
+    # Writs: concedida (210), denegada (212) e concedida em parte (214) a segurança, o habeas
+    # corpus e o habeas data.
+    442: Resultado.PROCEDENTE,
+    443: Resultado.PROCEDENTE,
+    444: Resultado.PROCEDENTE,
+    446: Resultado.IMPROCEDENTE,
+    447: Resultado.IMPROCEDENTE,
+    448: Resultado.IMPROCEDENTE,
+    450: Resultado.PARCIALMENTE_PROCEDENTE,
+    451: Resultado.PARCIALMENTE_PROCEDENTE,
+    # Recursos: sentença confirmada, confirmada em parte, desconstituída ou anulada; provimento
+    # negado monocraticamente; seguimento negado; recurso prejudicado.
+    12252: Resultado.NAO_PROVIDO,
+    12253: Resultado.PARCIALMENTE_PROVIDO,
+    12254: Resultado.PROVIDO,
+    11373: Resultado.PROVIDO,
+    901: Resultado.NAO_PROVIDO,
+    236: Resultado.NAO_CONHECIDO,
+    230: Resultado.NAO_CONHECIDO,
+    # Extinção sem resolução do mérito: no JEC (Lei 9.099, art. 51: ausência do autor,
+    # inadmissibilidade do rito, incompetência territorial ou em razão da pessoa, falecimento do
+    # autor); negligência das partes, arbitragem, ação intransmissível, confusão, continência,
+    # perda do objeto, ação prejudicada; arquivamento trabalhista (CLT, arts. 844 e 852-B); e na
+    # execução (cancelamento da dívida ativa, devedor não encontrado, falta de bens penhoráveis).
     11376: Resultado.EXTINTO_SEM_MERITO,
     11377: Resultado.EXTINTO_SEM_MERITO,
     11378: Resultado.EXTINTO_SEM_MERITO,
+    11379: Resultado.EXTINTO_SEM_MERITO,
+    11380: Resultado.EXTINTO_SEM_MERITO,
+    456: Resultado.EXTINTO_SEM_MERITO,
+    457: Resultado.EXTINTO_SEM_MERITO,
+    462: Resultado.EXTINTO_SEM_MERITO,
+    464: Resultado.EXTINTO_SEM_MERITO,
+    465: Resultado.EXTINTO_SEM_MERITO,
+    12256: Resultado.EXTINTO_SEM_MERITO,
+    12325: Resultado.EXTINTO_SEM_MERITO,
+    12459: Resultado.EXTINTO_SEM_MERITO,
+    228: Resultado.EXTINTO_SEM_MERITO,
+    472: Resultado.EXTINTO_SEM_MERITO,
+    12298: Resultado.EXTINTO_SEM_MERITO,
+    11374: Resultado.EXTINTO_SEM_MERITO,
+    11375: Resultado.EXTINTO_SEM_MERITO,
 }
+
+# Julgamento da impugnação à execução (12450): incidente do cumprimento, não o pedido.
+CODIGOS_IGNORADOS = {12451, 12452, 12453}
 
 # Movimentos que nunca são o julgamento do pedido principal, mesmo contendo palavras parecidas.
 _IGNORAR_MOVIMENTO = re.compile(
@@ -114,7 +157,7 @@ _IGNORAR_MOVIMENTO = re.compile(
 def classificar_movimento(codigo: int | None, nome: str | None) -> Resultado | None:
     """Rótulo de um único movimento, ou None se ele não for um julgamento."""
     nome_norm = sem_acentos((nome or "").lower())
-    if nome_norm and _IGNORAR_MOVIMENTO.search(nome_norm):
+    if codigo in CODIGOS_IGNORADOS or (nome_norm and _IGNORAR_MOVIMENTO.search(nome_norm)):
         return None
     if codigo in CODIGOS_TPU:
         return CODIGOS_TPU[codigo]

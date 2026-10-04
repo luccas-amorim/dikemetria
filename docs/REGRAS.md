@@ -207,10 +207,21 @@ Código: `dikemetria/consolidacao.py` e `dikemetria/jurimetria.py`.
 ### 7.2 Movimentos do DataJud
 
 Código: `dikemetria/resultado.py`. Vale o **primeiro** movimento de julgamento em ordem cronológica.
-Códigos TPU 219, 220 e 221 = procedência, improcedência e procedência em parte; 11376, 11377 e
-11378 = extinções do JEC (Lei 9.099, art. 51: ausência do autor à audiência, inadmissibilidade do
-procedimento sumaríssimo, incompetência territorial; esta última só pelo código, porque fora do JEC
-o nome indica remessa). Os demais movimentos são lidos pelo nome:
+
+**Pelo código** (`CODIGOS_TPU`), conferido com a hierarquia e o texto oficial da TPU (SGT/CNJ,
+versão de 12/09/2026), porque o nome que o tribunal manda ao DataJud pode ser genérico:
+
+| Resultado | Códigos (texto oficial) |
+|---|---|
+| Procedente / improcedente / parcial | 219, 220, 221; writs concedidos (442 segurança, 443 habeas corpus, 444 habeas data), denegados (446, 447, 448) e concedidos em parte (450, 451) |
+| Não provido | 12252 "Sentença confirmada"; 901 "Negado monocraticamente o provimento do recurso" |
+| Parcialmente provido | 12253 "Sentença confirmada em parte" |
+| Provido (anulação) | 12254 "Sentença desconstituída"; 11373 "Anulada a sentença/acórdão" |
+| Não conhecido | 236 "Negado seguimento a recurso"; 230 "Prejudicado o recurso" |
+| Extinto sem mérito | JEC (Lei 9.099, art. 51): 11376 ausência do autor, 11377 inadmissibilidade do rito, 11378 incompetência territorial (só pelo código: fora do JEC, o nome indica remessa), 11379 incompetência em razão da pessoa, 11380 falecimento do autor; 456, 457 negligência das partes, 462 arbitragem, 464 ação intransmissível, 465 confusão, 12256 continência, 12325 perda do objeto, 12459 ação prejudicada; 228 e 472 arquivamento trabalhista (CLT, arts. 844 e 852-B); 12298, 11374 e 11375 na execução |
+| Sem rótulo | 12451–12453, julgamento da impugnação à execução (incidente do cumprimento) |
+
+**Pelo nome**, para os demais:
 
 | Resultado | Nomes (exemplos dos 91 tribunais) |
 |---|---|
@@ -225,10 +236,11 @@ o nome indica remessa). Os demais movimentos são lidos pelo nome:
 | Provido | "Provimento", "Provimento (art. 557 do CPC)", "Conhecimento para dar provimento" |
 
 **Auditoria.** `docs/dados/movimentos_datajud.csv` lista os 1.141 códigos de movimento em uso
-nos 91 tribunais (outubro de 2026), com nome, ocorrências, número de tribunais e o rótulo dado por
-estas regras; `tests/test_resultado.py` confere que os rótulos continuam os mesmos. As contagens de
+nos 91 tribunais (outubro de 2026), com o nome que chega ao DataJud, ocorrências, número de
+tribunais, o rótulo dado por estas regras e o texto e a hierarquia oficiais da TPU; `tests/test_resultado.py` confere que os rótulos continuam os mesmos. As contagens de
 TJMG, TJPR, TJRS e TRT3 vêm de amostra (agregação completa estoura o tempo da API), e 358 códigos
-recentes, com 0,3% das ocorrências, ficaram sem nome.
+recentes, com 0,3% das ocorrências, não têm nome no DataJud (têm na TPU; os que são julgamento são
+de infância e juventude).
 
 **Pedido contraposto (JEC).** Em "Procedência do pedido e improcedência do pedido contraposto",
 só o trecho do pedido do autor é lido, como na seção 4.1.

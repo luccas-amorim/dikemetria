@@ -72,7 +72,27 @@ def test_classificar_texto(dispositivo, esperado):
         (11381, "Ausência de citação de sucessores do réu falecido", R.EXTINTO_SEM_MERITO),
         (14848, "Ausência de Requerimento Administrativo Prévio", R.EXTINTO_SEM_MERITO),
         (196, "Extinção da execução ou do cumprimento da sentença", None),
-        (12452, "procedência parcial", R.PARCIALMENTE_PROCEDENTE),
+        (None, "procedência parcial", R.PARCIALMENTE_PROCEDENTE),
+        # Hierarquia e texto oficial da TPU (SGT/CNJ, versão de 12/09/2026).
+        (12451, "Procedência", None),  # julgada procedente a impugnação à execução
+        (12452, "procedência parcial", None),
+        (12453, "improcedência", None),
+        (442, "Segurança", R.PROCEDENTE),  # concedida a segurança
+        (446, "Segurança", R.IMPROCEDENTE),  # denegada a segurança
+        (450, "Segurança", R.PARCIALMENTE_PROCEDENTE),  # concedida em parte
+        (443, "Habeas corpus", R.PROCEDENTE),
+        (447, "Habeas corpus", R.IMPROCEDENTE),
+        (12252, "Sentença confirmada", R.NAO_PROVIDO),
+        (12253, "Sentença confirmada em parte", R.PARCIALMENTE_PROVIDO),
+        (12254, "Sentença desconstituída", R.PROVIDO),
+        (11373, "Anulação de sentença/acórdão", R.PROVIDO),
+        (901, "Negação de seguimento", R.NAO_PROVIDO),  # negado monocraticamente o provimento
+        (236, "Negação de Seguimento", R.NAO_CONHECIDO),
+        (230, "Recurso prejudicado", R.NAO_CONHECIDO),
+        (457, "Paralisação por negligência das partes", R.EXTINTO_SEM_MERITO),
+        (12325, "Perda do objeto", R.EXTINTO_SEM_MERITO),
+        (228, "Arquivamento", R.EXTINTO_SEM_MERITO),  # arquivamento trabalhista (CLT, art. 844)
+        (12430, "Arquivamento", None),  # arquivamento do processo, não julgamento
         (12673, "Não-Procedência da Impugnação (Registro Deferido)", R.IMPROCEDENTE),
         # Pedido contraposto do JEC: vale o resultado do pedido do autor (REGRAS.md, 4.1).
         (11401, "Procedência do pedido e procedência do pedido contraposto", R.PROCEDENTE),
@@ -115,7 +135,8 @@ def test_sem_julgamento():
 
 
 def test_tabela_de_auditoria_acompanha_as_regras():
-    """docs/dados/movimentos_datajud.csv: códigos em uso nos 91 tribunais e o rótulo esperado.
+    """docs/dados/movimentos_datajud.csv: códigos em uso nos 91 tribunais, com o nome que chega ao
+    DataJud, o texto e a hierarquia oficiais da TPU e o rótulo esperado.
 
     Se uma mudança de regra alterar algum rótulo, confira o caso e regenere a tabela.
     """
@@ -126,8 +147,6 @@ def test_tabela_de_auditoria_acompanha_as_regras():
     divergentes = []
     with open(tabela, encoding="utf-8") as arquivo:
         for linha in csv.DictReader(arquivo):
-            if not linha["nome"]:
-                continue
             rotulo = classificar_movimento(int(linha["codigo"]), linha["nome"])
             if (rotulo.value if rotulo else "") != linha["rotulo"]:
                 divergentes.append((linha["codigo"], linha["nome"], linha["rotulo"], rotulo))

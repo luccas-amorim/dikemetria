@@ -10,7 +10,7 @@ pip install -e ".[dev]"
 pytest -q                       # todos os testes; precisam passar antes de cada commit
 ruff check . && ruff format --check .
 python -m dikemetria.guarda     # nenhum dado pessoal versionado
-dikemetria --help               # analisar, autos, coletar, sondar, estimar, classificar, amostra, validar, relatorio
+dikemetria --help               # analisar, autos, coletar, cobertura, sondar, estimar, classificar, amostra, validar, relatorio
 ```
 
 ## Mapa do código (`dikemetria/`)
@@ -30,6 +30,7 @@ dikemetria --help               # analisar, autos, coletar, sondar, estimar, cla
 | `autos.py` | autos completos do eproc: peças por evento; só decisões finais entram no corpus |
 | `municipios.py`, `dados/` | município da unidade com código IBGE confirmado; lista do IBGE |
 | `guarda.py` | barra documentos, bancos e CPF/CNPJ/processos reais no git |
+| `cobertura.py` | DataJud contra os casos novos do Justiça em Números, por tribunal e ano |
 
 ## Regras que não se negociam
 
@@ -46,8 +47,10 @@ dikemetria --help               # analisar, autos, coletar, sondar, estimar, cla
 - PRs luccas-amorim/dikemetria#1 e #2 mesclados. O histórico de `main` foi reescrito para tirar
   autos com dados pessoais; `python -m dikemetria.guarda` (CI e `.githooks/pre-commit`) impede
   que isso se repita. Ative o gancho em cada clone: `git config core.hooksPath .githooks`.
-- **Rede desta nuvem:** só `api-publica.datajud.cnj.jus.br` e `comunicaapi.pje.jus.br` (além de
-  PyPI e raw.githubusercontent.com). CNJ, IBGE e docs.github.com são bloqueados.
+- **Rede desta nuvem:** `api-publica.datajud.cnj.jus.br`, `comunicaapi.pje.jus.br` (bloqueado
+  pelo próprio DJEN fora do Brasil), `www.cnj.jus.br` (TPU pelo webservice do SGT, base do Justiça
+  em Números), PyPI e raw.githubusercontent.com. IBGE, outros domínios do CNJ e docs.github.com
+  são bloqueados.
 - **DataJud** funciona, mas é lento (cliente com 120 s). Levantamento dos 91 índices em
   `docs/DESENHO_DE_PESQUISA.md`, seção 13: formatos de data, municípios (TJRN, TJMT, TJTO, TRF5 e
   parte do TRF1 precisam de tabela de conversão), TJDFT incompleto, `tre-df` (não `tre-dft`).
@@ -55,8 +58,11 @@ dikemetria --help               # analisar, autos, coletar, sondar, estimar, cla
 - **DJEN** bloqueia acessos de fora do Brasil (403 do CloudFront). A coleta do inteiro teor e a
   conferência dos campos (`dikemetria sondar --fonte djen`, que mostra só a estrutura) precisam
   rodar de máquina no Brasil.
-- **Movimentos:** auditados contra os códigos em uso nos 91 tribunais (REGRAS.md, 7.2). Ao achar
-  um nome novo de julgamento, acrescente o caso em `tests/test_resultado.py` antes do código.
+- **Movimentos:** auditados contra os códigos em uso nos 91 tribunais e contra a hierarquia
+  oficial da TPU (REGRAS.md, 7.2; tabela em `docs/dados/movimentos_datajud.csv`). Ao achar um
+  código novo de julgamento, acrescente o caso em `tests/test_resultado.py` antes do código.
+- **Cobertura:** `dikemetria cobertura --jn <csv do Justiça em Números> --ano <ano>`; TJDFT
+  (0,15), TJSE e TJMG (acima de 1,25) ficam fora de comparações regionais sem correção.
 - **Autos completos** (eproc): `autos.py` separa as peças; coleta e análise usam só sentença,
   acórdão e decisão monocrática; `dikemetria autos` exporta as peças para o sub-estudo.
 - `docs/DESENHO_DE_PESQUISA.md`: rascunho **aguardando revisão do autor**. Não implementar os
